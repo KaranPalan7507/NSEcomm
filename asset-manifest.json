@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/KaranPalan7507/NutrituinEcomm/static/css/main.70ab93f1.chunk.css",
+    "main.js": "/KaranPalan7507/NutrituinEcomm/static/js/main.5054cfc4.chunk.js",
+    "main.js.map": "/KaranPalan7507/NutrituinEcomm/static/js/main.5054cfc4.chunk.js.map",
+    "runtime-main.js": "/KaranPalan7507/NutrituinEcomm/static/js/runtime-main.154a0244.js",
+    "runtime-main.js.map": "/KaranPalan7507/NutrituinEcomm/static/js/runtime-main.154a0244.js.map",
+    "static/js/2.d09d30de.chunk.js": "/KaranPalan7507/NutrituinEcomm/static/js/2.d09d30de.chunk.js",
+    "static/js/2.d09d30de.chunk.js.map": "/KaranPalan7507/NutrituinEcomm/static/js/2.d09d30de.chunk.js.map",
+    "index.html": "/KaranPalan7507/NutrituinEcomm/index.html",
+    "precache-manifest.b9645dff00e232fd1c1b1e943c0a730a.js": "/KaranPalan7507/NutrituinEcomm/precache-manifest.b9645dff00e232fd1c1b1e943c0a730a.js",
+    "service-worker.js": "/KaranPalan7507/NutrituinEcomm/service-worker.js",
+    "static/css/main.70ab93f1.chunk.css.map": "/KaranPalan7507/NutrituinEcomm/static/css/main.70ab93f1.chunk.css.map",
+    "static/media/App.scss": "/KaranPalan7507/NutrituinEcomm/static/media/slick.f97e3bbf.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.154a0244.js",
+    "static/js/2.d09d30de.chunk.js",
+    "static/css/main.70ab93f1.chunk.css",
+    "static/js/main.5054cfc4.chunk.js"
+  ]
+}
