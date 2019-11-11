@@ -1,6 +1,6 @@
 import StarsRating from "stars-rating";
 import React from "react";
-export class StartRating extends React.Component {
+export default class StartRating extends React.Component {
   render() {
     return (
       <StarsRating
