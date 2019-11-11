@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/KaranPalan7507/nsdemo/static/css/main.2f0321d0.chunk.css",
-    "main.js": "/KaranPalan7507/nsdemo/static/js/main.8099ba28.chunk.js",
-    "main.js.map": "/KaranPalan7507/nsdemo/static/js/main.8099ba28.chunk.js.map",
+    "main.js": "/KaranPalan7507/nsdemo/static/js/main.69ac8746.chunk.js",
+    "main.js.map": "/KaranPalan7507/nsdemo/static/js/main.69ac8746.chunk.js.map",
     "runtime-main.js": "/KaranPalan7507/nsdemo/static/js/runtime-main.66ee1624.js",
     "runtime-main.js.map": "/KaranPalan7507/nsdemo/static/js/runtime-main.66ee1624.js.map",
     "static/js/2.d09d30de.chunk.js": "/KaranPalan7507/nsdemo/static/js/2.d09d30de.chunk.js",
     "static/js/2.d09d30de.chunk.js.map": "/KaranPalan7507/nsdemo/static/js/2.d09d30de.chunk.js.map",
     "index.html": "/KaranPalan7507/nsdemo/index.html",
-    "precache-manifest.1fed7d8993cc5d485a77cf90f49010cd.js": "/KaranPalan7507/nsdemo/precache-manifest.1fed7d8993cc5d485a77cf90f49010cd.js",
+    "precache-manifest.662541e2a1b82fb33c7bc2e5e5fc34a2.js": "/KaranPalan7507/nsdemo/precache-manifest.662541e2a1b82fb33c7bc2e5e5fc34a2.js",
     "service-worker.js": "/KaranPalan7507/nsdemo/service-worker.js",
     "static/css/main.2f0321d0.chunk.css.map": "/KaranPalan7507/nsdemo/static/css/main.2f0321d0.chunk.css.map",
     "static/media/App.scss": "/KaranPalan7507/nsdemo/static/media/slick.f97e3bbf.svg"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.66ee1624.js",
     "static/js/2.d09d30de.chunk.js",
     "static/css/main.2f0321d0.chunk.css",
-    "static/js/main.8099ba28.chunk.js"
+    "static/js/main.69ac8746.chunk.js"
   ]
 }
