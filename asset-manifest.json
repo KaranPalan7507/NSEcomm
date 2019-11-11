@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/KaranPalan7507/NutrituinEcomm/static/css/main.70ab93f1.chunk.css",
-    "main.js": "/KaranPalan7507/NutrituinEcomm/static/js/main.5054cfc4.chunk.js",
-    "main.js.map": "/KaranPalan7507/NutrituinEcomm/static/js/main.5054cfc4.chunk.js.map",
-    "runtime-main.js": "/KaranPalan7507/NutrituinEcomm/static/js/runtime-main.154a0244.js",
-    "runtime-main.js.map": "/KaranPalan7507/NutrituinEcomm/static/js/runtime-main.154a0244.js.map",
-    "static/js/2.d09d30de.chunk.js": "/KaranPalan7507/NutrituinEcomm/static/js/2.d09d30de.chunk.js",
-    "static/js/2.d09d30de.chunk.js.map": "/KaranPalan7507/NutrituinEcomm/static/js/2.d09d30de.chunk.js.map",
-    "index.html": "/KaranPalan7507/NutrituinEcomm/index.html",
-    "precache-manifest.b9645dff00e232fd1c1b1e943c0a730a.js": "/KaranPalan7507/NutrituinEcomm/precache-manifest.b9645dff00e232fd1c1b1e943c0a730a.js",
-    "service-worker.js": "/KaranPalan7507/NutrituinEcomm/service-worker.js",
-    "static/css/main.70ab93f1.chunk.css.map": "/KaranPalan7507/NutrituinEcomm/static/css/main.70ab93f1.chunk.css.map",
-    "static/media/App.scss": "/KaranPalan7507/NutrituinEcomm/static/media/slick.f97e3bbf.svg"
+    "main.css": "/KaranPalan7507/nsdemo/static/css/main.2f0321d0.chunk.css",
+    "main.js": "/KaranPalan7507/nsdemo/static/js/main.10726ff5.chunk.js",
+    "main.js.map": "/KaranPalan7507/nsdemo/static/js/main.10726ff5.chunk.js.map",
+    "runtime-main.js": "/KaranPalan7507/nsdemo/static/js/runtime-main.66ee1624.js",
+    "runtime-main.js.map": "/KaranPalan7507/nsdemo/static/js/runtime-main.66ee1624.js.map",
+    "static/js/2.d09d30de.chunk.js": "/KaranPalan7507/nsdemo/static/js/2.d09d30de.chunk.js",
+    "static/js/2.d09d30de.chunk.js.map": "/KaranPalan7507/nsdemo/static/js/2.d09d30de.chunk.js.map",
+    "index.html": "/KaranPalan7507/nsdemo/index.html",
+    "precache-manifest.d61e56caff874430110c02390b87e45a.js": "/KaranPalan7507/nsdemo/precache-manifest.d61e56caff874430110c02390b87e45a.js",
+    "service-worker.js": "/KaranPalan7507/nsdemo/service-worker.js",
+    "static/css/main.2f0321d0.chunk.css.map": "/KaranPalan7507/nsdemo/static/css/main.2f0321d0.chunk.css.map",
+    "static/media/App.scss": "/KaranPalan7507/nsdemo/static/media/slick.f97e3bbf.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.154a0244.js",
+    "static/js/runtime-main.66ee1624.js",
     "static/js/2.d09d30de.chunk.js",
-    "static/css/main.70ab93f1.chunk.css",
-    "static/js/main.5054cfc4.chunk.js"
+    "static/css/main.2f0321d0.chunk.css",
+    "static/js/main.10726ff5.chunk.js"
   ]
 }
