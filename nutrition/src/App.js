@@ -1,14 +1,23 @@
 import React from "react";
 import "./App.scss";
 import { Route, BrowserRouter as Router } from "react-router-dom";
+import React, { Component } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import ProductDetails from "./components/product/product_details";
 import { Header } from "./Common/Header/indes";
 import { Footer } from "./Common/Footer/indes";
 import ProductGrid from "./Pages/ProductGrid";
 import AfterOrder from "./Pages/AfterOrder";
 
-export default class App extends React.Component {
+class App extends Component {
   render() {
     return (
+      <div id="wrapper">
+        <Router>
+          <Switch>
+            <Route exact path="/product_details" component={ProductDetails} />
+          </Switch>
+        </Router>
       <div>
         <Header />
         <Router>
@@ -24,5 +33,6 @@ export default class App extends React.Component {
         <Footer />
       </div>
     );
-  }
 }
+
+export default App;
