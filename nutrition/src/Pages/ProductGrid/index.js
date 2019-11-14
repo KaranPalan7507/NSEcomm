@@ -1,16 +1,29 @@
 import React from "react";
 import ProductItem from "./ProductItem";
 import "./style.scss";
+import { API } from "../../axios";
+import { apis } from "../../constants";
 export default class ProductGrid extends React.Component {
-  size = 10;
-  renderProcuct() {
-    let items = [];
-    for (let index = 0; index < 10; index++) {
-      items.push(<ProductItem />);
-    }
-    return items;
+  state = {
+    data: []
+  };
+  componentDidMount() {
+    this.getProducts();
   }
+  getProducts = async () => {
+    const response = await API.GET(apis.allProducts);
+    if (response.success) {
+      this.setState({ data: response.data });
+    }
+  };
+
   render() {
-    return <div className="product-grid">{this.renderProcuct()}</div>;
+    return (
+      <div className="product-grid">
+        {this.state.data.map(item => {
+          return <ProductItem data={item} />;
+        })}
+      </div>
+    );
   }
 }

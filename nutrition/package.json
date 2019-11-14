@@ -23,6 +23,7 @@
   "eslintConfig": {
     "extends": "react-app"
   },
+  "proxy": "https://ns-api-daphnis.herokuapp.com",
   "browserslist": {
     "production": [
       ">0.2%",
