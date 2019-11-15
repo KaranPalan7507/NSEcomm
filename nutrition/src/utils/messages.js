@@ -4,7 +4,8 @@ const messages = {
     whatsapp: "Whatsapp",
     ask_expert: "Ask an Expert",
     login: "Login",
-    signUp: "Sign Up"
+    signUp: "Sign Up",
+    search_text: "search for Products, Brands and More"
   }
 };
 
