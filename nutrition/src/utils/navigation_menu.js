@@ -1,6 +1,7 @@
 const menuOptions = [
   {
     name: "Store",
+    path: "/",
     options: [
       {
         path: "/",
@@ -26,6 +27,7 @@ const menuOptions = [
   },
   {
     name: "Offers",
+    path: "/",
     options: [
       {
         path: "/",
@@ -51,6 +53,7 @@ const menuOptions = [
   },
   {
     name: "Franchise",
+    path: "/",
     options: [
       {
         path: "/",
@@ -76,6 +79,7 @@ const menuOptions = [
   },
   {
     name: "Sponsership",
+    path: "/",
     options: [
       {
         path: "/",

@@ -1,0 +1,38 @@
+.custom-col-1,
+.custom-col-2,
+.custom-col-3,
+.custom-col-4,
+.custom-col-5,
+.custom-col-6,
+.custom-col-7,
+.custom-col-8,
+.custom-col-9,
+.custom-col-10,
+.custom-col-11,
+.custom-col-12 {
+  width: 100%;
+}
+
+.custom-col-2 {
+  @include flex(0 0 205px);
+  max-width: 205px;
+  padding: 0 25px;
+}
+
+.custom-col-3 {
+  @include flex(0 0 calc(100% - 775px));
+  max-width: calc(100% - 775px);
+  padding: 0 15px;
+}
+
+.custom-col-9 {
+  @include flex(0 0 775px);
+  max-width: 775px;
+  padding: 0 15px;
+}
+
+.custom-col-10 {
+  @include flex(0 0 calc(100% - 205px));
+  max-width: calc(100% - 205px);
+  padding: 0 25px;
+}

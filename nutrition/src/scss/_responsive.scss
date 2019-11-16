@@ -1,3 +1,27 @@
+@media (min-width: $mobileFirst-xsm) {
+  .container {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: $mobileFirst-sm) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: $mobileFirst-md) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: $mobileFirst-lg) {
+  .container {
+    max-width: 1295px;
+  }
+}
+
 @media (max-width: $desktopFirst-lg) {
 }
 

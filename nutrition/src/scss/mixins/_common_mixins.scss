@@ -214,6 +214,16 @@
   flex: $values;
 }
 
+// Flex Direction and Wrap
+// - applies to: flex containers
+// <flex-direction> || <flex-wrap>
+@mixin flex-flow($flow) {
+  -webkit-flex-flow: $flow;
+     -moz-flex-flow: $flow;
+      -ms-flex-flow: $flow;
+          flex-flow: $flow;
+}
+
 // Flex Flow Direction
 // - applies to: flex containers
 // row | row-reverse | column | column-reverse

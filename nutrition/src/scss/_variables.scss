@@ -11,6 +11,7 @@ $font-italic: italic;
 
 $body-clr: #8b8b8b !default;
 $link-clr: #0052cc !default;
+$link-hover-clr: #dd121f !default;
 $body-bg: #ffffff !default;
 $header-bg: #ebebeb !default;
 $header-color: #000000 !default;
@@ -104,16 +105,15 @@ $btn-outline-light-color: #f8f9fa !default;
 $btn-outline-dark-color: #343a40 !default;
 
 $mobileFirst-lg: 1200px !default;
-$mobileFirst-custom-md: 1024px !default;
 $mobileFirst-md: 992px !default;
 $mobileFirst-sm: 768px !default;
+$mobileFirst-xsm: 576px !default;
 
-$desktopFirst-lg: 1199px !default;
-$desktopFirst-custom-md: 1099px !default;
-$desktopFirst-md: 991px !default;
-$desktopFirst-sm: 767px !default;
-$desktopFirst-xs: 639px !default;
-$desktopFirst-xxs: 479px !default;
+$desktopFirst-lg: 1199.98px !default;
+$desktopFirst-md: 991.98px !default;
+$desktopFirst-sm: 767.98px !default;
+$desktopFirst-xs: 575.98px !default;
+$desktopFirst-xxs: 478.98px !default;
 
 $container-ipad: 750px !default;
 $container-laptop: 970px !default;
@@ -131,9 +131,3 @@ $col-four-width: 33.33333333% !default;
 $col-three-width: 25% !default;
 $col-two-width: 16.66666667% !default;
 $col-one-width: 8.33333333% !default;
-
-$linkColor: #3572b0;
-$backGroundColor: #fff;
-$borderColor: #d3d3d3;
-$filterBackgroundColor: #f5f5f5;
-$noteRed: #d04437;
