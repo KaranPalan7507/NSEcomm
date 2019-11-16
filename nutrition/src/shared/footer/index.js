@@ -81,7 +81,10 @@ export default class Footer extends React.Component {
                     <div className="footer-quick-links">
                       <div className="row">
                         {quickLinks.map((item, index) => (
-                          <div className="col-lg-3 col-md-6" key={index}>
+                          <div
+                            className="col-lg-3 col-md-6 col-sm-6"
+                            key={index}
+                          >
                             <div className="fql-box">
                               <h5>{item.title}</h5>
                               {item.links && (

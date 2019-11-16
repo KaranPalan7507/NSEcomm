@@ -15,12 +15,10 @@ class Header extends React.Component {
   state = {
     isMenuOpen: true
   };
-  windowWidth = window.innerWidth;
 
   componentDidMount() {
     this.removeMenuFromDom();
     window.addEventListener("resize", this.removeMenuFromDom);
-    this.toggleMenu();
   }
 
   componentWillUnmount() {
@@ -32,7 +30,7 @@ class Header extends React.Component {
   };
 
   removeMenuFromDom = () => {
-    if (this.windowWidth < 992) {
+    if (window.innerWidth < 992) {
       this.setState({ isMenuOpen: false });
     } else {
       this.setState({ isMenuOpen: true });
@@ -40,19 +38,21 @@ class Header extends React.Component {
   };
 
   toggleMenu = () => {
-    if (!this.state.isMenuOpen) {
-      this.setState({ isMenuOpen: true }, () => {
-        if (this.navMenu && this.navMenu.current) {
-          setTimeout(() => {
-            this.navMenu.current.style.marginLeft = 0 + "px";
-          });
-        }
-      });
-    } else {
-      this.navMenu.current.style.marginLeft = -280 + "px";
-      setTimeout(() => {
-        this.setState({ isMenuOpen: false });
-      }, 250);
+    if (window.innerWidth < 992) {
+      if (!this.state.isMenuOpen) {
+        this.setState({ isMenuOpen: true }, () => {
+          if (this.navMenu && this.navMenu.current) {
+            setTimeout(() => {
+              this.navMenu.current.style.marginLeft = 0 + "px";
+            });
+          }
+        });
+      } else {
+        this.navMenu.current.style.marginLeft = -280 + "px";
+        setTimeout(() => {
+          this.setState({ isMenuOpen: false });
+        }, 250);
+      }
     }
   };
 
@@ -93,7 +93,7 @@ class Header extends React.Component {
                           isMenuOpen ? "nav-active" : ""
                         }`}
                         type="button"
-                        onClick={this.toggleMenu}
+                        onClick={e => this.toggleMenu()}
                       >
                         <span className="top-bar icon-bar"></span>
                         <span className="middle-bar icon-bar"></span>

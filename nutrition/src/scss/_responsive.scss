@@ -33,7 +33,7 @@
   }
   .custom-col-2 {
     @include flex(0 0 140px);
-    max-width: 140;
+    max-width: 140px;
   }
   .custom-col-10 {
     @include flex(0 0 calc(100% - 140px));
@@ -93,6 +93,9 @@
     @include flex(1);
     max-width: 100%;
   }
+  .footer-subscription {
+    max-width: 100%;
+  }
   .quick-contact-link {
     margin-top: 0;
     > ul {
@@ -106,7 +109,7 @@
   }
   .menu-close {
     cursor: pointer;
-    display: block;
+    // display: block;
     position: absolute;
     right: 0;
     top: 0;
@@ -153,11 +156,48 @@
     @include transition(margin 250ms ease-in-out);
     z-index: 99;
     > ul {
-      @include flex-flow(column wrap);
+      display: block;
       > li {
+        padding: 0 23.5px;
+        + li {
+          border-top: 1px solid #cccccc;
+        }
+        &:nth-child(-n + 4) {
+          > a {
+            &::after {
+              border-width: 0 1px 1px 0;
+              border-style: none solid solid none;
+              border-color: transparent #000000 #000000 transparent;
+              left: 0;
+              margin-top: -1px;
+              margin-right: 0;
+            }
+          }
+        }
+        &:hover {
+          &:nth-child(-n + 4) {
+            > a {
+              &::after {
+                border-color: transparent $link-hover-clr $link-hover-clr
+                  transparent;
+              }
+            }
+          }
+        }
+        > a {
+          padding: 12.5px 6.5px 12.5px 12.5px;
+        }
         > ul {
+          @include no-box-shadow();
           position: relative;
           top: 0;
+          min-width: 1px;
+          padding: 3px 0;
+          > li {
+            > a {
+              padding: 2px 7px;
+            }
+          }
         }
       }
     }
@@ -204,6 +244,74 @@
 }
 
 @media (max-width: $desktopFirst-sm) {
+  .custom-col-2,
+  .custom-col-10 {
+    @include flex(0 0 100%);
+    max-width: 100%;
+  }
+  .inner-header {
+    @include flex-flow(column wrap);
+  }
+  .logo {
+    margin-bottom: 15px;
+  }
+  .navbar-action {
+    margin-bottom: 12px;
+  }
+  .fql-box {
+    > ul {
+      padding-left: 15px;
+    }
+  }
+  .footer-nav {
+    padding: 35px 0 18px 0;
+  }
+  .footer-logo {
+    text-align: center;
+    margin-bottom: 12px;
+  }
+  .copyright {
+    p {
+      margin: 0 0 18px;
+    }
+  }
+  .cc-social {
+    margin-top: 18px;
+  }
+  .cc-payment {
+    > ul {
+      > li {
+        margin-bottom: 5px;
+      }
+    }
+  }
+  .fn-subscribe {
+    > .form-control {
+      height: 34px;
+      padding-right: 110px;
+      font-size: 14px;
+      &::-webkit-input-placeholder {
+        /* Chrome/Opera/Safari */
+        font-size: 12px;
+      }
+      &::-moz-placeholder {
+        /* Firefox 19+ */
+        font-size: 12px;
+      }
+      &:-ms-input-placeholder {
+        /* IE 10+ */
+        font-size: 12px;
+      }
+      &:-moz-placeholder {
+        /* Firefox 18- */
+        font-size: 12px;
+      }
+    }
+    > .btn {
+      padding: 4px 12px;
+      min-width: 100px;
+    }
+  }
 }
 
 @media (max-width: $desktopFirst-xs) {
