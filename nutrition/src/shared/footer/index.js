@@ -77,11 +77,11 @@ export default class Footer extends React.Component {
             <div className="container">
               <div className="footer-nav">
                 <div className="row">
-                  <div className="col-md-7">
+                  <div className="col-lg-7 col-md-6">
                     <div className="footer-quick-links">
                       <div className="row">
                         {quickLinks.map((item, index) => (
-                          <div className="col-md-3" key={index}>
+                          <div className="col-lg-3 col-md-6" key={index}>
                             <div className="fql-box">
                               <h5>{item.title}</h5>
                               {item.links && (
@@ -99,7 +99,7 @@ export default class Footer extends React.Component {
                       </div>
                     </div>
                   </div>
-                  <div className="col-md-5">
+                  <div className="col-lg-5 col-md-6">
                     <div className="footer-subscription">
                       <h5>{messages.common.signup_newsletter}</h5>
                       <form onSubmit={this.newsletterSignUp}>
@@ -134,10 +134,10 @@ export default class Footer extends React.Component {
                   <div className="custom-col-10">
                     <div className="copyright">
                       <div className="row">
-                        <div className="col-md-3">
+                        <div className="col-lg-3 col-md-12">
                           <p>{messages.common.copyright}</p>
                         </div>
-                        <div className="col-md-6">
+                        <div className="col-lg-6 col-md-12">
                           <div className="cc-payment">
                             <ul>
                               {this.paymentOptions.map((option, index) => (
@@ -150,7 +150,7 @@ export default class Footer extends React.Component {
                             </ul>
                           </div>
                         </div>
-                        <div className="col-md-3">
+                        <div className="col-lg-3 col-md-12">
                           <div className="cc-social">
                             <ul>
                               <li>

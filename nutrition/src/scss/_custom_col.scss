@@ -11,28 +11,25 @@
 .custom-col-11,
 .custom-col-12 {
   width: 100%;
+  padding: 0 15px;
 }
 
 .custom-col-2 {
   @include flex(0 0 205px);
   max-width: 205px;
-  padding: 0 25px;
 }
 
 .custom-col-3 {
-  @include flex(0 0 calc(100% - 775px));
-  max-width: calc(100% - 775px);
-  padding: 0 15px;
+  @include flex(0 0 30%);
+  max-width: 30%;
 }
 
 .custom-col-9 {
-  @include flex(0 0 775px);
-  max-width: 775px;
-  padding: 0 15px;
+  @include flex(0 0 70%);
+  max-width: 70%;
 }
 
 .custom-col-10 {
   @include flex(0 0 calc(100% - 205px));
   max-width: calc(100% - 205px);
-  padding: 0 25px;
 }
