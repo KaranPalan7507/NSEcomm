@@ -15,16 +15,18 @@ class App extends Component {
       <div id="wrapper">
         <DiscountOffer />
         <Header />
-        <Router>
-          <Route exact path="/product_details" component={ProductDetails} />
-          <Route exact path="/login" component={LoginSignUp} />
-          <Route path="/grid" component={ProductGrid} />
-          <Route
-            path="/order-success"
-            component={() => <AfterOrder success={true} />}
-          />
-          <Route path="/order-failure" component={() => <AfterOrder />} />
-        </Router>
+        <section className="main-content">
+          <Router>
+            <Route exact path="/product_details" component={ProductDetails} />
+            <Route exact path="/login" component={LoginSignUp} />
+            <Route path="/grid" component={ProductGrid} />
+            <Route
+              path="/order-success"
+              component={() => <AfterOrder success={true} />}
+            />
+            <Route path="/order-failure" component={() => <AfterOrder />} />
+          </Router>
+        </section>
         <Footer />
       </div>
     );

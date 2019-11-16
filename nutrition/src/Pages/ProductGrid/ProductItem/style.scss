@@ -1,58 +1,173 @@
-.grid-item {
-  height: 313px;
-  background: #fff;
-  box-shadow: 0px 3px 6px rgba(221, 18, 31, 0.16);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 20px;
-  padding: 16px;
-  -ms-flex: auto;
-  box-sizing: border-box;
-  flex: 1 0 250px;
-  .offer {
-    background-color: #dd121f;
-    font-size: 8px;
-    letter-spacing: 0px;
-    line-height: 13px;
-    color: #ffffff;
-    font-family: "Poppins";
-    font-weight: 400;
-    text-align: center;
+@import "./../../../scss/variables";
+@import "./../../../scss/functions";
+@import "./../../../scss/mixins/common_mixins";
+
+.product-grid-area {
+  padding: 30px 0;
+}
+
+.product-item {
+  font-family: "Poppins", sans-serif;
+  @include box-shadow(0px, 3px, 8px, 3px, rgba(221, 18, 31, 0.18));
+  padding: 20px 12px;
+  position: relative;
+  margin-bottom: 35px;
+  @include transition(padding-bottom 300ms ease-in-out);
+  &:hover {
+    .product-overlay {
+      top: 0;
+    }
   }
-  .product-image {
-    max-width: 100px;
+  &.active {
+    &:hover {
+      .product-action {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
   }
-  .title {
-    font-size: 13px;
-    line-height: 17px;
-    color: #000000;
-    font-weight: 400;
-    text-align: center;
+}
+
+.product-media {
+  padding: 15px 8px 15px;
+  position: relative;
+  text-align: center;
+  margin-bottom: 10px;
+  overflow: hidden;
+  > img {
+    height: 140px;
+  }
+}
+
+.product-content {
+  > span {
+    display: block;
+    &.limited-time-tag {
+      background: #dd1f21;
+      color: #ffffff;
+      font-size: 10px;
+      margin-bottom: 12px;
+      max-width: 180px;
+      text-align: center;
+      text-transform: uppercase;
+      width: 100%;
+      > .fa {
+        padding-right: 8px;
+      }
+    }
+    &.product-title {
+      font-size: 13px;
+      color: #000000;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.product-final-offer {
+  margin-bottom: 15px;
+  > * {
+    margin-left: 10px;
   }
   .current-price {
-    font-size: 15px;
-    line-height: 17px;
     color: #000000;
-    font-weight: 500;
+    font-size: 15px;
+    font-weight: $font-weight-medium;
   }
   .original-price {
-    font-size: 10px;
-    line-height: 11px;
     color: #7d7d7d;
-    font-weight: 400;
-    text-decoration: line-through;
+    font-size: 12px;
   }
   .discount {
-    width: 59px;
-    height: 23px;
-    border-radius: 3px;
-    background-color: #fff;
-    border: 1px solid #65bb0f;
+    color: #7ac430;
+    border: 2px solid #7ac430;
+    border-radius: 4px;
+    padding: 0 5px;
+  }
+}
+
+.product-rating {
+  @include flexbox();
+  @include flex-flow(row wrap);
+  @include align-items(center);
+  @include justify-content(flex-start);
+  .review-count {
+    color: #888888;
+    font-size: 11px;
+    padding-left: 7px;
+  }
+}
+
+.product-action {
+  @include box-shadow(0px, 7px, 8px, 3px, rgba(221, 18, 31, 0.18));
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  visibility: hidden;
+  @include transition(opacity 300ms ease-in-out);
+  margin: 0 0 -53px;
+  background: #ffffff;
+  padding: 0px 12px 20px;
+  z-index: 10;
+}
+
+.action-group {
+  @include flexbox();
+  @include flex-flow(row nowrap);
+  @include align-items(center);
+  @include justify-content(flex-start);
+  > .btn {
+    border-radius: 0;
     font-size: 13px;
-    line-height: 17px;
-    color: #65bb0f;
-    font-family: "Poppins";
-    font-weight: 400;
+    font-weight: $font-weight-medium;
+    max-width: 115px;
+    width: 100%;
+  }
+  > .btn-cart {
+    background: #d6d4d4;
+  }
+  > .btn-buy {
+    background: #dd121f;
+    color: #ffffff;
+  }
+}
+
+.product-overlay {
+  color: #ffffff;
+  font-weight: $font-weight-medium;
+  font-size: 10px;
+  background: rgba(0, 0, 0, 0.45);
+  padding: 40px 13px 12px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  // overflow: auto;
+  top: 100%;
+  text-align: left;
+  @include multi-transition(
+    bottom 300ms ease-in-out,
+    top 300ms ease-in-out,
+    left 300ms ease-in-out,
+    right 300ms ease-in-out
+  );
+  > h6 {
+    color: #ffffff;
+    font-size: 10px;
+    font-weight: $font-weight-medium;
+  }
+  > ul {
+    padding: 0 0 0 12px;
+    margin: 0;
+    @include flexbox();
+    @include flex-flow(row wrap);
+    > li {
+      @include flex(0 0 50%);
+      max-width: 50%;
+      width: 100%;
+      line-height: 18px;
+    }
   }
 }
