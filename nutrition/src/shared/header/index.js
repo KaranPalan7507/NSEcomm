@@ -1,7 +1,6 @@
 import React from "react";
 
 import menuOptions from "./../../utils/navigation_menu";
-import logo from "./../../images/logo.jpg";
 import socialIcon1 from "./../../images/social_icon1.jpg";
 import socialIcon2 from "./../../images/social_icon2.jpg";
 import messages from "../../utils/messages";
@@ -65,7 +64,7 @@ class Header extends React.Component {
             <div className="custom-col-2">
               <div className="logo">
                 <a href="/">
-                  <img src={logo} alt="Nutrition Systems" />
+                  <img src="images/logo.png" alt="Nutrition Systems logo" />
                 </a>
               </div>
             </div>
