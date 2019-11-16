@@ -4,7 +4,6 @@ import quickLinks from "./../../utils/footer_navigation_menu";
 import messages from "./../../utils/messages";
 
 import footerBottomImg from "./../../images/footer-bottom.jpg";
-import footerLogo from "./../../images/footer-logo.jpg";
 import paymentOpt1 from "./../../images/payment-opt1.jpg";
 import paymentOpt2 from "./../../images/payment-opt2.jpg";
 import paymentOpt3 from "./../../images/payment-opt3.jpg";
@@ -130,7 +129,7 @@ export default class Footer extends React.Component {
                   <div className="custom-col-2">
                     <div className="footer-logo">
                       <a href="/">
-                        <img src={footerLogo} alt="footer logo" />
+                        <img src="images/logo.png" alt="Nutrition Systems logo" />
                       </a>
                     </div>
                   </div>
