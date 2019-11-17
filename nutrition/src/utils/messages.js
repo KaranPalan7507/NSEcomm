@@ -20,7 +20,19 @@ const messages = {
     mobile_number: "Mobile Number",
     offer: "Get 10% off your first order with code NUTRITION30",
     password: "Password",
-    whatsapp: "Whatsapp"
+    whatsapp: "Whatsapp",
+    retry: "Retry",
+    continue_shopping: "Continue Shopping",
+    order_success: "Your Order was placed successfully.",
+    order_failure: "Your Order was not placed due to (error).",
+    field_required: "Field Required",
+    login_via_otp: "Login via OTP",
+    show_password: "Show Password",
+    forgot_password: "Forgot password?",
+    continue_with: "Continue with",
+    terms_text: "By logging in you agree to out T&C",
+    google: "Google",
+    facebook: "Facebook"
   }
 };
 

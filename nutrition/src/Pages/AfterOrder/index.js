@@ -3,14 +3,14 @@ import "./style.scss";
 import messages from "../../utils/messages";
 export default class AfterOrder extends React.Component {
   success = {
-    text: "Your Order was placed successfully.",
-    imgSrc: "./images/happy builder.png",
-    buttonText: "Continue Shopping"
+    text: messages.common.order_success,
+    imgSrc: "images/happybuilder.png",
+    buttonText: messages.common.continue_shopping
   };
   failure = {
-    text: "Your Order was not placed due to (error).",
-    imgSrc: "./images/sad builder.png",
-    buttonText: "Retry"
+    text: messages.common.order_failure,
+    imgSrc: "images/sadbuilder.png",
+    buttonText: messages.common.retry
   };
 
   render() {

@@ -4,6 +4,7 @@ import messages from "../../utils/messages";
 import { Fab, FormControlLabel, Checkbox } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 import "./style.scss";
+import Icon from "@material-ui/core/Icon";
 
 export default class Login extends React.Component {
   onSubmit = data => {
@@ -11,7 +12,7 @@ export default class Login extends React.Component {
   };
   render() {
     return (
-      <div class="login-wrapper">
+      <div className="login-wrapper">
         <form
           className="login-form"
           noValidate
@@ -21,14 +22,14 @@ export default class Login extends React.Component {
           <TextField
             label={messages.common.mobile_number}
             margin="normal"
-            helperText="Field Required"
+            helperText={messages.common.field_required}
             fullWidth
           />
           <TextField
             type="password"
             label={messages.common.password}
             margin="normal"
-            helperText="Field Required"
+            helperText={messages.common.field_required}
             fullWidth
             InputProps={{
               endAdornment: (
@@ -38,14 +39,17 @@ export default class Login extends React.Component {
                   color="primary"
                   className="otp-btn"
                 >
-                  Login via OTP
+                  {messages.common.login_via_otp}
                 </Fab>
               )
             }}
           />
           <div className="forgot-wrapper">
-            <FormControlLabel control={<Checkbox />} label="Show Password" />
-            <Button>Forgot password?</Button>
+            <FormControlLabel
+              control={<Checkbox />}
+              label={messages.common.show_password}
+            />
+            <Button>{messages.common.forgot_password}</Button>
           </div>
 
           <Button variant="contained" className="login-btn">
@@ -53,16 +57,24 @@ export default class Login extends React.Component {
           </Button>
         </form>
         <div>
-          <span>Continue With</span>
+          <span className="continue-text">{messages.common.continue_with}</span>
           <div className="social-btn-wrapper">
-            <Button variant="outlined" className="faceboon-btn">
-              Facebook
+            <Button
+              variant="outlined"
+              className="facebook-btn"
+              startIcon={<Icon className="fa fa-facebook" />}
+            >
+              {messages.common.facebook}
             </Button>
-            <Button variant="outlined" className="google-btn">
-              Google
+            <Button
+              variant="outlined"
+              className="google-btn"
+              startIcon={<Icon className="fa fa-google-plus" />}
+            >
+              {messages.common.google}
             </Button>
           </div>
-          <span>By logging in you agree to out T&C</span>
+          <div className="terms-text">{messages.common.terms_text}</div>
         </div>
       </div>
     );
