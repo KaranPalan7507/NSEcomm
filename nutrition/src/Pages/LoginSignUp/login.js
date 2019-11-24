@@ -20,16 +20,16 @@ export default class Login extends React.Component {
           onSubmit={data => this.onSubmit(data)}
         >
           <TextField
+            classes={{ root: "login-input" }}
             label={messages.common.mobile_number}
             margin="normal"
-            helperText={messages.common.field_required}
             fullWidth
           />
           <TextField
             type="password"
+            classes={{ root: "login-input" }}
             label={messages.common.password}
             margin="normal"
-            helperText={messages.common.field_required}
             fullWidth
             InputProps={{
               endAdornment: (

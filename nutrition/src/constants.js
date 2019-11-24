@@ -1,3 +1,4 @@
 export const apis = {
-  allProducts: "products/all"
+  allProducts: "all",
+  productDetails: "product_details"
 };

@@ -8,12 +8,13 @@
   .tab-list-item {
     display: inline-block;
     list-style: none;
-    margin-bottom: -1px;
     padding: 0.5rem 0.75rem;
+    text-align: center;
+    font-weight: bold;
     font-size: 20px;
     color: #f54747;
-    font-weight: 600;
-    text-align: center;
+    font-family: Poppins;
+    cursor: pointer;
   }
 
   .tab-list-item.active {

@@ -32,7 +32,11 @@ const messages = {
     continue_with: "Continue with",
     terms_text: "By logging in you agree to out T&C",
     google: "Google",
-    facebook: "Facebook"
+    facebook: "Facebook",
+    signup_text:
+      "Your number is safe with us. We won't share your details with anyone.",
+    email_subscribe:
+      "I want to subscribe for promotional text and emails with exciting offers on nutritionsystems.co.in"
   }
 };
 
