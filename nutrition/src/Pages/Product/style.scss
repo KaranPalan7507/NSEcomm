@@ -1,0 +1,10 @@
+.product-wrapper {
+  display: flex;
+  background-color: rgba(211, 211, 211, 0.078);
+  .left-side {
+    width: 25%;
+  }
+  .right-side {
+    width: 75%;
+  }
+}

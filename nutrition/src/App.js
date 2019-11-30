@@ -2,7 +2,7 @@ import "./App.scss";
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ProductDetails from "./components/product/product_details";
-import ProductGrid from "./Pages/ProductGrid";
+import Product from "./Pages/Product";
 import AfterOrder from "./Pages/AfterOrder";
 import Header from "./shared/header";
 import Footer from "./shared/footer";
@@ -19,7 +19,7 @@ class App extends Component {
           <Router>
             <Route exact path="/product_details" component={ProductDetails} />
             <Route exact path="/login" component={LoginSignUp} />
-            <Route path="/grid" component={ProductGrid} />
+            <Route path="/product" component={Product} />
             <Route
               path="/order-success"
               component={() => <AfterOrder success={true} />}

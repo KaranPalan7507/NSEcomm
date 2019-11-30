@@ -36,7 +36,8 @@ const messages = {
     signup_text:
       "Your number is safe with us. We won't share your details with anyone.",
     email_subscribe:
-      "I want to subscribe for promotional text and emails with exciting offers on nutritionsystems.co.in"
+      "I want to subscribe for promotional text and emails with exciting offers on nutritionsystems.co.in",
+    filter_text: "Lorem Ipsum"
   }
 };
 
