@@ -1,6 +1,6 @@
 import React from "react";
 import Accordian from "./../../Common/Accordian";
-import { Fab, FormControlLabel, Checkbox } from "@material-ui/core";
+import { FormControlLabel, Checkbox } from "@material-ui/core";
 import messages from "./../../utils/messages";
 import "./style.scss";
 export default class Filter extends React.Component {

@@ -1,6 +1,7 @@
 import React from "react";
 import "./style.scss";
 import ProductGrid from "../ProductGrid";
+import ProductList from "../ProductList";
 import Filter from "./filter";
 import Slider from "./slider";
 import Select from "react-select";
@@ -47,15 +48,28 @@ export default class Product extends React.Component {
               </div>
               <div className="switch-view">
                 {messages.common.views}:
-                <img src="images/product_grid_icon.svg" alt="" />
-                <img src="images/product_list_icon.svg" alt="" />
+                <img
+                  src="images/product_grid_icon.svg"
+                  alt=""
+                  onClick={() => this.setState({ view: "grid" })}
+                />
+                <img
+                  src="images/product_list_icon.svg"
+                  alt=""
+                  onClick={() => this.setState({ view: "list" })}
+                />
               </div>
               <div className="items-count">
                 {this.state.data.length + " "}
                 {messages.common.items}
               </div>
             </div>
-            <ProductGrid data={this.state.data} />
+            {this.state.view === "grid" && (
+              <ProductGrid data={this.state.data} />
+            )}
+            {this.state.view === "list" && (
+              <ProductList data={this.state.data} />
+            )}
           </div>
         </div>
       </React.Fragment>

@@ -1,6 +1,6 @@
 import "./App.scss";
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import ProductDetails from "./components/product/product_details";
 import Product from "./Pages/Product";
 import AfterOrder from "./Pages/AfterOrder";
