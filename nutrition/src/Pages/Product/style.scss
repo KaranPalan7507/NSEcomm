@@ -1,10 +1,46 @@
 .product-wrapper {
   display: flex;
   background-color: rgba(211, 211, 211, 0.078);
+  .sort-section {
+    display: flex;
+    border-top: 1px solid rgba(0, 0, 0, 0.149);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.149);
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+    .sort-by-wrapper {
+      display: flex;
+      align-items: center;
+    }
+    .sort-dd {
+      width: 160px;
+      margin-left: 16px;
+    }
+    .items-count {
+      font-family: Poppins;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 16px;
+      color: rgba(0, 0, 0, 1);
+    }
+  }
   .left-side {
     width: 25%;
   }
   .right-side {
     width: 75%;
+  }
+}
+.filter-checkbox-wrapper {
+  margin: 0;
+  .filter-checkbox {
+    padding: 5px;
+    color: rgba(0, 0, 0, 0.15);
+  }
+  .filter-checkbox-label {
+    font-family: Poppins;
+    font-size: 12px;
+    color: rgba(41, 41, 41, 1);
+    font-weight: 500;
   }
 }

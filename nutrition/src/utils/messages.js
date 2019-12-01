@@ -37,7 +37,10 @@ const messages = {
       "Your number is safe with us. We won't share your details with anyone.",
     email_subscribe:
       "I want to subscribe for promotional text and emails with exciting offers on nutritionsystems.co.in",
-    filter_text: "Lorem Ipsum"
+    filter_text: "Lorem Ipsum",
+    sort_by: "SORT BY",
+    views: "VIEWS",
+    items: "ITEMS"
   }
 };
 

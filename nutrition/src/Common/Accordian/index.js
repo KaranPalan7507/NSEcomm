@@ -19,7 +19,7 @@ export default class Accordian extends React.Component {
           <em className="fa fa fa-chevron-right icon" />
         </div>
         <div className="accordion__content">
-          <div className="accordion__text">{this.props.children}</div>
+          {this.props.children}
         </div>
       </div>
     );

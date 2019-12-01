@@ -1,25 +1,7 @@
 import React from "react";
 import ProductItem from "./ProductItem";
 import "./style.scss";
-import { API } from "../../axios";
-import { apis } from "../../constants";
 export default class ProductGrid extends React.Component {
-  state = {
-    data: []
-  };
-  componentDidMount() {
-    this.getProducts();
-  }
-  getProducts = async () => {
-    const res2 = await API.GET(apis.productDetails);
-    console.log(res2);
-    const response = await API.GET(apis.allProducts);
-
-    if (response.success) {
-      this.setState({ data: response.data });
-    }
-  };
-
   render() {
     return (
       <div className="container">
@@ -28,7 +10,7 @@ export default class ProductGrid extends React.Component {
           <div className="col-lg-9 col-md-9">
             <div className="product-grid-area">
               <div className="row">
-                {this.state.data.map(item => {
+                {this.props.data.map(item => {
                   return <ProductItem data={item} />;
                 })}
               </div>
