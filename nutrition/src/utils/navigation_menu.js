@@ -1,3 +1,6 @@
+import socialIcon1 from "./../../src/images/social_icon1.jpg";
+import socialIcon2 from "./../../src/images/social_icon2.jpg";
+
 const menuOptions = [
   {
     name: "Store",
@@ -109,6 +112,16 @@ const menuOptions = [
   },
   {
     name: "Blog",
+    path: "/"
+  },
+  {
+    name: "Whatsapp",
+    imgPath: socialIcon1,
+    path: "/"
+  },
+  {
+    name: "Ask an Expert",
+    imgPath: socialIcon2,
     path: "/"
   }
 ];

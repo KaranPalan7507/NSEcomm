@@ -19,9 +19,14 @@
   max-width: 205px;
 }
 
-.custom-col-3 {
-  @include flex(0 0 30%);
-  max-width: 30%;
+.custom-col-6 {
+  @include flex(0 0 58.333%);
+  max-width: 58.333%;
+}
+
+.custom-col-4 {
+  @include flex(0 0 26.197%);
+  max-width: 26.197%;
 }
 
 .custom-col-9 {
