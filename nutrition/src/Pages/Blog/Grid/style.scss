@@ -1,0 +1,37 @@
+.blog-grid-area {
+  display: flex;
+  flex-flow: row wrap;
+}
+.blog-grid-item {
+  width: calc(50% - 40px);
+  padding: 12px;
+  margin: 20px;
+  filter: drop-shadow(0px 3px 3.5px rgba(221, 18, 31, 0.16));
+  background-color: #ffffff;
+  font-family: "Poppins";
+  font-weight: 400;
+  font-size: 15px;
+
+  .date {
+    color: #808080;
+  }
+  .category {
+    color: #db0310;
+    margin-left: 6px;
+  }
+  .title {
+    font-size: 19px;
+    color: #000000;
+    font-weight: 500;
+    margin: 6px 0;
+  }
+  .blog {
+    font-size: 11px;
+    color: #292929;
+  }
+}
+@media screen and (max-width: 576px) {
+  .blog-grid-item {
+    width: 100%;
+  }
+}
