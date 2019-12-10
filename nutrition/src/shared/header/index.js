@@ -7,15 +7,21 @@ class Header extends React.Component {
   constructor(props) {
     super(props);
     this.navMenu = React.createRef();
+    this.menuList = React.createRef();
+    this.menuItem = [];
   }
 
   state = {
     activeItem: -1,
     isMenuOpen: true,
+    isSubOpen: false,
     isHovered: false
   };
 
+  body = "";
+
   componentDidMount() {
+    this.body = document.body || document.documentElement;
     this.removeMenuFromDom();
     window.addEventListener("resize", this.removeMenuFromDom);
   }
@@ -43,11 +49,13 @@ class Header extends React.Component {
           if (this.navMenu && this.navMenu.current) {
             setTimeout(() => {
               this.navMenu.current.style.marginLeft = 0 + "px";
+              this.body.classList.add("no-scroll");
             });
           }
         });
       } else {
         this.navMenu.current.style.marginLeft = -280 + "px";
+        this.body.classList.remove("no-scroll");
         setTimeout(() => {
           this.setState({ isMenuOpen: false });
         }, 250);
@@ -55,8 +63,32 @@ class Header extends React.Component {
     }
   };
 
+  subMenu = e => {
+    const parentNode = e.currentTarget ? e.currentTarget.parentElement : "";
+    if (!this.state.isSubOpen && parentNode) {
+      parentNode.classList.add("active");
+    } else {
+      parentNode.classList.remove("active");
+    }
+    this.setState({ isSubOpen: !this.state.isSubOpen });
+  };
+
+  backToMain = index => {
+    if (
+      this.state.isSubOpen &&
+      this.menuList &&
+      this.menuList.current &&
+      this.menuItem.length &&
+      this.menuItem[index]
+    ) {
+      this.menuList.current.classList.remove("sub-open");
+      this.menuItem[index].classList.remove("active");
+      this.setState({ isSubOpen: false });
+    }
+  };
+
   render() {
-    const { isMenuOpen, isHovered, activeItem } = this.state;
+    const { isMenuOpen, isSubOpen } = this.state;
     return (
       <header className="header">
         <div className="container">
@@ -131,23 +163,165 @@ class Header extends React.Component {
                 <span className="menu-close" onClick={this.toggleMenu}>
                   <em className="fa fa-times" />
                 </span>
-                <ul>
+                <ul ref={this.menuList} className={isSubOpen ? "sub-open" : ""}>
                   {menuOptions.map((item, index) => (
-                    <li key={index}>
-                      <a href="!#">
-                        {item.imgPath && (
-                          <img src={item.imgPath} alt={item.name} />
-                        )}
-                        <span>{item.name}</span>
-                      </a>
-                      {item.options && (
-                        <ul>
-                          {item.options.map((subitem, index) => (
-                            <li key={index}>
-                              <a href={subitem.path}>{subitem.name}</a>
-                            </li>
-                          ))}
-                        </ul>
+                    <li ref={ref => (this.menuItem[index] = ref)} key={index}>
+                      {item.name === messages.common.whyUs ||
+                      item.name === messages.common.blog ||
+                      item.name === messages.common.whatsapp ||
+                      item.name === messages.common.iNutrition ? (
+                        <a href="!#">
+                          {item.imgPath && (
+                            <img src={item.imgPath} alt={item.name} />
+                          )}
+                          <span>{item.name}</span>
+                        </a>
+                      ) : (
+                        <span onClick={e => this.subMenu(e)}>{item.name}</span>
+                      )}
+                      {(item.mainOptions ||
+                        item.subOptions ||
+                        item.goalOptions ||
+                        item.brandOptions ||
+                        item.offerOptions) && (
+                        <div className="submenu-wrapper">
+                          <div className="sw-inner">
+                            <div className="sw-back">
+                              <span onClick={() => this.backToMain(index)}>
+                                <em className="fa fa-angle-left" />
+                                {messages.common.back}
+                              </span>
+                            </div>
+                            <div className="sw-overflow">
+                              <div className="row">
+                                {item.mainOptions && (
+                                  <div className="sw-col-2">
+                                    <div className="sw-main-opts">
+                                      <ul>
+                                        {item.mainOptions.map(
+                                          (subitem, index) => (
+                                            <li key={index}>
+                                              <a href={subitem.path}>
+                                                {subitem.name}
+                                              </a>
+                                            </li>
+                                          )
+                                        )}
+                                      </ul>
+                                    </div>
+                                  </div>
+                                )}
+                                {item.subOptions && (
+                                  <div className="sw-col-10">
+                                    <div className="sw-sub-opts">
+                                      {item.subOptions && (
+                                        <React.Fragment>
+                                          {item.subOptions.map(
+                                            (subitem, index) => (
+                                              <div
+                                                className="sws-box"
+                                                key={index}
+                                              >
+                                                <div className="sws-row">
+                                                  {subitem.imgPath && (
+                                                    <div className="sws-media">
+                                                      <img
+                                                        src={subitem.imgPath}
+                                                        alt={subitem.title}
+                                                      />
+                                                    </div>
+                                                  )}
+                                                  <div className="sws-content">
+                                                    <h4>{subitem.title}</h4>
+                                                    {subitem.options && (
+                                                      <ul>
+                                                        {subitem.options.map(
+                                                          (opt, index) => (
+                                                            <li key={index}>
+                                                              <a
+                                                                href={opt.path}
+                                                              >
+                                                                {opt.name}
+                                                              </a>
+                                                            </li>
+                                                          )
+                                                        )}
+                                                      </ul>
+                                                    )}
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            )
+                                          )}
+                                        </React.Fragment>
+                                      )}
+                                    </div>
+                                  </div>
+                                )}
+                                {item.goalOptions && (
+                                  <React.Fragment>
+                                    {item.goalOptions.map((item, index) => (
+                                      <div className="col-lg-2" key={index}>
+                                        <div className="sw-goal-box">
+                                          <a href={item.path}>
+                                            <div
+                                              className="sw-goal-media"
+                                              style={{
+                                                background: `url(${item.imgPath}) no-repeat center center/cover`
+                                              }}
+                                            />
+                                            <div className="sw-goal-content">
+                                              <h5>{item.name}</h5>
+                                            </div>
+                                          </a>
+                                        </div>
+                                      </div>
+                                    ))}
+                                  </React.Fragment>
+                                )}
+                                {item.brandOptions && (
+                                  <React.Fragment>
+                                    {item.brandOptions.map((item, index) => (
+                                      <div className="col-lg-2" key={index}>
+                                        <div className="sw-brand-box">
+                                          <a href={item.path}>
+                                            <div
+                                              className="sw-brand-media"
+                                              style={{
+                                                background: `url(${item.imgPath}) no-repeat center center/cover`
+                                              }}
+                                            />
+                                          </a>
+                                        </div>
+                                      </div>
+                                    ))}
+                                  </React.Fragment>
+                                )}
+                                {item.offerOptions && (
+                                  <React.Fragment>
+                                    {item.offerOptions.map((item, index) => (
+                                      <div className="col-lg-3" key={index}>
+                                        <div className="sw-offer-box">
+                                          <a href={item.path}>
+                                            <div className="sw-offer-media">
+                                              <img
+                                                src={item.imgPath}
+                                                alt={item.name}
+                                              />
+                                            </div>
+                                            <div className="sw-offer-content">
+                                              <h5>{item.name}</h5>
+                                            </div>
+                                          </a>
+                                        </div>
+                                      </div>
+                                    ))}
+                                  </React.Fragment>
+                                )}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                       )}
                     </li>
                   ))}

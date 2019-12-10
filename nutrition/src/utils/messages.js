@@ -1,6 +1,7 @@
 const messages = {
   common: {
     ask_expert: "Ask an Expert",
+    back: "Back",
     login: "Login",
     off: "off",
     signUp: "Sign Up",
@@ -20,6 +21,9 @@ const messages = {
     mobile_number: "Mobile Number",
     offer: "Get 10% off your first order with code NUTRITION30",
     password: "Password",
+    iNutrition: "i-Nutrition",
+    blog: "Blog",
+    whyUs: "Why Us",
     whatsapp: "Whatsapp",
     retry: "Retry",
     continue_shopping: "Continue Shopping",

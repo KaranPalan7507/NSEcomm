@@ -125,8 +125,16 @@
   @include prefix(transition, $transition, webkit moz ms o);
 }
 
+@mixin transition-delay($delay) {
+  @include prefix(transition-delay, $delay, webkit o);
+}
+
 @mixin transform-origin($originX, $originY) {
   @include prefix(transform-origin, $originX $originY, webkit moz ms o);
+}
+
+@mixin filter($filter) {
+  @include prefix(filter, $filter, webkit);
 }
 
 @mixin ib-middle(
@@ -219,9 +227,9 @@
 // <flex-direction> || <flex-wrap>
 @mixin flex-flow($flow) {
   -webkit-flex-flow: $flow;
-     -moz-flex-flow: $flow;
-      -ms-flex-flow: $flow;
-          flex-flow: $flow;
+  -moz-flex-flow: $flow;
+  -ms-flex-flow: $flow;
+  flex-flow: $flow;
 }
 
 // Flex Flow Direction
