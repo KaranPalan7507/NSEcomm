@@ -8,7 +8,7 @@ import Header from "./shared/header";
 import Footer from "./shared/footer";
 import DiscountOffer from "./shared/DiscountOffer";
 import LoginSignUp from "./Pages/LoginSignUp";
-
+import Blog from "./Pages/Blog";
 class App extends Component {
   render() {
     return (
@@ -20,6 +20,7 @@ class App extends Component {
             <Route exact path="/product_details" component={ProductDetails} />
             <Route exact path="/login" component={LoginSignUp} />
             <Route path="/product" component={Product} />
+            <Route path="/blog" component={Blog} />
             <Route
               path="/order-success"
               component={() => <AfterOrder success={true} />}
