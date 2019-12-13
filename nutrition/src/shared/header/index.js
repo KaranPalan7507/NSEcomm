@@ -1,6 +1,6 @@
 import React from "react";
 
-import menuOptions from "./../../utils/navigation_menu";
+import menuOptions from "./options";
 import messages from "../../utils/messages";
 import { Link } from "react-router-dom";
 class Header extends React.Component {
@@ -12,10 +12,8 @@ class Header extends React.Component {
   }
 
   state = {
-    activeItem: -1,
     isMenuOpen: true,
     isSubOpen: false,
-    isHovered: false
   };
 
   body = "";

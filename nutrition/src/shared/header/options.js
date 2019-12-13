@@ -1,18 +1,13 @@
-import socialIcon1 from "./../images/social_icon1.jpg";
-import socialIcon2 from "./../images/social_icon2.jpg";
-import aminoAcidImg from "./../images/amino_acids.jpg";
-import accessoriesImg from "./../images/accessories.jpg";
-import barsImg from "./../images/bars.jpg";
-import drinkImg from "./../images/drinks.jpg";
-import fatBurnerImg from "./../images/fat_burner.jpg";
-import lCarnitineImg from "./../images/l-carnitine.jpg";
-import proteinImg from "./../images/protein.jpg";
-import vitaminImg from "./../images/vitamins.jpg";
-import brand1 from "./../images/brand_1.jpg";
-import offer1 from "./../images/offer_1.jpg";
-import offer2 from "./../images/offer_2.jpg";
-import offer3 from "./../images/offer_3.jpg";
-import offer4 from "./../images/offer_4.jpg";
+import socialIcon1 from "./../../images/social_icon1.jpg";
+import socialIcon2 from "./../../images/social_icon2.jpg";
+import aminoAcidImg from "./../../images/amino_acids.jpg";
+import accessoriesImg from "./../../images/accessories.jpg";
+import barsImg from "./../../images/bars.jpg";
+import drinkImg from "./../../images/drinks.jpg";
+import fatBurnerImg from "./../../images/fat_burner.jpg";
+import lCarnitineImg from "./../../images/l-carnitine.jpg";
+import proteinImg from "./../../images/protein.jpg";
+import vitaminImg from "./../../images/vitamins.jpg";
 
 const menuOptions = [
   {
@@ -234,32 +229,32 @@ const menuOptions = [
     brandOptions: [
       {
         path: "/",
-        imgPath: brand1,
+        imgPath: "images/shop-brand.png",
         name: "Brand 1"
       },
       {
         path: "/",
-        imgPath: brand1,
+        imgPath: "images/shop-brand.png",
         name: "Brand 2"
       },
       {
         path: "/",
-        imgPath: brand1,
+        imgPath: "images/shop-brand.png",
         name: "Brand 3"
       },
       {
         path: "/",
-        imgPath: brand1,
+        imgPath: "images/shop-brand.png",
         name: "Brand 4"
       },
       {
         path: "/",
-        imgPath: brand1,
+        imgPath: "images/shop-brand.png",
         name: "Brand 5"
       },
       {
         path: "/",
-        imgPath: brand1,
+        imgPath: "images/shop-brand.png",
         name: "Brand 6"
       }
     ]
@@ -269,22 +264,22 @@ const menuOptions = [
     offerOptions: [
       {
         path: "/product",
-        imgPath: offer1,
+        imgPath: "images/flash_menu.svg",
         name: "Flash Sale"
       },
       {
         path: "/product",
-        imgPath: offer2,
+        imgPath: "images/crazy_deals_menu.svg",
         name: "Crazy Deals"
       },
       {
         path: "/product",
-        imgPath: offer3,
+        imgPath: "images/wipeout_menu.svg",
         name: "Wipe Out Sale"
       },
       {
         path: "/product",
-        imgPath: offer4,
+        imgPath: "images/half_price_menu.svg",
         name: "Half Price Store"
       }
     ]

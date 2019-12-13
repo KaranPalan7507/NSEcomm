@@ -89,7 +89,6 @@ export default class Product extends React.Component {
               <Loader />
             )}
           </div>
-          }
         </div>
       </React.Fragment>
     );

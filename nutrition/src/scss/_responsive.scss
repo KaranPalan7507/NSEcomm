@@ -200,12 +200,6 @@
       margin: 0 0 12px;
     }
   }
-  .cc-social {
-    margin-top: 12px;
-    > ul {
-      @include justify-content(center);
-    }
-  }
   .copyright {
     p {
       margin: 0 0 12px;
@@ -454,16 +448,6 @@
   .copyright {
     p {
       margin: 0 0 18px;
-    }
-  }
-  .cc-social {
-    margin-top: 18px;
-  }
-  .cc-payment {
-    > ul {
-      > li {
-        margin-bottom: 5px;
-      }
     }
   }
   .fn-subscribe {

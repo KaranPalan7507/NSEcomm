@@ -1,15 +1,119 @@
 import React from "react";
-import quickLinks from "./../../utils/footer_navigation_menu";
 
 import messages from "./../../utils/messages";
-
+import "./style.scss";
 import footerBottomImg from "./../../images/footer-bottom.jpg";
 import paymentOpt1 from "./../../images/payment-opt1.jpg";
 import paymentOpt2 from "./../../images/payment-opt2.jpg";
 import paymentOpt3 from "./../../images/payment-opt3.jpg";
 import paymentOpt4 from "./../../images/payment-opt4.jpg";
 import paymentOpt5 from "./../../images/payment-opt5.jpg";
-
+const quickLinks = [
+  {
+    title: "Nutrition Systems",
+    links: [
+      {
+        name: "About Us",
+        path: "#"
+      },
+      {
+        name: "Refer & Earn",
+        path: "#"
+      },
+      {
+        name: "Carrers",
+        path: "#"
+      },
+      {
+        name: "Terms & Conditions",
+        path: "#"
+      },
+      {
+        name: "Privacy Policy",
+        path: "#"
+      }
+    ]
+  },
+  {
+    title: "Support",
+    links: [
+      {
+        name: "Your Account",
+        path: "#"
+      },
+      {
+        name: "Store Locator",
+        path: "#"
+      },
+      {
+        name: "Delivery Policy",
+        path: "#"
+      },
+      {
+        name: "Return Policy",
+        path: "#"
+      },
+      {
+        name: "FAQ & Help",
+        path: "#"
+      },
+      {
+        name: "Contact US",
+        path: "#"
+      },
+      {
+        name: "Sell on Nutritions",
+        path: "#"
+      }
+    ]
+  },
+  {
+    title: "Categories",
+    links: [
+      {
+        name: "Body Building",
+        path: "#"
+      },
+      {
+        name: "Weight Loss",
+        path: "#"
+      },
+      {
+        name: "Health Living",
+        path: "#"
+      },
+      {
+        name: "Hair, Skin & Care",
+        path: "#"
+      },
+      {
+        name: "Sports Nutritions",
+        path: "#"
+      }
+    ]
+  },
+  {
+    title: "Optional",
+    links: [
+      {
+        name: "Lorem Ipsum",
+        path: "#"
+      },
+      {
+        name: "Lorem Ipsum",
+        path: "#"
+      },
+      {
+        name: "Lorem Ipsum",
+        path: "#"
+      },
+      {
+        name: "Lorem Ipsum",
+        path: "#"
+      }
+    ]
+  }
+];
 export default class Footer extends React.Component {
   constructor(props) {
     super(props);
@@ -124,70 +228,39 @@ export default class Footer extends React.Component {
                   </div>
                 </div>
               </div>
-              <div className="footer-copyright">
-                <div className="fc-row">
-                  <div className="custom-col-2">
-                    <div className="footer-logo">
-                      <a href="/">
-                        <img
-                          src="images/logo.png"
-                          alt="Nutrition Systems logo"
-                        />
-                      </a>
-                    </div>
-                  </div>
-                  <div className="custom-col-10">
-                    <div className="copyright">
-                      <div className="row">
-                        <div className="col-lg-3 col-md-12">
-                          <p>{messages.common.copyright}</p>
-                        </div>
-                        <div className="col-lg-6 col-md-12">
-                          <div className="cc-payment">
-                            <ul>
-                              {this.paymentOptions.map((option, index) => (
-                                <li key={index}>
-                                  <span title={option.type}>
-                                    <img src={option.img} alt={option.type} />
-                                  </span>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        </div>
-                        <div className="col-lg-3 col-md-12">
-                          <div className="cc-social">
-                            <ul>
-                              <li>
-                                <a href="/" target="_blank">
-                                  <em className="fa fa-facebook"></em>
-                                </a>
-                              </li>
-                              <li>
-                                <a href="/" target="_blank">
-                                  <em className="fa fa-linkedin"></em>
-                                </a>
-                              </li>
-                              <li>
-                                <a href="/" target="_blank">
-                                  <em className="fa fa-google-plus"></em>
-                                </a>
-                              </li>
-                              <li>
-                                <a href="/" target="_blank">
-                                  <em className="fa fa-twitter"></em>
-                                </a>
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+              <div className="footer-bottom">
+                <div className="footer-logo">
+                  <a href="/">
+                    <img src="images/logo.png" alt="Nutrition Systems logo" />
+                  </a>
+                </div>
+                <div className="cc-payment">
+                  {this.paymentOptions.map((option, index) => (
+                    <span key={index}>
+                      <img src={option.img} alt={option.type} />
+                    </span>
+                  ))}
+                </div>
+                <div className="cc-social">
+                  <em className="fa fa-facebook"></em>
+                  <em className="fa fa-linkedin"></em>
+                  <em className="fa fa-google-plus"></em>
+                  <em className="fa fa-twitter"></em>
                 </div>
               </div>
             </div>
           </div>
+        </div>
+        <div className="footer-copyright">
+          <span>Disclaimer: </span> Lorem ipsum dolor sit amet, consectetur
+          adipiscing elit.Quisque eu nibh ac arcu porttitor consectetur et sit
+          amet nisi. Phasellussed justo vel nulla vestibulum dapibus. Curabitur
+          consequat lacus risus, ac tempus metus porttitor a. Quisquelobortis
+          faucibus mauris, et consequat eros vehicula a. Quisque hendrerit
+          pharetra augue sed fermentum. Orci varius natoquepenatibus et magnis
+          dis parturient montes, nascetur ridiculus mus. Curabitur quis tellus
+          interdum, rutrum mi id, consectetur est.
+          <div className="cc-text">@ Copyright 2019 . All Right Reserved </div>
         </div>
       </footer>
     );
