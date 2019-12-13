@@ -14,11 +14,16 @@ class App extends Component {
     return (
       <div id="wrapper">
         <DiscountOffer />
-        <Header />
         <section className="main-content">
           <Router>
+            <Header />
             <Route exact path="/product_details" component={ProductDetails} />
             <Route exact path="/login" component={LoginSignUp} />
+            <Route
+              exact
+              path="/register"
+              component={() => <LoginSignUp index={1} />}
+            />
             <Route path="/product" component={Product} />
             <Route path="/blog" component={Blog} />
             <Route

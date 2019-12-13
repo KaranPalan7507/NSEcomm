@@ -2,7 +2,7 @@ import React from "react";
 
 import menuOptions from "./../../utils/navigation_menu";
 import messages from "../../utils/messages";
-
+import { Link } from "react-router-dom";
 class Header extends React.Component {
   constructor(props) {
     super(props);
@@ -135,7 +135,8 @@ class Header extends React.Component {
                           </a>
                         </li>
                         <li>
-                          <a href="/">Login</a>/<a href="/">Register</a>
+                          <Link to="/login">Login</Link>/
+                          <Link to="/register">Register</Link>
                         </li>
                       </ul>
                     </div>
@@ -170,12 +171,13 @@ class Header extends React.Component {
                       item.name === messages.common.blog ||
                       item.name === messages.common.whatsapp ||
                       item.name === messages.common.iNutrition ? (
-                        <a href="!#">
+                        <Link to={item.path}>
+                          {" "}
                           {item.imgPath && (
                             <img src={item.imgPath} alt={item.name} />
                           )}
-                          <span>{item.name}</span>
-                        </a>
+                          {item.name}
+                        </Link>
                       ) : (
                         <span onClick={e => this.subMenu(e)}>{item.name}</span>
                       )}
@@ -302,7 +304,7 @@ class Header extends React.Component {
                                     {item.offerOptions.map((item, index) => (
                                       <div className="col-lg-3" key={index}>
                                         <div className="sw-offer-box">
-                                          <a href={item.path}>
+                                          <Link to={item.path}>
                                             <div className="sw-offer-media">
                                               <img
                                                 src={item.imgPath}
@@ -312,7 +314,7 @@ class Header extends React.Component {
                                             <div className="sw-offer-content">
                                               <h5>{item.name}</h5>
                                             </div>
-                                          </a>
+                                          </Link>
                                         </div>
                                       </div>
                                     ))}

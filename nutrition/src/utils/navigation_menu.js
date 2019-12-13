@@ -8,12 +8,6 @@ import fatBurnerImg from "./../images/fat_burner.jpg";
 import lCarnitineImg from "./../images/l-carnitine.jpg";
 import proteinImg from "./../images/protein.jpg";
 import vitaminImg from "./../images/vitamins.jpg";
-import goalImg1 from "./../images/26-0_thumb.jpg";
-import goalImg2 from "./../images/27-0_thumb.jpg";
-import goalImg3 from "./../images/28-0_thumb.jpg";
-import goalImg4 from "./../images/29-0_thumb.jpg";
-import goalImg5 from "./../images/30-0_thumb.jpg";
-import goalImg6 from "./../images/31-0_thumb.jpg";
 import brand1 from "./../images/brand_1.jpg";
 import offer1 from "./../images/offer_1.jpg";
 import offer2 from "./../images/offer_2.jpg";
@@ -204,33 +198,33 @@ const menuOptions = [
     name: "Shop By Goal",
     goalOptions: [
       {
-        path: "/",
-        imgPath: goalImg1,
+        path: "/product",
+        imgPath: "images/goal1.png",
         name: "Endurance"
       },
       {
-        path: "/",
-        imgPath: goalImg2,
+        path: "/product",
+        imgPath: "images/goal2.png",
         name: "Energy"
       },
       {
-        path: "/",
-        imgPath: goalImg3,
+        path: "/product",
+        imgPath: "images/goal3.png",
         name: "Muscle"
       },
       {
-        path: "/",
-        imgPath: goalImg4,
+        path: "/product",
+        imgPath: "images/goal4.png",
         name: "Strength"
       },
       {
-        path: "/",
-        imgPath: goalImg5,
+        path: "/product",
+        imgPath: "images/goal6.png",
         name: "Weight Loss"
       },
       {
-        path: "/",
-        imgPath: goalImg6,
+        path: "/product",
+        imgPath: "images/goal7.png",
         name: "Wellness"
       }
     ]
@@ -274,22 +268,22 @@ const menuOptions = [
     name: "Offer",
     offerOptions: [
       {
-        path: "/",
+        path: "/product",
         imgPath: offer1,
         name: "Flash Sale"
       },
       {
-        path: "/",
+        path: "/product",
         imgPath: offer2,
         name: "Crazy Deals"
       },
       {
-        path: "/",
+        path: "/product",
         imgPath: offer3,
         name: "Wipe Out Sale"
       },
       {
-        path: "/",
+        path: "/product",
         imgPath: offer4,
         name: "Half Price Store"
       }
@@ -301,7 +295,7 @@ const menuOptions = [
   },
   {
     name: "Blog",
-    path: "/"
+    path: "/blog"
   },
   {
     name: "Whatsapp",

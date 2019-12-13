@@ -7,6 +7,7 @@ import Slider from "./slider";
 import messages from "./../../utils/messages";
 import { API } from "../../axios";
 import { apis } from "../../constants";
+import { GridIcon, ListIcon } from "../../Common/Icons";
 export default class Blog extends React.Component {
   state = {
     view: "grid",
@@ -36,14 +37,12 @@ export default class Blog extends React.Component {
             <div className="sort-section">
               <div className="switch-view">
                 {messages.common.views}:
-                <img
-                  src="images/product_grid_icon.svg"
-                  alt=""
+                <GridIcon
+                  strokeColor={this.state.view === "grid" ? "#dd121f" : null}
                   onClick={() => this.setState({ view: "grid" })}
                 />
-                <img
-                  src="images/product_list_icon.svg"
-                  alt=""
+                <ListIcon
+                  strokeColor={this.state.view === "list" ? "#dd121f" : null}
                   onClick={() => this.setState({ view: "list" })}
                 />
               </div>

@@ -4,6 +4,9 @@ class Tabs extends React.Component {
   state = { active: 0 };
   componentDidMount(props) {
     //this.setState({ active: props.tabs[0].label });
+    if (this.props.index) {
+      this.setState({ active: this.props.index });
+    }
   }
   onClick = index => {
     this.setState({ active: index });

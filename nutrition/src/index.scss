@@ -667,10 +667,10 @@ img {
     @include transition(color 0.2s ease-in-out);
   }
 }
-.sw-overflow {
+/*.sw-overflow {
   overflow: auto;
   height: calc(100vh - 50px);
-}
+}*/
 .sw-back {
   background: #f4f4f4;
   border-top: 1px solid #cccccc;

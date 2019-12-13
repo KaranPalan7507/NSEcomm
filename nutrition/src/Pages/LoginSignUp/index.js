@@ -10,6 +10,7 @@ class LoginSignUp extends React.Component {
       <div className="login-signup">
         <div className="login-tab-wrapper">
           <Tabs
+            index={this.props.index}
             tabs={[
               { label: messages.common.login, component: Login },
               { label: messages.common.signUp, component: Signup }

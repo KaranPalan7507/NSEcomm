@@ -8,6 +8,7 @@ import Select from "react-select";
 import messages from "./../../utils/messages";
 import { API } from "../../axios";
 import { apis } from "../../constants";
+import { GridIcon, ListIcon } from "../../Common/Icons";
 
 export default class Product extends React.Component {
   state = {
@@ -48,14 +49,12 @@ export default class Product extends React.Component {
               </div>
               <div className="switch-view">
                 {messages.common.views}:
-                <img
-                  src="images/product_grid_icon.svg"
-                  alt=""
+                <GridIcon
+                  strokeColor={this.state.view === "grid" ? "#dd121f" : null}
                   onClick={() => this.setState({ view: "grid" })}
                 />
-                <img
-                  src="images/product_list_icon.svg"
-                  alt=""
+                <ListIcon
+                  strokeColor={this.state.view === "list" ? "#dd121f" : null}
                   onClick={() => this.setState({ view: "list" })}
                 />
               </div>
