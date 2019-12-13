@@ -28,10 +28,10 @@ export default class ProductItem extends React.Component {
               <span>&#8377;</span>
               {this.state.data.product_after_discount}
             </span>
-            <strike className="original-price">
+            <span className="original-price">
               <span>&#8377;</span>
               {this.state.data.product_price}
-            </strike>
+            </span>
             <span className="discount">
               {this.state.data.product_discount_percentage}
               <span>

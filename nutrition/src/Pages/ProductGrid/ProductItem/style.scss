@@ -4,7 +4,7 @@
 
 .product-grid-area {
   padding: 30px 0;
-  display:flex;
+  display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
@@ -59,11 +59,11 @@
       width: 100%;
     }
     > .btn-cart {
-      background: #d6d4d4;
+      border: 2px solid #dd121f;
+      margin-right: 8px;
     }
     > .btn-buy {
-      background: #dd121f;
-      color: #ffffff;
+      border: 2px solid #dd121f;
     }
   }
 }

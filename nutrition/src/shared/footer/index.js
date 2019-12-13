@@ -55,7 +55,7 @@ export default class Footer extends React.Component {
     this.fooMedia.current.style["-moz-background-size"] = "cover";
     this.fooMedia.current.style["-ms-background-size"] = "cover";
     this.fooMedia.current.style["-o-background-size"] = "cover";
-    this.fooMedia.current.style.minHeight = 89 + "px";
+    this.fooMedia.current.style.minHeight = 24 + "px";
     this.fooImg.current.style.display = "none";
   };
 
@@ -129,7 +129,10 @@ export default class Footer extends React.Component {
                   <div className="custom-col-2">
                     <div className="footer-logo">
                       <a href="/">
-                        <img src="images/logo.png" alt="Nutrition Systems logo" />
+                        <img
+                          src="images/logo.png"
+                          alt="Nutrition Systems logo"
+                        />
                       </a>
                     </div>
                   </div>

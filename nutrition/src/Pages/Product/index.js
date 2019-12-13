@@ -9,13 +9,18 @@ import messages from "./../../utils/messages";
 import { API } from "../../axios";
 import { apis } from "../../constants";
 import { GridIcon, ListIcon } from "../../Common/Icons";
-
+import Loader from "./../../Common/Loader";
 export default class Product extends React.Component {
   state = {
     view: "grid",
-    data: []
+    data: [],
+    isLoaded: false
   };
-  sortOptions = [{ value: "Best Selling", label: "Best Selling" }];
+  sortOptions = [
+    { value: "Best Selling", label: "Best Selling" },
+    { value: "Price", label: "Price" },
+    { value: "Price (Desc)", label: "Price (Desc)" }
+  ];
   componentDidMount() {
     this.getProducts();
   }
@@ -25,9 +30,16 @@ export default class Product extends React.Component {
     const response = await API.GET(apis.allProducts);
 
     if (response.success) {
-      this.setState({ data: response.data });
+      this.setState({ data: response.data, isLoaded: true });
     }
   };
+  renderView() {
+    if (this.state.view === "grid") {
+      return <ProductGrid data={this.state.data} />;
+    } else {
+      return <ProductList data={this.state.data} />;
+    }
+  }
   render() {
     return (
       <React.Fragment>
@@ -38,38 +50,46 @@ export default class Product extends React.Component {
             <Filter />
           </div>
           <div className="right-side">
-            <div className="sort-section">
-              <div className="sort-by-wrapper">
-                {messages.common.sort_by}:
-                <Select
-                  className="sort-dd"
-                  options={this.sortOptions}
-                  defaultValue={this.sortOptions[0]}
-                />
-              </div>
-              <div className="switch-view">
-                {messages.common.views}:
-                <GridIcon
-                  strokeColor={this.state.view === "grid" ? "#dd121f" : null}
-                  onClick={() => this.setState({ view: "grid" })}
-                />
-                <ListIcon
-                  strokeColor={this.state.view === "list" ? "#dd121f" : null}
-                  onClick={() => this.setState({ view: "list" })}
-                />
-              </div>
-              <div className="items-count">
-                {this.state.data.length + " "}
-                {messages.common.items}
-              </div>
-            </div>
-            {this.state.view === "grid" && (
-              <ProductGrid data={this.state.data} />
-            )}
-            {this.state.view === "list" && (
-              <ProductList data={this.state.data} />
+            {this.state.isLoaded ? (
+              <React.Fragment>
+                <div className="sort-section">
+                  <div className="sort-by-wrapper">
+                    {messages.common.sort_by}:
+                    <Select
+                      className="sort-dd"
+                      options={this.sortOptions}
+                      defaultValue={this.sortOptions[0]}
+                    />
+                  </div>
+                  <div className="switch-view">
+                    {messages.common.views}:
+                    <div className="icons">
+                      <GridIcon
+                        strokeColor={
+                          this.state.view === "grid" ? "#dd121f" : null
+                        }
+                        onClick={() => this.setState({ view: "grid" })}
+                      />
+                      <ListIcon
+                        strokeColor={
+                          this.state.view === "list" ? "#dd121f" : null
+                        }
+                        onClick={() => this.setState({ view: "list" })}
+                      />
+                    </div>
+                  </div>
+                  <div className="items-count">
+                    {this.state.data.length + " "}
+                    {messages.common.items}
+                  </div>
+                </div>
+                {this.renderView()}
+              </React.Fragment>
+            ) : (
+              <Loader />
             )}
           </div>
+          }
         </div>
       </React.Fragment>
     );
