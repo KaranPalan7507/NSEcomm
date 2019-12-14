@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.scss";
 import Grid from "./Grid/";
-import ProductList from "../ProductList";
+import List from "./List";
 import SideBar from "./sidebar";
 import Slider from "./slider";
 import messages from "./../../utils/messages";
@@ -26,7 +26,7 @@ export default class Blog extends React.Component {
   };
   render() {
     return (
-      <React.Fragment>
+      <div className="blog">
         <Slider />
 
         <div className="blog-wrapper">
@@ -54,12 +54,10 @@ export default class Blog extends React.Component {
               </div>
             </div>
             {this.state.view === "grid" && <Grid data={this.state.data} />}
-            {this.state.view === "list" && (
-              <ProductList data={this.state.data} />
-            )}
+            {this.state.view === "list" && <List data={this.state.data} />}
           </div>
         </div>
-      </React.Fragment>
+      </div>
     );
   }
 }

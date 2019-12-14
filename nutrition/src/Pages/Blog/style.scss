@@ -15,6 +15,16 @@
     font-weight: 400;
   }
 }
+.blog-slider {
+  img {
+    width: 100%;
+    max-height: 400px;
+  }
+}
+.blog {
+  background: hsla(0, 0%, 82.7%, 0.078);
+  padding: 30px;
+}
 .blog-wrapper {
   display: flex;
   .left-side {
