@@ -29,7 +29,7 @@ export default class Blog extends React.Component {
       <React.Fragment>
         <Slider />
 
-        <div className="product-wrapper">
+        <div className="blog-wrapper">
           <div className="left-side">
             <SideBar />
           </div>
@@ -37,14 +37,16 @@ export default class Blog extends React.Component {
             <div className="sort-section">
               <div className="switch-view">
                 {messages.common.views}:
-                <GridIcon
-                  strokeColor={this.state.view === "grid" ? "#dd121f" : null}
-                  onClick={() => this.setState({ view: "grid" })}
-                />
-                <ListIcon
-                  strokeColor={this.state.view === "list" ? "#dd121f" : null}
-                  onClick={() => this.setState({ view: "list" })}
-                />
+                <div className="icons">
+                  <GridIcon
+                    strokeColor={this.state.view === "grid" ? "#dd121f" : null}
+                    onClick={() => this.setState({ view: "grid" })}
+                  />
+                  <ListIcon
+                    strokeColor={this.state.view === "list" ? "#dd121f" : null}
+                    onClick={() => this.setState({ view: "list" })}
+                  />
+                </div>
               </div>
               <div className="items-count">
                 {this.state.data.length + " "}

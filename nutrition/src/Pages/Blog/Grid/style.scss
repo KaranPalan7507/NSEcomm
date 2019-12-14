@@ -3,6 +3,7 @@
   flex-flow: row wrap;
 }
 .blog-grid-item {
+  cursor: pointer;
   width: calc(50% - 40px);
   padding: 12px;
   margin: 20px;
@@ -11,6 +12,10 @@
   font-family: "Poppins";
   font-weight: 400;
   font-size: 15px;
+  img {
+    max-height: 300px;
+    width: 100%;
+  }
 
   .date {
     color: #808080;
