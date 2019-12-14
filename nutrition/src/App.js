@@ -10,6 +10,7 @@ import DiscountOffer from "./shared/DiscountOffer";
 import LoginSignUp from "./Pages/LoginSignUp";
 import Blog from "./Pages/Blog";
 import BlogDetail from "./Pages/BlogDetail";
+import Account from "./Pages/Account";
 class App extends Component {
   render() {
     return (
@@ -33,6 +34,7 @@ class App extends Component {
               component={() => <AfterOrder success={true} />}
             />
             <Route path="/order-failure" component={() => <AfterOrder />} />
+            <Route path="/account" component={Account} />
           </Router>
         </section>
         <Footer />
