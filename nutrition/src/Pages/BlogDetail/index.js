@@ -5,6 +5,9 @@ import Loader from "./../../Common/Loader";
 import "./style.scss";
 import Accordian from "./../../Common/Accordian";
 import Item from "./../Blog/Grid/item";
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
+
 export default class BlogDetail extends React.Component {
   state = {
     data: {},
@@ -62,7 +65,35 @@ export default class BlogDetail extends React.Component {
             <div className="content-wrapper">
               <div className="left-side">
                 <div className="content">{blog.body}</div>
-                <div className="comment">comment section pending</div>
+                <div className="comment">
+                  <div>
+                    <span className="post-comment">Post Comment</span>
+                    <form>
+                      <div className="comment-field">
+                        <TextField id="name" label="Name" variant="outlined" />
+                      </div>
+                      <div className="comment-field">
+                        <TextField
+                          id="email"
+                          label="Email"
+                          variant="outlined"
+                        />
+                      </div>
+                      <div className="comment-field">
+                        <TextField
+                          multiline
+                          rowsMax="4"
+                          id="comment"
+                          label="Comment"
+                          variant="outlined"
+                        />
+                      </div>
+                      <Button variant="contained" color="secondary">
+                        Post Comment
+                      </Button>
+                    </form>
+                  </div>
+                </div>
               </div>
               <div className="right-side">
                 <Accordian title="Most Visited">
