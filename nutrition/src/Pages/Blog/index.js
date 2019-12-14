@@ -18,7 +18,6 @@ export default class Blog extends React.Component {
   }
   getBlogs = async () => {
     const response = await API.GET(apis.blogs);
-    API.GET(apis.blogDetails);
 
     if (response.success) {
       this.setState({ data: response.data });

@@ -1,0 +1,107 @@
+.blog-detail {
+  padding: 15px 30px;
+  .most-visited-wrapper {
+    border-bottom: 1px solid #707070;
+    cursor: pointer;
+    padding: 4px;
+    .title {
+      font-size: 12px;
+      color: #000000;
+      font-family: "Poppins";
+      font-weight: 500;
+    }
+    .date {
+      font-size: 12px;
+      color: #6a6a6a;
+      font-family: "Poppins";
+      font-weight: 400;
+    }
+  }
+
+  .title {
+    font-size: 26px;
+    color: #000000;
+    font-family: "Poppins";
+    font-weight: 600;
+  }
+  .category {
+    font-size: 15px;
+    color: #db0310;
+    font-family: "Poppins";
+    font-weight: 400;
+  }
+  .image {
+    max-height: 300px;
+    display: block;
+    margin: auto;
+  }
+  .content-wrapper {
+    display: flex;
+  }
+  .left-side {
+    width: calc(100% - 300px);
+    padding: 16px;
+    .content {
+      filter: drop-shadow(0px 3px 3.5px rgba(221, 18, 31, 0.16));
+      background-color: #ffffff;
+      padding: 8px;
+      margin: 16px;
+      font-size: 14px;
+      color: #000000;
+      font-family: "Poppins";
+      font-weight: 400;
+    }
+    .comment {
+      filter: drop-shadow(0px 3px 3.5px rgba(221, 18, 31, 0.16));
+      background-color: #ffffff;
+      padding: 8px;
+      margin: 16px;
+    }
+  }
+  .right-side {
+    width: 300px;
+  }
+  .follow-section {
+    filter: drop-shadow(0px 3px 3.5px rgba(221, 18, 31, 0.16));
+    background-color: #ffffff;
+    padding: 8px;
+    margin: 16px;
+    span {
+      font-size: 14px;
+      color: #000000;
+      font-family: "Poppins";
+      font-weight: 600;
+    }
+    .social {
+      display: flex;
+      justify-content: space-around;
+      padding: 35px 0;
+      font-size: 18px;
+    }
+  }
+  .similar-section {
+    filter: drop-shadow(0px 3px 3.5px rgba(0, 0, 0, 0.16));
+    background-color: #ffffff;
+    padding: 24px;
+    display: flex;
+    .items {
+      max-width: 700px;
+      .blog-grid-item {
+        margin: 0px 20px;
+      }
+    }
+    .heading {
+      font-size: 32px;
+      color: #292929;
+      font-family: "Poppins";
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .sub-text {
+      font-size: 14px;
+      color: #b4b4b4;
+      font-family: "Poppins";
+      font-weight: 400;
+    }
+  }
+}

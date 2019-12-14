@@ -96,7 +96,7 @@ class Header extends React.Component {
                 <div className="custom-col-2">
                   <div className="logo">
                     <a href="/">
-                      <img src="images/logo.png" alt="Nutrition Systems logo" />
+                      <img src="/images/logo.png" alt="Nutrition Systems logo" />
                     </a>
                   </div>
                 </div>

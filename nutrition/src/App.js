@@ -9,6 +9,7 @@ import Footer from "./shared/footer";
 import DiscountOffer from "./shared/DiscountOffer";
 import LoginSignUp from "./Pages/LoginSignUp";
 import Blog from "./Pages/Blog";
+import BlogDetail from "./Pages/BlogDetail";
 class App extends Component {
   render() {
     return (
@@ -26,6 +27,7 @@ class App extends Component {
             />
             <Route path="/product" component={Product} />
             <Route path="/blog" component={Blog} />
+            <Route path="/blogdetail/:id" component={BlogDetail} />
             <Route
               path="/order-success"
               component={() => <AfterOrder success={true} />}

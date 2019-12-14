@@ -194,32 +194,32 @@ const menuOptions = [
     goalOptions: [
       {
         path: "#",
-        imgPath: "images/goal1.png",
+        imgPath: "/images/goal1.png",
         name: "Endurance"
       },
       {
         path: "#",
-        imgPath: "images/goal2.png",
+        imgPath: "/images/goal2.png",
         name: "Energy"
       },
       {
         path: "#",
-        imgPath: "images/goal3.png",
+        imgPath: "/images/goal3.png",
         name: "Muscle"
       },
       {
         path: "#",
-        imgPath: "images/goal4.png",
+        imgPath: "/images/goal4.png",
         name: "Strength"
       },
       {
         path: "#",
-        imgPath: "images/goal6.png",
+        imgPath: "/images/goal6.png",
         name: "Weight Loss"
       },
       {
         path: "#",
-        imgPath: "images/goal7.png",
+        imgPath: "/images/goal7.png",
         name: "Wellness"
       }
     ]
@@ -229,32 +229,32 @@ const menuOptions = [
     brandOptions: [
       {
         path: "#",
-        imgPath: "images/shop-brand.png",
+        imgPath: "/images/shop-brand.png",
         name: "Brand 1"
       },
       {
         path: "#",
-        imgPath: "images/shop-brand.png",
+        imgPath: "/images/shop-brand.png",
         name: "Brand 2"
       },
       {
         path: "#",
-        imgPath: "images/shop-brand.png",
+        imgPath: "/images/shop-brand.png",
         name: "Brand 3"
       },
       {
         path: "#",
-        imgPath: "images/shop-brand.png",
+        imgPath: "/images/shop-brand.png",
         name: "Brand 4"
       },
       {
         path: "#",
-        imgPath: "images/shop-brand.png",
+        imgPath: "/images/shop-brand.png",
         name: "Brand 5"
       },
       {
         path: "#",
-        imgPath: "images/shop-brand.png",
+        imgPath: "/images/shop-brand.png",
         name: "Brand 6"
       }
     ]
@@ -264,22 +264,22 @@ const menuOptions = [
     offerOptions: [
       {
         path: "#",
-        imgPath: "images/flash_menu.svg",
+        imgPath: "/images/flash_menu.svg",
         name: "Flash Sale"
       },
       {
         path: "#",
-        imgPath: "images/crazy_deals_menu.svg",
+        imgPath: "/images/crazy_deals_menu.svg",
         name: "Crazy Deals"
       },
       {
         path: "#",
-        imgPath: "images/wipeout_menu.svg",
+        imgPath: "/images/wipeout_menu.svg",
         name: "Wipe Out Sale"
       },
       {
         path: "#",
-        imgPath: "images/half_price_menu.svg",
+        imgPath: "/images/half_price_menu.svg",
         name: "Half Price Store"
       }
     ]

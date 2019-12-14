@@ -1,7 +1,8 @@
 import React from "react";
 import "./style.scss";
+import { withRouter } from "react-router";
 
-export default class Item extends React.Component {
+class Item extends React.Component {
   state = { data: {} };
 
   componentDidMount() {
@@ -14,9 +15,13 @@ export default class Item extends React.Component {
     const date = new Date(data.publish_date).toLocaleDateString();
     const blog = data.body;
     const category = data.categories.map(item => item.category);
+    const link = "/blogdetail/" + data.blog_id;
 
     return (
-      <div className="blog-list-item">
+      <div
+        className="blog-list-item"
+        onClick={() => this.props.history.push(link)}
+      >
         <div className="list-media">
           <img className="blog-image" src={imgSrc} alt={title} />
         </div>
@@ -32,3 +37,4 @@ export default class Item extends React.Component {
     );
   }
 }
+export default withRouter(Item);
