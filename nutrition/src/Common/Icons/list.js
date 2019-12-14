@@ -19,7 +19,7 @@ export default function ListIcon(props) {
                 transform="translate(828 555)"
                 fill="#fff"
                 stroke={strokeColor}
-                stroke-width="1"
+                strokeWidth="1"
                 opacity={props.strokeColor ? 1 : 0.15}
               >
                 <rect width="22" height="17" stroke="none" />
@@ -41,7 +41,7 @@ export default function ListIcon(props) {
             transform="translate(5553.5 1490.5)"
             fill="none"
             stroke={strokeColor}
-            stroke-width="1"
+            strokeWidth="1"
           />
           <line
             id="Line_42"
@@ -50,7 +50,7 @@ export default function ListIcon(props) {
             transform="translate(5553.5 1493.5)"
             fill="none"
             stroke={strokeColor}
-            stroke-width="1"
+            strokeWidth="1"
           />
           <line
             id="Line_43"
@@ -59,7 +59,7 @@ export default function ListIcon(props) {
             transform="translate(5553.5 1496.5)"
             fill="none"
             stroke={strokeColor}
-            stroke-width="1"
+            strokeWidth="1"
           />
           <line
             id="Line_44"
@@ -68,7 +68,7 @@ export default function ListIcon(props) {
             transform="translate(5553.5 1499.5)"
             fill="none"
             stroke={strokeColor}
-            stroke-width="1"
+            strokeWidth="1"
           />
         </g>
       </g>

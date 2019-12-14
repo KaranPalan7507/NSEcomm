@@ -24,9 +24,10 @@ export default class Filter extends React.Component {
     messages.common.filter_text,
     messages.common.filter_text
   ];
-  renderCheckbox(label) {
+  renderCheckbox(label, key) {
     return (
       <FormControlLabel
+        key={key}
         classes={{
           root: "filter-checkbox-wrapper",
           label: "filter-checkbox-label"
@@ -40,17 +41,25 @@ export default class Filter extends React.Component {
     return (
       <div>
         <Accordian title="Category">
-          {this.filterOptions.map(option => this.renderCheckbox(option))}
+          {this.filterOptions.map((option, index) =>
+            this.renderCheckbox(option, index)
+          )}
         </Accordian>
         <Accordian title="Flavour">
-          {this.filterOptions.map(option => this.renderCheckbox(option))}
+          {this.filterOptions.map((option, index) =>
+            this.renderCheckbox(option, index)
+          )}
         </Accordian>
         <Accordian title="Size">
-          {this.filterOptions.map(option => this.renderCheckbox(option))}
+          {this.filterOptions.map((option, index) =>
+            this.renderCheckbox(option, index)
+          )}
         </Accordian>
         <Accordian title="Price">
           <MySlider valueLabelDisplay="auto" defaultValue={[0, 100]} />
-          {this.filterOptions.map(option => this.renderCheckbox(option))}
+          {this.filterOptions.map((option, index) =>
+            this.renderCheckbox(option, index)
+          )}
         </Accordian>
       </div>
     );

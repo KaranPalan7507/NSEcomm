@@ -6,8 +6,8 @@ export default class ProductGrid extends React.Component {
     return (
       <div className="container">
         <div className="product-grid-area">
-          {this.props.data.map(item => {
-            return <ProductItem data={item} />;
+          {this.props.data.map((item, index) => {
+            return <ProductItem data={item} key={index} />;
           })}
         </div>
       </div>

@@ -4,8 +4,8 @@ export default class ProductList extends React.Component {
   render() {
     return (
       <div className="product-list-wrapper">
-        {this.props.data.map(item => {
-          return <ProductItem data={item} />;
+        {this.props.data.map((item, index) => {
+          return <ProductItem data={item} key={index} />;
         })}
       </div>
     );

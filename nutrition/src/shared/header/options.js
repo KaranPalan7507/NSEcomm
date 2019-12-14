@@ -193,32 +193,32 @@ const menuOptions = [
     name: "Shop By Goal",
     goalOptions: [
       {
-        path: "/product",
+        path: "#",
         imgPath: "images/goal1.png",
         name: "Endurance"
       },
       {
-        path: "/product",
+        path: "#",
         imgPath: "images/goal2.png",
         name: "Energy"
       },
       {
-        path: "/product",
+        path: "#",
         imgPath: "images/goal3.png",
         name: "Muscle"
       },
       {
-        path: "/product",
+        path: "#",
         imgPath: "images/goal4.png",
         name: "Strength"
       },
       {
-        path: "/product",
+        path: "#",
         imgPath: "images/goal6.png",
         name: "Weight Loss"
       },
       {
-        path: "/product",
+        path: "#",
         imgPath: "images/goal7.png",
         name: "Wellness"
       }
@@ -228,32 +228,32 @@ const menuOptions = [
     name: "Shop By Brand",
     brandOptions: [
       {
-        path: "/",
+        path: "#",
         imgPath: "images/shop-brand.png",
         name: "Brand 1"
       },
       {
-        path: "/",
+        path: "#",
         imgPath: "images/shop-brand.png",
         name: "Brand 2"
       },
       {
-        path: "/",
+        path: "#",
         imgPath: "images/shop-brand.png",
         name: "Brand 3"
       },
       {
-        path: "/",
+        path: "#",
         imgPath: "images/shop-brand.png",
         name: "Brand 4"
       },
       {
-        path: "/",
+        path: "#",
         imgPath: "images/shop-brand.png",
         name: "Brand 5"
       },
       {
-        path: "/",
+        path: "#",
         imgPath: "images/shop-brand.png",
         name: "Brand 6"
       }
@@ -263,22 +263,22 @@ const menuOptions = [
     name: "Offer",
     offerOptions: [
       {
-        path: "/product",
+        path: "#",
         imgPath: "images/flash_menu.svg",
         name: "Flash Sale"
       },
       {
-        path: "/product",
+        path: "#",
         imgPath: "images/crazy_deals_menu.svg",
         name: "Crazy Deals"
       },
       {
-        path: "/product",
+        path: "#",
         imgPath: "images/wipeout_menu.svg",
         name: "Wipe Out Sale"
       },
       {
-        path: "/product",
+        path: "#",
         imgPath: "images/half_price_menu.svg",
         name: "Half Price Store"
       }

@@ -585,13 +585,13 @@ img {
 .sw-brand-media {
   min-height: 120px;
 }
+.sw-goal-media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .sw-goal-content {
-  padding-left: 30px;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: calc(100% - 58px);
   z-index: 1;
   > h5 {
     font-size: 18px;
@@ -656,8 +656,8 @@ img {
 .sw-offer-media {
   min-height: 42px;
   margin-bottom: 12px;
-  img{
-    width:32px;
+  img {
+    width: 32px;
   }
 }
 
@@ -696,7 +696,6 @@ img {
 
 /* Footer Style Starts
 ===================================================================================================================================*/
-
 
 .fql-box {
   > h5 {
@@ -765,8 +764,6 @@ img {
     display: inline-block;
   }
 }
-
-
 
 .fn-subscribe {
   position: relative;
@@ -851,7 +848,6 @@ img {
     }
   }
 }
-
 
 /* Footer Style Ends
 ===================================================================================================================================*/

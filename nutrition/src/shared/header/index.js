@@ -13,7 +13,7 @@ class Header extends React.Component {
 
   state = {
     isMenuOpen: true,
-    isSubOpen: false,
+    isSubOpen: false
   };
 
   body = "";
@@ -269,9 +269,10 @@ class Header extends React.Component {
                                               style={{
                                                 background: `url(${item.imgPath}) no-repeat center center/cover`
                                               }}
-                                            />
-                                            <div className="sw-goal-content">
-                                              <h5>{item.name}</h5>
+                                            >
+                                              <div className="sw-goal-content">
+                                                <h5>{item.name}</h5>
+                                              </div>
                                             </div>
                                           </a>
                                         </div>

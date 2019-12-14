@@ -392,25 +392,22 @@
     padding: 0 12px;
   }
   .sw-goal-media {
-    display: none;
+    background: none !important;
+    min-height: auto;
+    justify-content: flex-start;
+    .sw-goal-content {
+      h5 {
+        color: black;
+      }
+      h5:after {
+        display: none;
+      }
+    }
   }
   .sw-goal-box {
     margin-bottom: 0;
     > a {
       padding: 10px 12px;
-      &::after {
-        display: none;
-      }
-    }
-  }
-  .sw-goal-content {
-    padding-left: 0;
-    position: relative;
-    top: 0;
-    > h5 {
-      font-size: 15px;
-      color: #1e2534;
-      padding-bottom: 0;
       &::after {
         display: none;
       }
