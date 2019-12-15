@@ -1,3 +1,27 @@
+.wishlist-wrapper {
+  .product-list-item {
+    transform: none;
+    .product-action {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
+.cashback-wrapper {
+  table,
+  tr,
+  td {
+    border: 1px solid #ddd;
+  }
+  table {
+    width: 80%;
+    margin: auto;
+  }
+  thead {
+    font-weight: bold;
+  }
+}
+
 .account-page-wrapper {
   .page-title {
     font-size: 24px;

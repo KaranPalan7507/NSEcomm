@@ -1,13 +1,12 @@
 import React from "react";
 import "./style.scss";
 import { API } from "./../../../axios";
-import { apis } from "./../../../constants";
+import { apis, token } from "./../../../constants";
 import Button from "@material-ui/core/Button";
 
 const config = {
   headers: {
-    authorization:
-      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkZjRjYmJhYmRkZGUwNTJjYzZlOTg4NyIsIm1vYmlsZSI6OTg3NDM3MTIzNCwiaWF0IjoxNTc2MzI0Mjk5LCJleHAiOjE1NzY2ODQyOTl9.dDnDT_FlqbFVVyRDakwt8e5q-hepSWFwMo3p7RlxqnI"
+    authorization: "Bearer " + token
   }
 };
 class AddEdit extends React.Component {

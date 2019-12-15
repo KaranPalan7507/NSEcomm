@@ -2,11 +2,10 @@ import React from "react";
 import "./style.scss";
 import Button from "@material-ui/core/Button";
 import { API } from "./../../../axios";
-import { apis } from "./../../../constants";
+import { apis, token } from "./../../../constants";
 const config = {
   headers: {
-    authorization:
-      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkZjRjYmJhYmRkZGUwNTJjYzZlOTg4NyIsIm1vYmlsZSI6OTg3NDM3MTIzNCwiaWF0IjoxNTc2MzI0Mjk5LCJleHAiOjE1NzY2ODQyOTl9.dDnDT_FlqbFVVyRDakwt8e5q-hepSWFwMo3p7RlxqnI"
+    authorization: "Bearer " + token
   }
 };
 class Details extends React.Component {
