@@ -39,3 +39,9 @@
     font-style: italic;
   }
 }
+@media screen and (max-width: 768px) {
+  .referrals-wrapper {
+    width: calc(100% - 40px);
+    margin: 20px;
+  }
+}

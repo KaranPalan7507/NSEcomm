@@ -89,8 +89,7 @@ class Details extends React.Component {
           </div>
           <Button
             variant="contained"
-            color="secondary"
-            className="submit"
+            className="submit button-red"
             type="submit"
           >
             Save Changes

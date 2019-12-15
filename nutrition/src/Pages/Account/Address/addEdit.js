@@ -97,7 +97,7 @@ class AddEdit extends React.Component {
               <Button
                 variant="contained"
                 color="secondary"
-                className="submit"
+                className="submit button-red"
                 type="submit"
               >
                 Save

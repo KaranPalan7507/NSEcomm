@@ -71,3 +71,31 @@
     }
   }
 }
+@media screen and (max-width: 576px) {
+  .address-wrapper {
+    .address-item {
+      width: calc(100% - 40px);
+      margin: 20px auto;
+    }
+  }
+  .add-edit-wrapper {
+    width: calc(100% - 40px);
+    margin: 20px auto;
+    .heading {
+      font-size: 20px;
+    }
+    .form-wrapper {
+      padding: 8px;
+      .name,
+      .mobile-number,
+      .pin,
+      .state,
+      .city,
+      .country,
+      .address {
+        width: calc(100% - 8px);
+        margin: 4px;
+      }
+    }
+  }
+}

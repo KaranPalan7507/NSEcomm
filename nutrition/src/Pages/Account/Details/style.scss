@@ -60,3 +60,17 @@
     }
   }
 }
+@media screen and (max-width: 576px) {
+  .account-details-wrapper {
+    width: calc(100% - 40px);
+    margin: 20px auto;
+    .account-info {
+      .info {
+        flex: 1 0 100%;
+        input {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

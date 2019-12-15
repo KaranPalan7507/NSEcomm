@@ -56,3 +56,11 @@
     }
   }
 }
+
+@media screen and (max-width: 768px) {
+  .coupons-wrapper {
+    width: calc(100% - 40px);
+    margin: 20px;
+    padding: 8px;
+  }
+}

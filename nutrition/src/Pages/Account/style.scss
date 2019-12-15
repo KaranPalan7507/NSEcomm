@@ -12,6 +12,8 @@
   tr,
   td {
     border: 1px solid #ddd;
+    white-space: nowrap;
+    padding: 4px;
   }
   table {
     width: 80%;
@@ -73,7 +75,27 @@
   }
 }
 @media screen and (max-width: 768px) {
+  .wishlist-wrapper {
+    width: 100%;
+    .product-list-item {
+      margin: 10px;
+    }
+  }
+
+  .cashback-wrapper {
+    width: calc(100% - 40px);
+    margin: 20px;
+    overflow: scroll;
+    table {
+      width: 100%;
+    }
+  }
   .account-page-wrapper {
+    .page-title {
+      padding-left: 20px;
+      padding-top: 8px;
+      padding-bottom: 8px;
+    }
     .mobile-menu {
       display: block;
       text-align: right;
