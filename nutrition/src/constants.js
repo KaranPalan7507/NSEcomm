@@ -3,5 +3,6 @@ export const apis = {
   productDetails: "/product_details",
   blogs: "/blog/blog_list",
   blogDetails: "/blog/",
-  accountDetails: "/account_details"
+  accountDetails: "/account_details",
+  coupon: "/coupon_page"
 };

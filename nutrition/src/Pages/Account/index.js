@@ -7,7 +7,7 @@ import Address from "./address";
 import Orders from "./orders";
 import CashbackHistory from "./cashbackHistory";
 import Referrals from "./referrals";
-import Coupons from "./coupons";
+import Coupons from "./Coupon";
 import Wishlist from "./wishlist";
 class Account extends React.Component {
   state = {

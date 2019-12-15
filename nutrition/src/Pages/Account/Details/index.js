@@ -78,9 +78,25 @@ class Details extends React.Component {
               <div className="label">Email</div>
               <input name="email" type="text" defaultValue={this.state.email} />
             </div>
+            <div className="info">
+              <div className="label">Mobile</div>
+              <input
+                name="mobile"
+                type="number"
+                defaultValue={this.state.mobile}
+              />
+            </div>
           </div>
-          <div className="password-section">
-            <div className="password-title">Password Change</div>
+          <Button
+            variant="contained"
+            color="secondary"
+            className="submit"
+            type="submit"
+          >
+            Save Changes
+          </Button>
+          {/* <div className="password-section">
+             <div className="password-title">Password Change</div>
             <div className="info">
               <div className="label">Current Pasword</div>
               <input name="current-password" type="password" />
@@ -88,16 +104,8 @@ class Details extends React.Component {
             <div className="info">
               <div className="label">New Password</div>
               <input name="new-password" type="password" />
-            </div>
-            <Button
-              variant="contained"
-              color="secondary"
-              className="submit"
-              type="submit"
-            >
-              Save Changes
-            </Button>
-          </div>
+            </div> 
+          </div> */}
         </form>
       </div>
     );
