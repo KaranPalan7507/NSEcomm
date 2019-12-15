@@ -8,9 +8,9 @@ instance.interceptors.request.use(function(config) {
 });
 
 export const API = {
-  POST: async (url, params) => {
+  POST: async (url, params, config) => {
     try {
-      const response = await instance.post(url, params);
+      const response = await instance.post(url, params, config);
       return { data: response.data, success: true };
     } catch (error) {
       return { success: false };

@@ -2,7 +2,7 @@ import React from "react";
 import "./style.scss";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { withRouter } from "react-router";
-import Details from "./details";
+import Details from "./Details";
 import Address from "./address";
 import Orders from "./orders";
 import CashbackHistory from "./cashbackHistory";
@@ -66,44 +66,46 @@ class Account extends React.Component {
   render() {
     const currentRoute = this.props.location.pathname;
     let selectedRoute = this.menu.filter(item => item.url === currentRoute);
-    if(selectedRoute.length){
-      selectedRoute=selectedRoute[0];
-
-    }else{
-      selectedRoute={}
+    if (selectedRoute.length) {
+      selectedRoute = selectedRoute[0];
+    } else {
+      selectedRoute = {};
     }
     return (
-      <div className="account-page">
+      <div className="account-page-wrapper">
         <div className="page-title">{selectedRoute.text}</div>
-        <div className="left-side">
-          {this.menu.map((item, index) => (
-            <div
-              className={item.text===selectedRoute.text?"menu active":"menu"}
-              key={index}
-              onClick={() => this.menuClick(item)}
-
-            >
-              <img className="icon" src={item.image} alt={item.text} />
-              <span>{item.text}</span>
-            </div>
-          ))}
-        </div>
-        <div className="right-side">
-          <Switch>
-            <Route path="/account/orders" component={Orders} />
-            <Route path="/account/address" component={Address} />
-            <Route path="/account/account-details" component={Details} />
-            <Route
-              path="/account/cashback-history"
-              component={CashbackHistory}
-            />
-            <Route path="/account/referrals" component={Referrals} />
-            <Route path="/account/coupons" component={Coupons} />
-            <Route path="/account/wishlist" component={Wishlist} />
-            <Route exact path="/account">
-              {<Redirect to="/account/account-details" />}
-            </Route>
-          </Switch>
+        <div className="account-page">
+          <div className="left-side">
+            {this.menu.map((item, index) => (
+              <div
+                className={
+                  item.text === selectedRoute.text ? "menu active" : "menu"
+                }
+                key={index}
+                onClick={() => this.menuClick(item)}
+              >
+                <img className="icon" src={item.image} alt={item.text} />
+                <span>{item.text}</span>
+              </div>
+            ))}
+          </div>
+          <div className="right-side">
+            <Switch>
+              <Route path="/account/orders" component={Orders} />
+              <Route path="/account/address" component={Address} />
+              <Route path="/account/account-details" component={Details} />
+              <Route
+                path="/account/cashback-history"
+                component={CashbackHistory}
+              />
+              <Route path="/account/referrals" component={Referrals} />
+              <Route path="/account/coupons" component={Coupons} />
+              <Route path="/account/wishlist" component={Wishlist} />
+              <Route exact path="/account">
+                {<Redirect to="/account/account-details" />}
+              </Route>
+            </Switch>
+          </div>
         </div>
       </div>
     );
