@@ -9,6 +9,9 @@ import CashbackHistory from "./cashbackHistory";
 import Referrals from "./Referrals";
 import Coupons from "./Coupon";
 import Wishlist from "./wishlist";
+import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
+import Button from "@material-ui/core/Button";
+
 class Account extends React.Component {
   state = {
     activeRoute: {}
@@ -73,6 +76,37 @@ class Account extends React.Component {
     }
     return (
       <div className="account-page-wrapper">
+        <div className="mobile-menu">
+          <SwipeableDrawer
+            anchor="right"
+            open={this.state.menuopen}
+            onClose={() => this.setState({ menuopen: false })}
+            onOpen={() => this.setState({ menuopen: true })}
+          >
+            <div className="left-side">
+              {this.menu.map((item, index) => (
+                <div
+                  className={
+                    item.text === selectedRoute.text ? "menu active" : "menu"
+                  }
+                  key={index}
+                  onClick={() => this.menuClick(item)}
+                >
+                  {/* <img className="icon" src={item.image} alt={item.text} /> */}
+                  <span>{item.text}</span>
+                </div>
+              ))}
+            </div>
+          </SwipeableDrawer>
+          <Button
+            className="account-menu"
+            onClick={() => {
+              this.setState({ menuopen: true });
+            }}
+          >
+            Account Menu
+          </Button>
+        </div>
         <div className="page-title">{selectedRoute.text}</div>
         <div className="account-page">
           <div className="left-side">
@@ -89,6 +123,7 @@ class Account extends React.Component {
               </div>
             ))}
           </div>
+
           <div className="right-side">
             <Switch>
               <Route path="/account/orders" component={Orders} />

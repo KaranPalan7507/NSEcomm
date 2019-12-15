@@ -68,4 +68,27 @@
       width: calc(100% - 315px);
     }
   }
+  .mobile-menu {
+    display: none;
+  }
+}
+@media screen and (max-width: 768px) {
+  .account-page-wrapper {
+    .mobile-menu {
+      display: block;
+      text-align: right;
+      padding-right: 16px;
+      padding-top: 16px;
+    }
+    .account-page {
+      flex-direction: column;
+
+      .left-side {
+        display: none;
+      }
+      .right-side {
+        width: 100%;
+      }
+    }
+  }
 }
