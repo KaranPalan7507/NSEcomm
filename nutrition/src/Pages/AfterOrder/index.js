@@ -4,12 +4,12 @@ import messages from "../../utils/messages";
 export default class AfterOrder extends React.Component {
   success = {
     text: messages.common.order_success,
-    imgSrc: "images/happybuilder.png",
+    imgSrc: "/images/happybuilder.png",
     buttonText: messages.common.continue_shopping
   };
   failure = {
     text: messages.common.order_failure,
-    imgSrc: "images/sadbuilder.png",
+    imgSrc: "/images/sadbuilder.png",
     buttonText: messages.common.retry
   };
 

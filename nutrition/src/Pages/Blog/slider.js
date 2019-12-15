@@ -16,13 +16,13 @@ export default class Carousel extends Component {
     return (
       <Slider {...settings}>
         <div className="blog-slider">
-          <img src="images/blogslider.png" alt="" />
+          <img src="/images/blogslider.png" alt="" />
         </div>
         <div className="blog-slider">
-          <img src="images/blogslider.png" alt="" />
+          <img src="/images/blogslider.png" alt="" />
         </div>
         <div className="blog-slider">
-          <img src="images/blogslider.png" alt="" />
+          <img src="/images/blogslider.png" alt="" />
         </div>
       </Slider>
     );
