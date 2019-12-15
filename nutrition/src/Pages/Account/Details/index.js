@@ -62,18 +62,7 @@ class Details extends React.Component {
                 defaultValue={this.state.lastName}
               />
             </div>
-            <div className="info">
-              <div className="label">Display Name</div>
-              <input
-                name="display-name"
-                type="text"
-                defaultValue="Rishabhshukla98"
-              />
-              <div className="helptext">
-                (This will be how your name will be displayed in the account
-                section and in reviews.)
-              </div>
-            </div>
+
             <div className="info">
               <div className="label">Email</div>
               <input name="email" type="text" defaultValue={this.state.email} />
@@ -85,6 +74,18 @@ class Details extends React.Component {
                 type="number"
                 defaultValue={this.state.mobile}
               />
+            </div>
+            <div className="info">
+              <div className="label">Display Name</div>
+              <input
+                name="display-name"
+                type="text"
+                defaultValue="Rishabhshukla98"
+              />
+              <div className="helptext">
+                (This will be how your name will be displayed in the account
+                section and in reviews.)
+              </div>
             </div>
           </div>
           <Button
