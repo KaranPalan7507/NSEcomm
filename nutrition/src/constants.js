@@ -4,5 +4,6 @@ export const apis = {
   blogs: "/blog/blog_list",
   blogDetails: "/blog/",
   accountDetails: "/account_details",
-  coupon: "/coupon_page"
+  coupon: "/coupon_page",
+  address: "/address_change"
 };

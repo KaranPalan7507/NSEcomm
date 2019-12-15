@@ -3,7 +3,7 @@ import "./style.scss";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { withRouter } from "react-router";
 import Details from "./Details";
-import Address from "./address";
+import Address from "./Address";
 import Orders from "./orders";
 import CashbackHistory from "./cashbackHistory";
 import Referrals from "./Referrals";
