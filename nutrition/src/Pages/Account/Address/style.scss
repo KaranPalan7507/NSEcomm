@@ -40,3 +40,34 @@
     }
   }
 }
+.add-edit-wrapper {
+  font-family: "Poppins";
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  background-color: #ffffff;
+  border: 1px solid rgba(112, 112, 112, 0.3);
+  padding: 16px;
+  margin: 40px;
+  .heading {
+    font-size: 32px;
+    font-weight: 700;
+    color: #303030;
+    margin-bottom: 16px;
+  }
+  .form-wrapper {
+    border: 1px solid #ddd;
+    padding: 16px;
+    .name,
+    .mobile-number,
+    .pin,
+    .state,
+    .city,
+    .country {
+      width: 46%;
+      margin: 2%;
+    }
+    .address {
+      width: 96%;
+      margin: 2%;
+    }
+  }
+}

@@ -2,6 +2,7 @@ import React from "react";
 import "./style.scss";
 import { API } from "./../../../axios";
 import { apis } from "./../../../constants";
+import AddEdit from "./addEdit";
 const config = {
   headers: {
     authorization:
@@ -10,7 +11,8 @@ const config = {
 };
 class Address extends React.Component {
   state = {
-    address: []
+    address: [],
+    selectedAddress: null
   };
   async componentDidMount() {
     const response = await API.POST(apis.accountDetails, {}, config);
@@ -27,7 +29,10 @@ class Address extends React.Component {
         <div>{address.pin}</div>
         <div>{address.phoneno}</div>
         <div className="action">
-          <span>Edit</span> <span className="seperator">|</span>
+          <span onClick={() => this.setState({ selectedAddress: address })}>
+            Edit
+          </span>
+          <span className="seperator">|</span>
           <span>Delete</span>
         </div>
       </div>
@@ -35,14 +40,28 @@ class Address extends React.Component {
   }
   render() {
     return (
-      <div className="address-wrapper">
-        {this.state.address.map((item, index) =>
-          this.renderAddressItem(item, index)
+      <React.Fragment>
+        {!this.state.selectedAddress ? (
+          <div className="address-wrapper">
+            {this.state.address.map((item, index) =>
+              this.renderAddressItem(item, index)
+            )}
+            <div
+              className="address-item add"
+              onClick={() => this.setState({ selectedAddress: {} })}
+            >
+              <img src="/images/add_address.png" alt="add address" />
+            </div>
+          </div>
+        ) : (
+          <AddEdit
+            currentValue={this.state.selectedAddress}
+            success={data =>
+              this.setState({ address: data[0].address, selectedAddress: null })
+            }
+          />
         )}
-        <div className="address-item add">
-          <img src="/images/add_address.png" alt="add address" />
-        </div>
-      </div>
+      </React.Fragment>
     );
   }
 }
