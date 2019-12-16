@@ -51,6 +51,24 @@ export default class BlogDetail extends React.Component {
       </div>
     );
   }
+  async postComment(e) {
+    e.preventDefault(e);
+    const formdata = new FormData(e.target);
+    const data = {};
+    data.comment = formdata.get("comment");
+    data.type = "new";
+    const id = this.props.match.params.id;
+    const url = "/blog/" + id + "/post_comment";
+    const response = await API.POST(url);
+    if (response.success) {
+      const id = this.props.match.params.id;
+      const response = await API.GET(apis.blogDetails + id);
+
+      if (response.success) {
+        this.setState({ data: response.data, isLoaded: true });
+      }
+    }
+  }
   render() {
     const blog = this.state.data.blogs;
     return (
@@ -68,7 +86,7 @@ export default class BlogDetail extends React.Component {
                 <div className="comment">
                   <div>
                     <span className="post-comment">Post Comment</span>
-                    <form>
+                    <form onSubmit={e => this.postComment(e)}>
                       <div className="comment-field">
                         <TextField id="name" label="Name" variant="outlined" />
                       </div>
@@ -86,6 +104,8 @@ export default class BlogDetail extends React.Component {
                           id="comment"
                           label="Comment"
                           variant="outlined"
+                          name="comment
+                          required"
                         />
                       </div>
                       <Button variant="contained" color="secondary">

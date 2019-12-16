@@ -8,6 +8,9 @@ import messages from "./../../utils/messages";
 import { API } from "../../axios";
 import { apis } from "../../constants";
 import { GridIcon, ListIcon } from "../../Common/Icons";
+import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
+import Button from "@material-ui/core/Button";
+
 export default class Blog extends React.Component {
   state = {
     view: "grid",
@@ -46,6 +49,24 @@ export default class Blog extends React.Component {
                     onClick={() => this.setState({ view: "list" })}
                   />
                 </div>
+              </div>
+              <div className="mobile-menu">
+                <SwipeableDrawer
+                  anchor="right"
+                  open={this.state.menuopen}
+                  onClose={() => this.setState({ menuopen: false })}
+                  onOpen={() => this.setState({ menuopen: true })}
+                >
+                  <SideBar />
+                </SwipeableDrawer>
+                <Button
+                  className="filter"
+                  onClick={() => {
+                    this.setState({ menuopen: true });
+                  }}
+                >
+                  Filter
+                </Button>
               </div>
               <div className="items-count">
                 {this.state.data.length + " "}

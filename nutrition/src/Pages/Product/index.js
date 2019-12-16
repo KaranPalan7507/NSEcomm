@@ -10,6 +10,9 @@ import { API } from "../../axios";
 import { apis } from "../../constants";
 import { GridIcon, ListIcon } from "../../Common/Icons";
 import Loader from "./../../Common/Loader";
+import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
+import Button from "@material-ui/core/Button";
+
 export default class Product extends React.Component {
   state = {
     view: "grid",
@@ -78,6 +81,25 @@ export default class Product extends React.Component {
                       />
                     </div>
                   </div>
+                  <div className="mobile-menu">
+                    <SwipeableDrawer
+                      anchor="right"
+                      open={this.state.menuopen}
+                      onClose={() => this.setState({ menuopen: false })}
+                      onOpen={() => this.setState({ menuopen: true })}
+                    >
+                      <Filter />
+                    </SwipeableDrawer>
+                    <Button
+                      className="filter"
+                      onClick={() => {
+                        this.setState({ menuopen: true });
+                      }}
+                    >
+                      Filter
+                    </Button>
+                  </div>
+
                   <div className="items-count">
                     {this.state.data.length + " "}
                     {messages.common.items}
