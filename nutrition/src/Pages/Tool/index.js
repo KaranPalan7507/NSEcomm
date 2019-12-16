@@ -1,5 +1,39 @@
 import React from "react";
 import "./style.scss";
+import { Doughnut } from "react-chartjs-2";
+const data = {
+  labels: ["Fat", "Carbs", "Protein"],
+  datasets: [
+    {
+      data: [36, 164, 164],
+      backgroundColor: ["#7F0114", "#C10320", "#FF052B"],
+      hoverBackgroundColor: ["#7F0114", "#C10320", "#FF052B"]
+    }
+  ],
+  text: "23%"
+};
+// // some of this code is a variation on https://jsfiddle.net/cmyker/u6rr5moq/
+// var originalDoughnutDraw = Chart.controllers.doughnut.prototype.draw;
+// Chart.helpers.extend(Chart.controllers.doughnut.prototype, {
+//   draw: function() {
+//     originalDoughnutDraw.apply(this, arguments);
+
+//     var chart = this.chart;
+//     var width = chart.chart.width,
+//       height = chart.chart.height,
+//       ctx = chart.chart.ctx;
+
+//     var fontSize = (height / 114).toFixed(2);
+//     ctx.font = fontSize + "em sans-serif";
+//     ctx.textBaseline = "middle";
+
+//     var text = chart.config.data.text,
+//       textX = Math.round((width - ctx.measureText(text).width) / 2),
+//       textY = height / 2;
+
+//     ctx.fillText(text, textX, textY);
+//   }
+// });
 export default class extends React.Component {
   name = "User";
   subHeading = "Lorem Ispum text";
@@ -72,12 +106,19 @@ export default class extends React.Component {
             </tbody>
           </table>
         </div>
+
+        <Doughnut
+          data={data}
+          options={{
+            cutoutPercentage: 80
+          }}
+        />
         <div className="workroutine">
           <div className="title">Work Routine</div>
           <table>
             <tbody>
               {this.workroutine.map((item, index) => (
-                <tr className={index % 2 == 0 ? "even" : "odd"} key={index}>
+                <tr className={index % 2 === 0 ? "even" : "odd"} key={index}>
                   <td>{item.exercise}</td>
                   <td>{item.sets}</td>
                 </tr>
