@@ -12,6 +12,8 @@ import Blog from "./Pages/Blog";
 import BlogDetail from "./Pages/BlogDetail";
 import Account from "./Pages/Account";
 import Cart from "./Pages/Cart";
+import Tool from "./Pages/Tool";
+
 class App extends Component {
   render() {
     return (
@@ -37,6 +39,7 @@ class App extends Component {
             <Route path="/order-failure" component={() => <AfterOrder />} />
             <Route path="/account" component={Account} />
             <Route path="/cart" component={Cart} />
+            <Route path="/tool" component={Tool} />
           </Router>
         </section>
         <Footer />
