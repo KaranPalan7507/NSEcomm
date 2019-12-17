@@ -4,8 +4,18 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import Icon from "@material-ui/core/Icon";
 import { FormControlLabel, Checkbox } from "@material-ui/core";
+import { API } from "./../../axios";
+import { apis } from "./../../constants";
 
 export default class Signup extends React.Component {
+  onSubmit = async e => {
+    e.preventDefault();
+    const data = {};
+    const formData = new FormData(e.target);
+    data.mobile = formData.get("mobile");
+
+    const response = await API.POST(apis.signup, data);
+  };
   render() {
     return (
       <div className="signup-wrapper">
@@ -21,13 +31,15 @@ export default class Signup extends React.Component {
             label={messages.common.mobile_number}
             margin="normal"
             fullWidth
+            required
+            name="mobile"
           />
           <FormControlLabel
             control={<Checkbox />}
             className="subscribe_text"
             label={messages.common.email_subscribe}
           />
-          <Button variant="contained" className="login-btn">
+          <Button variant="contained" className="login-btn" type="submit">
             {messages.common.signUp}
           </Button>
         </form>
