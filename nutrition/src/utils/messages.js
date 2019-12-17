@@ -8,7 +8,7 @@ const messages = {
     search_text: "Search for Products, Brands and More",
     signup_newsletter: "Sign up for newsletter",
     copyright: "@ Copyright 2019, All Rights Reserved.",
-    coupen_code: "Coupen Code",
+    coupen_code: "Coupon Code",
     dummy_text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     enter_email: "Enter your Email-Id",
     reviews: "Reviews",

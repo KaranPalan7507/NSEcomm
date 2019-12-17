@@ -123,14 +123,14 @@ export default class Footer extends React.Component {
   }
 
   paymentOptions = [
-    {
-      type: "Visa",
-      img: paymentOpt1
-    },
-    {
-      type: "Master Card",
-      img: paymentOpt2
-    }
+    // {
+    //   type: "Visa",
+    //   img: paymentOpt1
+    // },
+    // {
+    //   type: "Master Card",
+    //   img: paymentOpt2
+    // }
     // {
     //   type: "Cirrus",
     //   img: paymentOpt3
