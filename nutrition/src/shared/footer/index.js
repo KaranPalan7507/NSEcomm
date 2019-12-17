@@ -130,19 +130,19 @@ export default class Footer extends React.Component {
     {
       type: "Master Card",
       img: paymentOpt2
-    },
-    {
-      type: "Cirrus",
-      img: paymentOpt3
-    },
-    {
-      type: "Discover",
-      img: paymentOpt4
-    },
-    {
-      type: "Paypal",
-      img: paymentOpt5
     }
+    // {
+    //   type: "Cirrus",
+    //   img: paymentOpt3
+    // },
+    // {
+    //   type: "Discover",
+    //   img: paymentOpt4
+    // },
+    // {
+    //   type: "Paypal",
+    //   img: paymentOpt5
+    // }
   ];
 
   componentDidMount() {
