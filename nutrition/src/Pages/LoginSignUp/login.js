@@ -5,10 +5,21 @@ import { Fab, FormControlLabel, Checkbox } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 import "./style.scss";
 import Icon from "@material-ui/core/Icon";
+import { API } from "./../../axios";
+import { apis } from "./../../constants";
 
 export default class Login extends React.Component {
-  onSubmit = data => {
-    console.log(data);
+  state = {
+    showPaswor: false
+  };
+  onSubmit = async e => {
+    e.preventDefault();
+    const data = {};
+    const formData = new FormData(e.target);
+    data.mobile = formData.get("mobile");
+    // data.password = formData.get("password");
+
+    const response = await API.POST(apis.login, data);
   };
   render() {
     return (
@@ -24,13 +35,17 @@ export default class Login extends React.Component {
             label={messages.common.mobile_number}
             margin="normal"
             fullWidth
+            required
+            name="mobile"
           />
           <TextField
-            type="password"
+            type={this.state.showPassword ? "text" : "password"}
             classes={{ root: "login-input" }}
             label={messages.common.password}
             margin="normal"
             fullWidth
+            name="password"
+            required
             InputProps={{
               endAdornment: (
                 <Fab
@@ -46,18 +61,24 @@ export default class Login extends React.Component {
           />
           <div className="forgot-wrapper">
             <FormControlLabel
-              control={<Checkbox />}
+              control={
+                <Checkbox
+                  onChange={event =>
+                    this.setState({ showPassword: event.target.checked })
+                  }
+                />
+              }
               label={messages.common.show_password}
             />
             <Button>{messages.common.forgot_password}</Button>
           </div>
 
-          <Button variant="contained" className="login-btn">
+          <Button variant="contained" className="login-btn" type="submit">
             {messages.common.login}
           </Button>
         </form>
         <div>
-          <div class="or">
+          <div className="or">
             <span>OR</span>
           </div>
           <span className="continue-text">{messages.common.continue_with}</span>
