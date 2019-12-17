@@ -261,9 +261,7 @@ export default class Footer extends React.Component {
             Quisque hendrerit pharetra augue sed fermentum. Orci varius
             natoquepenatibus et magnis dis parturient montes, nascetur ridiculus
             mus. Curabitur quis tellus interdum, rutrum mi id, consectetur est.
-            <div className="cc-text">
-              @ Copyright 2019 . All Right Reserved{" "}
-            </div>
+            <div className="cc-text">@ Copyright 2019 . All Right Reserved</div>
           </div>
         </div>
       </footer>
