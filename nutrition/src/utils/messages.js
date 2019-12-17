@@ -5,7 +5,7 @@ const messages = {
     login: "Login",
     off: "off",
     signUp: "Sign Up",
-    search_text: "search for Products, Brands and More",
+    search_text: "Search for Products, Brands and More",
     signup_newsletter: "Sign up for newsletter",
     copyright: "@ Copyright 2019, All Rights Reserved.",
     coupen_code: "Coupen Code",

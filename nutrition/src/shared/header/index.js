@@ -3,6 +3,7 @@ import React from "react";
 import menuOptions from "./options";
 import messages from "../../utils/messages";
 import { Link } from "react-router-dom";
+import "./style.scss";
 class Header extends React.Component {
   constructor(props) {
     super(props);
@@ -92,52 +93,46 @@ class Header extends React.Component {
         <div className="container">
           <div className="inner-header">
             <div className="ih-action">
-              <div className="row">
-                <div className="custom-col-2">
-                  <div className="logo">
-                    <a href="/">
-                      <img src="/images/logo.png" alt="Nutrition Systems logo" />
-                    </a>
+              <div className="header-wrapper">
+                <div className="logo">
+                  <a href="/">
+                    <img src="/images/logo.png" alt="Nutrition Systems logo" />
+                  </a>
+                </div>
+                <div className="navbar-search">
+                  <div className="inner-search">
+                    <form onSubmit={this.handleSubmit}>
+                      <input
+                        type="text"
+                        className="form-control"
+                        placeholder={messages.common.search_text}
+                      />
+                      <button className="btn btn-search" type="submit">
+                        <em className="fa fa-search" aria-hidden="true" />
+                      </button>
+                    </form>
                   </div>
                 </div>
-                <div className="custom-col-6">
-                  <div className="navbar-search">
-                    <div className="inner-search">
-                      <form onSubmit={this.handleSubmit}>
-                        <input
-                          type="text"
-                          className="form-control"
-                          placeholder={messages.common.search_text}
-                        />
-                        <button className="btn btn-search" type="submit">
-                          <em className="fa fa-search" aria-hidden="true" />
-                        </button>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-                <div className="custom-col-4">
-                  <div className="navbar-register">
-                    <div className="reg-link">
-                      <ul>
-                        <li>
-                          <a href="/">
-                            <em className="fa fa-heart" />
-                            <sup className="badge badge-danger">2</sup>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="/">
-                            <em className="fa fa-shopping-cart" />
-                            <sup className="badge badge-danger">2</sup>
-                          </a>
-                        </li>
-                        <li>
-                          <Link to="/login">Login</Link>/
-                          <Link to="/register">Register</Link>
-                        </li>
-                      </ul>
-                    </div>
+                <div className="navbar-register">
+                  <div className="reg-link">
+                    <ul>
+                      <li>
+                        <a href="/">
+                          <em className="fa fa-heart" />
+                          <sup className="badge badge-danger">2</sup>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="/">
+                          <em className="fa fa-shopping-cart" />
+                          <sup className="badge badge-danger">2</sup>
+                        </a>
+                      </li>
+                      <li>
+                        <Link to="/login">Login</Link>/
+                        <Link to="/register">Register</Link>
+                      </li>
+                    </ul>
                   </div>
                 </div>
               </div>
