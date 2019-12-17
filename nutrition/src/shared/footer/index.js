@@ -252,15 +252,19 @@ export default class Footer extends React.Component {
           </div>
         </div>
         <div className="footer-copyright">
-          <span>Disclaimer: </span> Lorem ipsum dolor sit amet, consectetur
-          adipiscing elit.Quisque eu nibh ac arcu porttitor consectetur et sit
-          amet nisi. Phasellussed justo vel nulla vestibulum dapibus. Curabitur
-          consequat lacus risus, ac tempus metus porttitor a. Quisquelobortis
-          faucibus mauris, et consequat eros vehicula a. Quisque hendrerit
-          pharetra augue sed fermentum. Orci varius natoquepenatibus et magnis
-          dis parturient montes, nascetur ridiculus mus. Curabitur quis tellus
-          interdum, rutrum mi id, consectetur est.
-          <div className="cc-text">@ Copyright 2019 . All Right Reserved </div>
+          <div className="container">
+            <span>Disclaimer: </span> Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit.Quisque eu nibh ac arcu porttitor consectetur et sit
+            amet nisi. Phasellussed justo vel nulla vestibulum dapibus.
+            Curabitur consequat lacus risus, ac tempus metus porttitor a.
+            Quisquelobortis faucibus mauris, et consequat eros vehicula a.
+            Quisque hendrerit pharetra augue sed fermentum. Orci varius
+            natoquepenatibus et magnis dis parturient montes, nascetur ridiculus
+            mus. Curabitur quis tellus interdum, rutrum mi id, consectetur est.
+            <div className="cc-text">
+              @ Copyright 2019 . All Right Reserved{" "}
+            </div>
+          </div>
         </div>
       </footer>
     );
