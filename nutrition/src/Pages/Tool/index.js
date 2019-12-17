@@ -1,6 +1,9 @@
 import React from "react";
 import "./style.scss";
 import { Doughnut } from "react-chartjs-2";
+import StarRating from "./../../Common/StartRating";
+import messages from "./../../utils/messages";
+
 const data = {
   labels: ["Fat", "Carbs", "Protein"],
   datasets: [
@@ -73,6 +76,38 @@ export default class extends React.Component {
     "friday",
     "saturday"
   ];
+  products = [
+    {
+      image:
+        "https://images.unsplash.com/photo-1566408669374-5a6d5dca1ef5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2734&q=80",
+      alt: "product1",
+      title: "Lorem Ipsum",
+      currentPrice: "3999",
+      originalPrice: "5749",
+      discount: "30",
+      reviews: "1182"
+    },
+    {
+      image:
+        "https://images.unsplash.com/photo-1566408669374-5a6d5dca1ef5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2734&q=80",
+      alt: "product1",
+      title: "Lorem Ipsum",
+      currentPrice: "3999",
+      originalPrice: "5749",
+      discount: "30",
+      reviews: "1182"
+    },
+    {
+      image:
+        "https://images.unsplash.com/photo-1566408669374-5a6d5dca1ef5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2734&q=80",
+      alt: "product1",
+      title: "Lorem Ipsum",
+      currentPrice: "3999",
+      originalPrice: "5749",
+      discount: "30",
+      reviews: "1182"
+    }
+  ];
   dietText = "Lorem ipsum dolor sit amet, consectetuer adipiscing";
   render() {
     return (
@@ -80,51 +115,102 @@ export default class extends React.Component {
         <div className="title">Hi {this.name}</div>
         <div className="sub-heading">{this.subHeading}</div>
         <div className="summary">{this.summary}</div>
+        <div className="chart-wrapper">
+          <div className="left-side">
+            <div className="bmr">
+              Your BMR is
+              <div>1994</div>
+            </div>
+            <div className="category">
+              Product | Diet Chart | Workout Routine
+            </div>
+          </div>
+          <div className="right-side">
+            <Doughnut
+              data={data}
+              options={{
+                cutoutPercentage: 80
+              }}
+            />
+          </div>
+        </div>
         <div className="recommended-products">
           <div className="title">Recommended Products</div>
+          <div className="product-wrapper">
+            {this.products.map(item => (
+              <div className="product">
+                <div className="image-wrapper">
+                  <img src={item.image} alt={item.alt} />
+                </div>
+                <div className="product-title">{item.title}</div>
+                <div className="product-final-offer">
+                  <span className="current-price">
+                    <span>&#8377;</span>
+                    {item.currentPrice}
+                  </span>
+                  <strike className="original-price">
+                    <span>&#8377;</span>
+                    {item.originalPrice}
+                  </strike>
+                  <span className="discount">
+                    {item.discount}
+                    <span>
+                      {"%"} {messages.common.off}
+                    </span>
+                  </span>
+                </div>
+                <div className="product-rating">
+                  <div className="rating">
+                    <StarRating />
+                  </div>
+                  <span className="review-count">
+                    {item.reviews} {messages.common.reviews}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
         <div className="dietchart">
           <div className="title">Diet Chart</div>
-          <table>
-            <thead>
-              <tr>
-                <td></td>
-                {this.headings.map((heading, index) => (
-                  <td key={index}>{heading}</td>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {this.cols.map((item, index) => (
-                <tr key={index}>
-                  <td>{item}</td>
-                  {this.headings.map((heading, colindex) => (
-                    <td key={colindex}>{this.dietText}</td>
+          <div className="table-overflow">
+            <table>
+              <thead>
+                <tr>
+                  <td></td>
+                  {this.headings.map((heading, index) => (
+                    <td key={index}>{heading}</td>
                   ))}
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {this.cols.map((item, index) => (
+                  <tr key={index}>
+                    <td>{item}</td>
+                    {this.headings.map((heading, colindex) => (
+                      <td key={colindex}>{this.dietText}</td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
 
-        <Doughnut
-          data={data}
-          options={{
-            cutoutPercentage: 80
-          }}
-        />
         <div className="workroutine">
           <div className="title">Work Routine</div>
-          <table>
-            <tbody>
-              {this.workroutine.map((item, index) => (
-                <tr className={index % 2 === 0 ? "even" : "odd"} key={index}>
-                  <td>{item.exercise}</td>
-                  <td>{item.sets}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+          <div className="table-overflow">
+            <table>
+              <tbody>
+                {this.workroutine.map((item, index) => (
+                  <tr className={index % 2 === 0 ? "even" : "odd"} key={index}>
+                    <td>{item.exercise}</td>
+                    <td>{item.sets}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
         <div className="tool-btns-wrapper">
           <button className="tool-btn">DOWNLOAD</button>
