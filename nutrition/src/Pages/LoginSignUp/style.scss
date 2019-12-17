@@ -47,10 +47,28 @@
   .facebook-btn {
     border-color: #415aa7;
     color: #415aa7;
+    width: 48%;
+    height: 50px;
+    margin: 1%;
+    &:hover {
+      background-color: white;
+    }
+    .MuiIcon-root {
+      width: auto;
+    }
   }
   .google-btn {
     border-color: #ec3032;
     color: #ec3032;
+    width: 48%;
+    height: 50px;
+    margin: 1%;
+    &:hover {
+      background-color: white;
+    }
+    .MuiIcon-root {
+      width: auto;
+    }
   }
   .continue-text {
     color: #25292b;
