@@ -44,6 +44,9 @@ export default class Signup extends React.Component {
           </Button>
         </form>
         <div>
+          <div className="or">
+            <span>OR</span>
+          </div>
           <span className="continue-text">{messages.common.continue_with}</span>
           <div className="social-btn-wrapper">
             <Button
