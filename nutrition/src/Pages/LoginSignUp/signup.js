@@ -6,15 +6,29 @@ import Icon from "@material-ui/core/Icon";
 import { FormControlLabel, Checkbox } from "@material-ui/core";
 import { API } from "./../../axios";
 import { apis } from "./../../constants";
+import { withRouter } from "react-router";
+import Cookie from "js-cookie";
 
-export default class Signup extends React.Component {
+class Signup extends React.Component {
   onSubmit = async e => {
     e.preventDefault();
     const data = {};
     const formData = new FormData(e.target);
     data.mobile = formData.get("mobile");
-
+    // static params
+    data.fname = "abc";
+    data.lname = "abc";
+    data.email = "abc";
+    data.username = "abc";
     const response = await API.POST(apis.signup, data);
+    if (response.success) {
+      const loginresponse = await API.POST(apis.login, data);
+      if (loginresponse.success) {
+        Cookie.set("token", loginresponse.data.token);
+        this.props.history.push("/");
+        window.location.reload();
+      }
+    }
   };
   render() {
     return (
@@ -74,3 +88,4 @@ export default class Signup extends React.Component {
     );
   }
 }
+export default withRouter(Signup);

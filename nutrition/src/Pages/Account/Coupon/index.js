@@ -1,12 +1,8 @@
 import React from "react";
 import "./style.scss";
 import { API } from "./../../../axios";
-import { apis, token } from "./../../../constants";
-const config = {
-  headers: {
-    authorization: "Bearer " + token
-  }
-};
+import { apis } from "./../../../constants";
+
 class Coupon extends React.Component {
   state = { firstName: "", lastName: "", email: "" };
   dummyCoupon = [
@@ -144,7 +140,7 @@ class Coupon extends React.Component {
     }
   ];
   async componentDidMount() {
-    const response = await API.POST(apis.coupon, {}, config);
+    const response = await API.POST(apis.coupon);
     if (response.success) {
     }
   }

@@ -13,8 +13,13 @@ import BlogDetail from "./Pages/BlogDetail";
 import Account from "./Pages/Account";
 import Cart from "./Pages/Cart";
 import Tool from "./Pages/Tool";
+import Cookie from "js-cookie";
 
 class App extends Component {
+  componentDidMount() {
+    this.token = Cookie.get("token") ? Cookie.get("token") : null;
+  }
+
   render() {
     return (
       <div id="wrapper">

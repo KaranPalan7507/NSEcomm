@@ -1,15 +1,11 @@
 import React from "react";
 import { API } from "./../../axios";
-import { apis, token } from "./../../constants";
-const config = {
-  headers: {
-    authorization: "Bearer " + token
-  }
-};
+import { apis } from "./../../constants";
+
 class CashbackHistory extends React.Component {
   state = { data: [] };
   async componentDidMount() {
-    const response = await API.POST(apis.cashback, {}, config);
+    const response = await API.POST(apis.cashback);
 
     if (response.success) {
       this.setState({ data: response.data });

@@ -7,8 +7,10 @@ import "./style.scss";
 import Icon from "@material-ui/core/Icon";
 import { API } from "./../../axios";
 import { apis } from "./../../constants";
+import Cookie from "js-cookie";
+import { withRouter } from "react-router";
 
-export default class Login extends React.Component {
+class Login extends React.Component {
   state = {
     showPaswor: false
   };
@@ -20,6 +22,11 @@ export default class Login extends React.Component {
     // data.password = formData.get("password");
 
     const response = await API.POST(apis.login, data);
+    if (response.success) {
+      Cookie.set("token", response.data.token);
+      this.props.history.push("/");
+      window.location.reload();
+    }
   };
   render() {
     return (
@@ -108,3 +115,4 @@ export default class Login extends React.Component {
     );
   }
 }
+export default withRouter(Login);

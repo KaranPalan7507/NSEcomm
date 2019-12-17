@@ -1,14 +1,9 @@
 import React from "react";
 import "./style.scss";
 import { API } from "./../../../axios";
-import { apis, token } from "./../../../constants";
+import { apis } from "./../../../constants";
 import Button from "@material-ui/core/Button";
 
-const config = {
-  headers: {
-    authorization: "Bearer " + token
-  }
-};
 class AddEdit extends React.Component {
   async onSubmit(e) {
     e.preventDefault();
@@ -26,7 +21,7 @@ class AddEdit extends React.Component {
     } else {
       data.type = "new";
     }
-    const response = await API.POST(apis.accountDetails, data, config);
+    const response = await API.POST(apis.accountDetails, data);
     if (response.success) {
       this.props.success(response.data);
     }

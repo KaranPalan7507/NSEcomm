@@ -1,18 +1,14 @@
 import React from "react";
 import "./style.scss";
 import { API } from "./../../axios";
-import { apis, token } from "./../../constants";
-const config = {
-  headers: {
-    authorization: "Bearer " + token
-  }
-};
+import { apis } from "./../../constants";
+
 class Orders extends React.Component {
   state = {
     orders: []
   };
   async componentDidMount() {
-    const response = await API.POST(apis.orders, {}, config);
+    const response = await API.POST(apis.orders);
     if (response.success) {
       this.setState({ orders: response.data });
     }

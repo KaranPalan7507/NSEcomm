@@ -1,21 +1,16 @@
 import React from "react";
 import "./style.scss";
 import { API } from "./../../axios";
-import { apis, token } from "./../../constants";
+import { apis } from "./../../constants";
 import StarRating from "./../../Common/StartRating";
 import messages from "./../../utils/messages";
 
-const config = {
-  headers: {
-    authorization: "Bearer " + token
-  }
-};
 class Wishlist extends React.Component {
   state = {
     items: []
   };
   async componentDidMount() {
-    const response = await API.POST(apis.wishlist, {}, config);
+    const response = await API.POST(apis.wishlist);
     if (response.success) {
       this.setState({ items: response.data });
     }

@@ -1,20 +1,16 @@
 import React from "react";
 import "./style.scss";
 import { API } from "./../../../axios";
-import { apis, token } from "./../../../constants";
+import { apis } from "./../../../constants";
 import AddEdit from "./addEdit";
-const config = {
-  headers: {
-    authorization: "Bearer " + token
-  }
-};
+
 class Address extends React.Component {
   state = {
     address: [],
     selectedAddress: null
   };
   async componentDidMount() {
-    const response = await API.POST(apis.accountDetails, {}, config);
+    const response = await API.POST(apis.accountDetails, {});
 
     if (response.success) {
       this.setState({ address: response.data[0].address });
