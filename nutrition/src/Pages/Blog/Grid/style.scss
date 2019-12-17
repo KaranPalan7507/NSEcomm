@@ -12,9 +12,12 @@
   font-family: "Poppins";
   font-weight: 400;
   font-size: 15px;
+  .image-wrapper {
+    text-align: center;
+  }
   img {
     max-height: 300px;
-    width: 100%;
+    max-width: 100%;
   }
 
   .date {

@@ -16,7 +16,9 @@ class Item extends React.Component {
         className="blog-grid-item"
         onClick={() => this.props.history.push(link)}
       >
-        <img src={imgSrc} alt={title} />
+        <div className="image-wrapper">
+          <img src={imgSrc} alt={title} />
+        </div>
         <div>
           <span className="date">{date}</span>
           <span className="category">{category.toString()}</span>
