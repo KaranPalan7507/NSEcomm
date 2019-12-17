@@ -39,7 +39,11 @@ export default class Signup extends React.Component {
             className="subscribe_text"
             label={messages.common.email_subscribe}
           />
-          <Button variant="contained" className="login-btn" type="submit">
+          <Button
+            variant="contained"
+            className="login-btn button-red"
+            type="submit"
+          >
             {messages.common.signUp}
           </Button>
         </form>

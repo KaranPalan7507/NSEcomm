@@ -48,9 +48,15 @@ img {
 }
 /* General Style Ends
 ===================================================================================================================================*/
-.button-red.MuiButton-contained{
-  background-color:#f54747;
-  color:#fff
+.button-red.MuiButtonBase-root {
+  color: #fff;
+  background-color: $red;
+  font-family: Poppins;
+  &:hover {
+    background-color: white;
+    color: $red;
+    border: 2px solid $red;
+  }
 }
 /* Header Style Starts
 ===================================================================================================================================*/

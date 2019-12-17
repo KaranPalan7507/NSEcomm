@@ -52,7 +52,7 @@ export default class Login extends React.Component {
                   variant="extended"
                   size="small"
                   color="primary"
-                  className="otp-btn"
+                  className="otp-btn button-red"
                 >
                   {messages.common.login_via_otp}
                 </Fab>
@@ -73,7 +73,11 @@ export default class Login extends React.Component {
             <Button>{messages.common.forgot_password}</Button>
           </div>
 
-          <Button variant="contained" className="login-btn" type="submit">
+          <Button
+            variant="contained"
+            className="login-btn button-red"
+            type="submit"
+          >
             {messages.common.login}
           </Button>
         </form>
