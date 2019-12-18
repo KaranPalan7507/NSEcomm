@@ -26,14 +26,12 @@
     display: block;
     margin: auto;
   }
-  .btn {
+  .button-red {
     font-size: 26px;
     font-weight: $font-weight-bold;
-    background: #f54747;
-    border-color: #f54747;
     min-width: 315px;
     border-radius: 30px;
-    padding: 15px 18px;
+    padding: 13px;
   }
 }
 

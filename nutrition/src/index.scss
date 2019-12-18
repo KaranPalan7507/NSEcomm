@@ -49,6 +49,9 @@ img {
 }
 /* General Style Ends
 ===================================================================================================================================*/
+button{
+  outline:none !important
+}
 .button-red.MuiButtonBase-root {
   color: #fff;
   background-color: $red;
@@ -272,7 +275,7 @@ img {
           font-size: 14px;
           &:hover,
           &:focus {
-            color: #fd1d1d;
+            color: $red;
           }
         }
       }
@@ -499,7 +502,7 @@ img {
     &:focus {
       .sw-offer-content {
         > h5 {
-          color: #fd1d1d;
+          color: $red;
         }
       }
     }

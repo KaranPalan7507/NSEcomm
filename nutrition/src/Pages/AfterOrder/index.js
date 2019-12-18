@@ -1,6 +1,8 @@
 import React from "react";
 import "./style.scss";
 import messages from "../../utils/messages";
+import Button from "@material-ui/core/Button";
+
 export default class AfterOrder extends React.Component {
   success = {
     text: messages.common.order_success,
@@ -15,15 +17,20 @@ export default class AfterOrder extends React.Component {
 
   render() {
     const data = this.props.success ? this.success : this.failure;
+    const mainText = this.props.success
+      ? messages.common.congratulations
+      : "Sorry";
     return (
       <div className="status-area">
         <div className="container">
           <div className="order-status-area">
-            <span>{messages.common.congratulations}</span>
+            <span>{mainText}</span>
             <span>{data.text}</span>
             <div className="order-status-media">
               <img src={data.imgSrc} alt="happy builder" />
-              <button className="btn btn-success">{data.buttonText}</button>
+              <Button variant="contained" className="button-red" type="submit">
+                {data.buttonText}
+              </Button>
             </div>
           </div>
         </div>
