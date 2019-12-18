@@ -1,6 +1,6 @@
 import "./App.scss";
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import ProductDetails from "./components/product/product_details";
 import Product from "./Pages/Product";
 import AfterOrder from "./Pages/AfterOrder";
@@ -27,6 +27,9 @@ class App extends Component {
         <section className="main-content">
           <Router>
             <Header />
+            <div className="breadcrumbs">
+              <Link to="/">Home</Link>
+            </div>
             <Route exact path="/product_details" component={ProductDetails} />
             <Route exact path="/login" component={LoginSignUp} />
             <Route

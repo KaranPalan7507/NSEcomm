@@ -65,6 +65,18 @@ img {
   }
   color: $red;
 }
+.breadcrumbs {
+  background-color: #dd121f;
+  color: white;
+  padding: 0 70px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  a {
+    color: white;
+  }
+}
 /* Header Style Starts
 ===================================================================================================================================*/
 
