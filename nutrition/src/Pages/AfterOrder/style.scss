@@ -32,6 +32,7 @@
     min-width: 315px;
     border-radius: 30px;
     padding: 13px;
+    margin-top: -40px;
   }
 }
 
@@ -46,17 +47,17 @@
     }
   }
   .order-status-media {
-    .btn {
+    .button-red {
       font-size: 21px;
       min-width: 275px;
-      padding: 12px 18px;
+      padding: 12px;
     }
   }
 }
 
 @media (max-width: $desktopFirst-xs) {
   .order-status-media {
-    .btn {
+    .button-red {
       font-size: 16px;
       min-width: 225px;
     }
