@@ -43,7 +43,7 @@ class AddEdit extends React.Component {
                 defaultValue={data.name}
               />
               <input
-                type="number"
+                type="tel"
                 name="number"
                 placeholder="Mobile Number"
                 className="mobile-number"
@@ -59,7 +59,7 @@ class AddEdit extends React.Component {
               />
               <input
                 className="pin"
-                type="number"
+                type="tel"
                 name="pin"
                 placeholder="PIN"
                 required
