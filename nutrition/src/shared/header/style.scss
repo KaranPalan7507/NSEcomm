@@ -16,6 +16,28 @@
     align-items: center;
     justify-content: center;
   }
+  .sw-offer-box {
+    text-align: center;
+    padding: 15px 0 12px;
+    height: 100%;
+    position: relative;
+    border-right: 1px solid rgba(112, 112, 112, 0.15);
+    &.last{
+      border-right:none;
+    }
+
+    > a {
+      display: block;
+      &:hover,
+      &:focus {
+        .sw-offer-content {
+          > h5 {
+            color: $red;
+          }
+        }
+      }
+    }
+  }
   .navbar-menu {
     @include flexbox();
     @include justify-content(center);
@@ -49,6 +71,7 @@
                 top: 100%;
                 opacity: 1;
                 visibility: visible;
+                height: 10px;
               }
             }
           }
@@ -97,10 +120,14 @@
             &::before {
               content: "";
               background: #ffffff;
-              height: 10px;
+              height: 0px;
               position: absolute;
               opacity: 0;
-              @include multi-transition(top 0.3s 0s, opacity 0.3s 0.2s);
+              @include multi-transition(
+                top 0.3s 0s,
+                opacity 0.3s 0.2s,
+                height 0.3 0.3
+              );
               visibility: hidden;
               left: 0;
               right: 0;

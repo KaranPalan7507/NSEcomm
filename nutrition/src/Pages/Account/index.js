@@ -11,6 +11,7 @@ import Coupons from "./Coupon";
 import Wishlist from "./wishlist";
 import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
 import Button from "@material-ui/core/Button";
+import Cookie from "js-cookie";
 
 class Account extends React.Component {
   state = {
@@ -20,7 +21,7 @@ class Account extends React.Component {
     {
       text: "Dashboard",
       image: "/images/home@2x.png",
-      url: "/account/dashboard"
+      url: "/"
     },
     {
       text: "Orders",
@@ -56,15 +57,15 @@ class Account extends React.Component {
       text: "Wishlist",
       image: "/images/like@2x.png",
       url: "/account/wishlist"
-    },
-    {
-      text: "Logout",
-      image: "/images/account_logout.png",
-      url: "/account/logout"
     }
   ];
   menuClick(item) {
     this.props.history.push(item.url);
+  }
+  logout() {
+    Cookie.set("token", null);
+    this.props.history.push("/");
+    window.location.reload();
   }
   render() {
     const currentRoute = this.props.location.pathname;
@@ -92,10 +93,12 @@ class Account extends React.Component {
                   key={index}
                   onClick={() => this.menuClick(item)}
                 >
-                  {/* <img className="icon" src={item.image} alt={item.text} /> */}
                   <span>{item.text}</span>
                 </div>
               ))}
+              <div className="logout menu" onClick={() => this.logout()}>
+                <span>Logout</span>
+              </div>
             </div>
           </SwipeableDrawer>
           <Button
@@ -122,6 +125,14 @@ class Account extends React.Component {
                 <span>{item.text}</span>
               </div>
             ))}
+            <div className="menu logout" onClick={() => this.logout()}>
+              <img
+                className="icon"
+                src="/images/account_logout.png"
+                alt="Logout"
+              />
+              <span>Logout</span>
+            </div>
           </div>
 
           <div className="right-side">

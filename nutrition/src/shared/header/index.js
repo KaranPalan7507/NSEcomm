@@ -297,7 +297,13 @@ class Header extends React.Component {
                                   <React.Fragment>
                                     {item.offerOptions.map((item, index) => (
                                       <div className="col-lg-3" key={index}>
-                                        <div className="sw-offer-box">
+                                        <div
+                                          className={
+                                            index === 3
+                                              ? "sw-offer-box last"
+                                              : "sw-offer-box"
+                                          }
+                                        >
                                           <Link to={item.path}>
                                             <div className="sw-offer-media">
                                               <img

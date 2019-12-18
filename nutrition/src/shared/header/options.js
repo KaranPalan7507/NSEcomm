@@ -264,22 +264,22 @@ const menuOptions = [
     offerOptions: [
       {
         path: "#",
-        imgPath: "/images/flash_menu.svg",
+        imgPath: "/images/lightning.svg",
         name: "Flash Sale"
       },
       {
         path: "#",
-        imgPath: "/images/crazy_deals_menu.svg",
+        imgPath: "/images/banking.svg",
         name: "Crazy Deals"
       },
       {
         path: "#",
-        imgPath: "/images/wipeout_menu.svg",
+        imgPath: "/images/shopping-bag.svg",
         name: "Wipe Out Sale"
       },
       {
         path: "#",
-        imgPath: "/images/half_price_menu.svg",
+        imgPath: "/images/percent.svg",
         name: "Half Price Store"
       }
     ]

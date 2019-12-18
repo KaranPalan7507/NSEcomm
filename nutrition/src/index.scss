@@ -49,17 +49,17 @@ img {
 }
 /* General Style Ends
 ===================================================================================================================================*/
-button{
-  outline:none !important
+button {
+  outline: none !important;
 }
 .button-red.MuiButtonBase-root {
   color: #fff;
   background-color: $red;
   font-family: Poppins;
+  border: 2px solid $red;
   &:hover {
     background-color: white;
     color: $red;
-    border: 2px solid $red;
   }
 }
 .checkbox-red.MuiCheckbox-colorSecondary.Mui-checked {
@@ -491,23 +491,7 @@ button{
   }
 }
 
-.sw-offer-box {
-  text-align: center;
-  padding: 15px 0 12px;
-  height: 100%;
-  position: relative;
-  > a {
-    display: block;
-    &:hover,
-    &:focus {
-      .sw-offer-content {
-        > h5 {
-          color: $red;
-        }
-      }
-    }
-  }
-}
+
 
 .sw-offer-media {
   min-height: 42px;
