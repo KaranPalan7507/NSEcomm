@@ -14,7 +14,8 @@ class Item extends React.Component {
     const title = data.title;
     const date = new Date(data.publish_date).toLocaleDateString();
     const blog = data.body;
-    const category = data.categories.map(item => item.category);
+    let category = data.categories.map(item => item.category);
+    category = category.join(", ");
     const link = "/blogdetail/" + data.blog_id;
 
     return (

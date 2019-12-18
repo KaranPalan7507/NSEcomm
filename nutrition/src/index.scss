@@ -12,6 +12,7 @@ body {
   font-size: $base-font-size;
   font-weight: $font-weight-regular;
   line-height: $base-line-height;
+  min-width: 320px;
 }
 
 #{headings(1,6)} {
@@ -695,7 +696,6 @@ img {
 /* miscellaneous Style Starts
 ===================================================================================================================================*/
 .discount-offer {
-  font-family: "Poppins", sans-serif;
   background: $link-hover-clr;
   color: #ffffff;
   padding: 6px 50px 6px 0;
