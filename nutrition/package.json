@@ -23,7 +23,8 @@
     "redux": "^4.0.4",
     "redux-form": "^8.2.6",
     "slick-carousel": "^1.8.1",
-    "stars-rating": "^1.1.0"
+    "stars-rating": "^1.1.0",
+    "styled-components": "^4.4.1"
   },
   "scripts": {
     "start": "react-scripts start",

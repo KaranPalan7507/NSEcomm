@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.scss";
 import { withRouter } from "react-router";
-
+import AspectRatioBackground from "./../../../Common/Background";
 class Item extends React.Component {
   render() {
     const data = this.props.data;
@@ -16,12 +16,12 @@ class Item extends React.Component {
         className="blog-grid-item"
         onClick={() => this.props.history.push(link)}
       >
-        <div className="image-wrapper">
-          <img src={imgSrc} alt={title} />
-        </div>
-        <div>
-          <span className="date">{date}</span>
-          <span className="category">{category.toString()}</span>
+        <AspectRatioBackground url={imgSrc} ratio="1:1"></AspectRatioBackground>
+        <div className="blog-details">
+          <div className="date-category">
+            <span className="date">{date}</span>
+            <span className="category">{category.toString()}</span>
+          </div>
           <div className="title">{title}</div>
           <div className="content">{blog}</div>
         </div>

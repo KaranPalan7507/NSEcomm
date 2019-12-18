@@ -1,30 +1,32 @@
+@import "./../../../scss/variables";
 .blog-grid-area {
   display: flex;
   flex-flow: row wrap;
 }
 .blog-grid-item {
-  cursor: pointer;
   width: calc(50% - 40px);
+  cursor: pointer;
   padding: 12px;
   margin: 20px;
+  max-height: 700px;
   filter: drop-shadow(0px 3px 3.5px rgba(221, 18, 31, 0.16));
   background-color: #ffffff;
   font-family: "Poppins";
   font-weight: 400;
   font-size: 15px;
-  .image-wrapper {
-    text-align: center;
+  overflow: hidden;
+  .blog-details {
+    margin-top: 20px;
   }
-  img {
-    max-height: 300px;
-    max-width: 100%;
+  .date-category {
+    display: flex;
+    flex-wrap: wrap;
   }
-
   .date {
     color: #808080;
   }
   .category {
-    color: #db0310;
+    color: $red;
     margin-left: 6px;
   }
   .title {

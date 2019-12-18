@@ -59,7 +59,7 @@ export default class BlogDetail extends React.Component {
     data.type = "new";
     const id = this.props.match.params.id;
     const url = "/blog/" + id + "/post_comment";
-    const response = await API.POST(url);
+    const response = await API.POST(url, data);
     if (response.success) {
       const id = this.props.match.params.id;
       const response = await API.GET(apis.blogDetails + id);
@@ -104,11 +104,16 @@ export default class BlogDetail extends React.Component {
                           id="comment"
                           label="Comment"
                           variant="outlined"
-                          name="comment
-                          required"
+                          name="comment"
+                          required
                         />
                       </div>
-                      <Button variant="contained" color="secondary">
+                      <Button
+                        variant="contained"
+                        color="secondary"
+                        type="submit"
+                        className="button-red"
+                      >
                         Post Comment
                       </Button>
                     </form>
