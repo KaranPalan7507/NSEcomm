@@ -9,11 +9,17 @@ class Address extends React.Component {
     address: [],
     selectedAddress: null
   };
-  async componentDidMount() {
+  componentDidMount() {
+    this.getData();
+  }
+  async getData() {
     const response = await API.POST(apis.accountDetails, {});
 
     if (response.success) {
-      this.setState({ address: response.data[0].address });
+      this.setState({
+        address: response.data[0].address,
+        selectedAddress: null
+      });
     }
   }
   renderAddressItem(address, index) {
@@ -54,9 +60,7 @@ class Address extends React.Component {
         ) : (
           <AddEdit
             currentValue={this.state.selectedAddress}
-            success={data =>
-              this.setState({ address: data[0].address, selectedAddress: null })
-            }
+            success={() => this.getData()}
           />
         )}
       </React.Fragment>

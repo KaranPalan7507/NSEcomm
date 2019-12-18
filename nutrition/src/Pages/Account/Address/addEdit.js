@@ -10,20 +10,20 @@ class AddEdit extends React.Component {
     const data = {};
     const formData = new FormData(e.target);
     data.name = formData.get("name");
-    data.mobile_no = formData.get("number");
+    //data.mobile_no = formData.get("number");
     data.address = formData.get("address");
-    data.pin = formData.get("pin");
+    data.pincode = formData.get("pin");
     data.city = formData.get("city");
     data.state = formData.get("state");
     data.country = formData.get("country");
     if (this.props.currentValue.name) {
-      data.type = "updated";
+      data.type = "update";
     } else {
       data.type = "new";
     }
-    const response = await API.POST(apis.accountDetails, data);
+    const response = await API.POST(apis.address_change, data);
     if (response.success) {
-      this.props.success(response.data);
+      this.props.success();
     }
   }
   render() {

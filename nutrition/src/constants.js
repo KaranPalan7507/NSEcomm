@@ -10,5 +10,6 @@ export const apis = {
   cashback: "/cashback",
   wishlist: "/wishlist",
   login: "/login",
-  signup: "/signup_comp"
+  signup: "/signup_comp",
+  address_change: "address_change"
 };
