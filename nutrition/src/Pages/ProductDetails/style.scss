@@ -1,0 +1,109 @@
+@import "./../../scss/variables.scss";
+.product-details-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 40px;
+  .product-info {
+    width: calc(100% - 364px - 40px);
+    background: #fff;
+    box-shadow: 0px 3px 6px rgba(221, 18, 31, 0.16);
+    display: flex;
+    padding: 24px;
+    margin-right: 40px;
+    .left {
+      width: 40%;
+    }
+    .right {
+      width: 60%;
+      .title {
+        font-weight: bold;
+        font-size: 32px;
+        color: #292929;
+        line-height: 32px;
+      }
+      .seperator {
+        width: 50%;
+        height: 0px;
+        background: transparent;
+        border: 2px solid #dd121f;
+        margin: 12px 0;
+      }
+      .desc {
+        font-weight: normal;
+        font-size: 14px;
+        color: #292929;
+      }
+    }
+    .vendor {
+      font-weight: normal;
+      font-size: 14px;
+      color: #292929;
+      span {
+        color: $red;
+        text-transform: capitalize;
+      }
+    }
+  }
+  .buying-options-wrapper {
+    width: 364px;
+    background: #fff;
+    box-shadow: 0px 3px 6px rgba(221, 18, 31, 0.16);
+    padding: 12px;
+    .dd-label {
+      font-size: 12px;
+      color: #888;
+    }
+    .heading {
+      background-color: $red;
+      color: white;
+      padding: 12px 12px 12px 20px;
+      font-size: 16px;
+      font-weight: 500;
+    }
+    .product-final-offer {
+      display: flex;
+      align-items: center;
+      padding: 14px;
+      border-bottom: 1px solid rgba(112, 112, 112, 0.15);
+    }
+    .current-price {
+      font-weight: 500;
+      font-size: 35px;
+      color: #000;
+      line-height: 35px;
+    }
+    .original-price {
+      font-size: 13px;
+      text-align: left;
+      color: #7d7d7d;
+    }
+    .discount {
+      font-size: 15px;
+      color: $red;
+      border-color: $red;
+    }
+    .btn-wrapper {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 25px;
+      button {
+        width: calc(50% - 10px);
+        height: 49px;
+        font-weight: 500;
+        font-size: 14px;
+        text-align: left;
+        color: #000;
+        border: 2px solid $red;
+      }
+    }
+    .buy-now {
+      margin-top: 12px;
+      height: 53px;
+      width: 100%;
+      font-weight: 500;
+      font-size: 18px;
+      color: $red;
+      border: 2px solid $red;
+    }
+  }
+}

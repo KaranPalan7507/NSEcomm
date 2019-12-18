@@ -1,7 +1,7 @@
 import "./App.scss";
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import ProductDetails from "./components/product/product_details";
+import ProductDetails from "./Pages/ProductDetails";
 import Product from "./Pages/Product";
 import AfterOrder from "./Pages/AfterOrder";
 import Header from "./shared/header";
@@ -38,6 +38,8 @@ class App extends Component {
               component={() => <LoginSignUp index={1} />}
             />
             <Route path="/product" component={Product} />
+            <Route path="/productdetails/:id" component={ProductDetails} />
+
             <Route path="/blog" component={Blog} />
             <Route path="/blogdetail/:id" component={BlogDetail} />
             <Route

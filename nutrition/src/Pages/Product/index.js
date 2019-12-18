@@ -28,8 +28,6 @@ export default class Product extends React.Component {
     this.getProducts();
   }
   getProducts = async () => {
-    API.GET(apis.productDetails + "2");
-
     const response = await API.GET(apis.allProducts);
 
     if (response.success) {

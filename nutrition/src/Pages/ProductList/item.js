@@ -2,16 +2,23 @@ import React from "react";
 import "./style.scss";
 import messages from "./../../utils/messages";
 import StarRating from "./../../Common/StartRating";
-
-export default class ProductItem extends React.Component {
+import { withRouter } from "react-router";
+class ProductItem extends React.Component {
   state = { data: { images: [{}] } };
 
   componentDidMount() {
     this.setState({ data: this.props.data });
   }
   render() {
+    const { data } = this.state;
+
+    const link = "/productdetails/" + data.product_id;
+
     return (
-      <div className="product-list-item">
+      <div
+        className="product-list-item"
+        onClick={() => this.props.history.push(link)}
+      >
         <div className="list-media">
           <img
             className="product-image"
@@ -58,3 +65,4 @@ export default class ProductItem extends React.Component {
     );
   }
 }
+export default withRouter(ProductItem);

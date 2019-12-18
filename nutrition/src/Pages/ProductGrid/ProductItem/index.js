@@ -2,8 +2,9 @@ import React from "react";
 import "./style.scss";
 import StarRating from "./../../../Common/StartRating";
 import messages from "./../../../utils/messages";
+import { withRouter } from "react-router";
 
-export default class ProductItem extends React.Component {
+class ProductItem extends React.Component {
   title = "MuscleBlaze Whey Gold Protein ,4 lb Rich Milk Chocolate";
   currentPrice = "3,999";
   originalPrice = "5,740";
@@ -24,13 +25,15 @@ export default class ProductItem extends React.Component {
   };
 
   render() {
-    const { isHovered } = this.state;
+    const { isHovered, data } = this.state;
+    const link = "/productdetails/" + data.product_id;
 
     return (
       <div
         className={`product-item ${isHovered ? "active" : ""}`}
         onMouseEnter={this.itemHover}
         onMouseLeave={this.itemHover}
+        onClick={() => this.props.history.push(link)}
       >
         <div className="product-media">
           <img
@@ -84,3 +87,4 @@ export default class ProductItem extends React.Component {
     );
   }
 }
+export default withRouter(ProductItem);
