@@ -22,6 +22,16 @@ class Address extends React.Component {
       });
     }
   }
+  async removeAddress(name) {
+    const params = {};
+    params.type = "remove";
+    params.name = "name";
+
+    const response = await API.POST(apis.address_change, params);
+    if (response.success) {
+      this.getData();
+    }
+  }
   renderAddressItem(address, index) {
     return (
       <div className="address-item" key={index}>
@@ -37,7 +47,7 @@ class Address extends React.Component {
             Edit
           </span>
           <span className="seperator">|</span>
-          <span>Delete</span>
+          <span onClick={() => this.removeAddress(address.name)}>Delete</span>
         </div>
       </div>
     );

@@ -11,7 +11,7 @@ export default class ProductItem extends React.Component {
   reviews = "1182 reviews";
   imgSrc = "./images/product-demo.png";
 
-  state = { data: {}, isHovered: false };
+  state = { data: { images: [{}] }, isHovered: false };
 
   componentDidMount() {
     this.setState({ data: this.props.data });
@@ -35,19 +35,9 @@ export default class ProductItem extends React.Component {
         <div className="product-media">
           <img
             className="product-image"
-            src={this.state.data.product_thumb_image}
-            alt={this.state.data.name}
+            src={this.state.data.images[0].image}
+            alt={this.state.data.images[0].image_alt_text}
           />
-          {/* <div className="product-overlay">
-              <h6>Helps in Muscle Building</h6>
-              <span>31gm of 64 serving contains</span>
-              <ul>
-                <li>25gm Protein</li>
-                <li>11.75gm EAA</li>
-                <li>5.51gm of BCAA</li>
-                <li>4.38gm of Glutamic Acid</li>
-              </ul>
-            </div> */}
         </div>
         <div className="product-content">
           <span className="limited-time-tag">
@@ -58,14 +48,14 @@ export default class ProductItem extends React.Component {
           <div className="product-final-offer">
             <span className="current-price">
               <span>&#8377;</span>
-              {this.state.data.product_after_discount}
+              {this.state.data.price}
             </span>
             <strike className="original-price">
               <span>&#8377;</span>
-              {this.state.data.product_price}
+              {this.state.data.price}
             </strike>
             <span className="discount">
-              {this.state.data.product_discount_percentage}
+              {this.state.data.discount}
               <span>
                 {"%"} {messages.common.off}
               </span>

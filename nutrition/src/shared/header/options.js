@@ -14,19 +14,19 @@ const menuOptions = [
     name: "Store",
     mainOptions: [
       {
-        path: "/",
+        path: "/product",
         name: "Best Sellers"
       },
       {
-        path: "/",
+        path: "/product",
         name: "Promos"
       },
       {
-        path: "/",
+        path: "/product",
         name: "New"
       },
       {
-        path: "/",
+        path: "/product",
         name: "Discovery Boxes"
       }
     ],
@@ -36,23 +36,23 @@ const menuOptions = [
         imgPath: proteinImg,
         options: [
           {
-            path: "/",
+            path: "/product",
             name: "Casein"
           },
           {
-            path: "/",
+            path: "/product",
             name: "Gainer"
           },
           {
-            path: "/",
+            path: "/product",
             name: "Isolate"
           },
           {
-            path: "/",
+            path: "/product",
             name: "Vegan"
           },
           {
-            path: "/",
+            path: "/product",
             name: "Whey"
           }
         ]
@@ -62,19 +62,19 @@ const menuOptions = [
         imgPath: drinkImg,
         options: [
           {
-            path: "/",
+            path: "/product",
             name: "Energy"
           },
           {
-            path: "/",
+            path: "/product",
             name: "Protein"
           },
           {
-            path: "/",
+            path: "/product",
             name: "Amino Acids"
           },
           {
-            path: "/",
+            path: "/product",
             name: "L-Carnitine"
           }
         ]
@@ -84,11 +84,11 @@ const menuOptions = [
         imgPath: fatBurnerImg,
         options: [
           {
-            path: "/",
+            path: "/product",
             name: "Capsules"
           },
           {
-            path: "/",
+            path: "/product",
             name: "Liquid"
           }
         ]
@@ -98,11 +98,11 @@ const menuOptions = [
         imgPath: barsImg,
         options: [
           {
-            path: "/",
+            path: "/product",
             name: "Energy"
           },
           {
-            path: "/",
+            path: "/product",
             name: "Protein"
           }
         ]
@@ -112,15 +112,15 @@ const menuOptions = [
         imgPath: vitaminImg,
         options: [
           {
-            path: "/",
+            path: "/product",
             name: "Capsules"
           },
           {
-            path: "/",
+            path: "/product",
             name: "Ready to drink"
           },
           {
-            path: "/",
+            path: "/product",
             name: "Shots  "
           }
         ]
@@ -130,23 +130,23 @@ const menuOptions = [
         imgPath: accessoriesImg,
         options: [
           {
-            path: "/",
+            path: "/product",
             name: "Belts"
           },
           {
-            path: "/",
+            path: "/product",
             name: "Gloves"
           },
           {
-            path: "/",
+            path: "/product",
             name: "Others"
           },
           {
-            path: "/",
+            path: "/product",
             name: "Shakers"
           },
           {
-            path: "/",
+            path: "/product",
             name: "T-Shirts"
           }
         ]
@@ -156,15 +156,15 @@ const menuOptions = [
         imgPath: aminoAcidImg,
         options: [
           {
-            path: "/",
+            path: "/product",
             name: "Liquid"
           },
           {
-            path: "/",
+            path: "/product",
             name: "Capsules"
           },
           {
-            path: "/",
+            path: "/product",
             name: "Powders"
           }
         ]
@@ -174,15 +174,15 @@ const menuOptions = [
         imgPath: lCarnitineImg,
         options: [
           {
-            path: "/",
+            path: "/product",
             name: "Ready to drink"
           },
           {
-            path: "/",
+            path: "/product",
             name: "Capsules"
           },
           {
-            path: "/",
+            path: "/product",
             name: "Shots"
           }
         ]
@@ -193,32 +193,32 @@ const menuOptions = [
     name: "Shop By Goal",
     goalOptions: [
       {
-        path: "#",
+        path: "/product",
         imgPath: "/images/goal1.png",
         name: "Endurance"
       },
       {
-        path: "#",
+        path: "/product",
         imgPath: "/images/goal2.png",
         name: "Energy"
       },
       {
-        path: "#",
+        path: "/product",
         imgPath: "/images/goal3.png",
         name: "Muscle"
       },
       {
-        path: "#",
+        path: "/product",
         imgPath: "/images/goal4.png",
         name: "Strength"
       },
       {
-        path: "#",
+        path: "/product",
         imgPath: "/images/goal6.png",
         name: "Weight Loss"
       },
       {
-        path: "#",
+        path: "/product",
         imgPath: "/images/goal7.png",
         name: "Wellness"
       }
@@ -228,32 +228,32 @@ const menuOptions = [
     name: "Shop By Brand",
     brandOptions: [
       {
-        path: "#",
+        path: "/product",
         imgPath: "/images/shop-brand.png",
         name: "Brand 1"
       },
       {
-        path: "#",
+        path: "/product",
         imgPath: "/images/shop-brand.png",
         name: "Brand 2"
       },
       {
-        path: "#",
+        path: "/product",
         imgPath: "/images/shop-brand.png",
         name: "Brand 3"
       },
       {
-        path: "#",
+        path: "/product",
         imgPath: "/images/shop-brand.png",
         name: "Brand 4"
       },
       {
-        path: "#",
+        path: "/product",
         imgPath: "/images/shop-brand.png",
         name: "Brand 5"
       },
       {
-        path: "#",
+        path: "/product",
         imgPath: "/images/shop-brand.png",
         name: "Brand 6"
       }
@@ -263,22 +263,22 @@ const menuOptions = [
     name: "Offer",
     offerOptions: [
       {
-        path: "#",
+        path: "/product?offer=flash-sale",
         imgPath: "/images/lightning.svg",
         name: "Flash Sale"
       },
       {
-        path: "#",
+        path: "/product?offer=crazy-deals",
         imgPath: "/images/banking.svg",
         name: "Crazy Deals"
       },
       {
-        path: "#",
+        path: "/product?offer=wipe-out-sale",
         imgPath: "/images/shopping-bag.svg",
         name: "Wipe Out Sale"
       },
       {
-        path: "#",
+        path: "/product?half-price-store",
         imgPath: "/images/percent.svg",
         name: "Half Price Store"
       }

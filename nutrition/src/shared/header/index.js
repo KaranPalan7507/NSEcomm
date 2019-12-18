@@ -5,6 +5,7 @@ import messages from "../../utils/messages";
 import { Link } from "react-router-dom";
 import "./style.scss";
 import Cookie from "js-cookie";
+import { withRouter } from "react-router";
 
 class Header extends React.Component {
   constructor(props) {
@@ -12,7 +13,6 @@ class Header extends React.Component {
     this.navMenu = React.createRef();
     this.menuList = React.createRef();
     this.menuItem = [];
-
   }
 
   state = {
@@ -27,18 +27,19 @@ class Header extends React.Component {
     this.body = document.body || document.documentElement;
     this.removeMenuFromDom();
     window.addEventListener("resize", this.removeMenuFromDom);
-        const token = Cookie.get("token") ? Cookie.get("token") : null;
-        if (token) {
-          this.setState({ isLogedIn: true });
-        }
+    const token = Cookie.get("token") ? Cookie.get("token") : null;
+    if (token) {
+      this.setState({ isLogedIn: true });
+    }
   }
 
   componentWillUnmount() {
     window.removeEventListener("resize", this.removeMenuFromDom);
   }
 
-  handleSubmit = value => {
-    console.log(value);
+  handleSubmit = event => {
+    event.preventDefault();
+    this.props.history.push("/product");
   };
 
   removeMenuFromDom = () => {
@@ -125,7 +126,7 @@ class Header extends React.Component {
                   <div className="reg-link">
                     <ul>
                       <li>
-                        <a href="/">
+                        <a href="/account/wishlist">
                           <em className="fa fa-heart" />
                           <sup className="badge badge-danger">2</sup>
                         </a>
@@ -354,4 +355,4 @@ class Header extends React.Component {
   }
 }
 
-export default Header;
+export default withRouter(Header);

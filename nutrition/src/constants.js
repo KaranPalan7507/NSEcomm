@@ -1,6 +1,6 @@
 export const apis = {
-  allProducts: "/all",
-  productDetails: "/product_details",
+  allProducts: "/product_details",
+  productDetails: "/",
   blogs: "/blog/blog_list",
   blogDetails: "/blog/",
   accountDetails: "/account_details",
