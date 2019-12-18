@@ -146,11 +146,11 @@ class Coupon extends React.Component {
   }
   renderCoupon(item, index) {
     return (
-      <div className="coupon-item">
+      <div className="coupon-item" key={index}>
         <div className="top-section">
-          <div class="left">
-            <div class="coupon-amount">30%</div>
-            <div class="coupon-offText">OFF </div>
+          <div className="left">
+            <div className="coupon-amount">30%</div>
+            <div className="coupon-offText">OFF </div>
           </div>
           <div className="right">
             <div className="coupon-purchase-info">
