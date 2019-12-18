@@ -4,7 +4,7 @@ import messages from "./../../utils/messages";
 import StarRating from "./../../Common/StartRating";
 
 export default class ProductItem extends React.Component {
-  state = { data: {} };
+  state = { data: { images: [{}] } };
 
   componentDidMount() {
     this.setState({ data: this.props.data });
@@ -15,8 +15,8 @@ export default class ProductItem extends React.Component {
         <div className="list-media">
           <img
             className="product-image"
-            src={this.state.data.product_thumb_image}
-            alt={this.state.data.name}
+            src={this.state.data.images[0].image}
+            alt={this.state.data.images[0].image_alt_text}
           />
         </div>
         <div className="product-details">
@@ -26,14 +26,14 @@ export default class ProductItem extends React.Component {
           <div>
             <span className="current-price">
               <span>&#8377;</span>
-              {this.state.data.product_after_discount}
+              {this.state.data.price}
             </span>
             <span className="original-price">
               <span>&#8377;</span>
-              {this.state.data.product_price}
+              {this.state.data.price}
             </span>
             <span className="discount">
-              {this.state.data.product_discount_percentage}
+              {this.state.data.discount}
               <span>
                 {"%"} {messages.common.off}
               </span>

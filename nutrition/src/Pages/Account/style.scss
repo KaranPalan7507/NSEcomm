@@ -65,9 +65,10 @@
         &:hover {
           color: $red;
         }
-        .icon {
-          width: 20px;
-          margin-right: 20px;
+        em {
+          font-size: 20px;
+          margin-right: 10px;
+          display: flex;
         }
       }
     }

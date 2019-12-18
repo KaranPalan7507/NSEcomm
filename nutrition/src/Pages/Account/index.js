@@ -20,42 +20,42 @@ class Account extends React.Component {
   menu = [
     {
       text: "Dashboard",
-      image: "/images/home@2x.png",
+      iconClass: "icon-home-white",
       url: "/"
     },
     {
       text: "Orders",
-      image: "/images/account_orders.png",
+      iconClass: "icon-orders-black",
       url: "/account/orders"
     },
     {
       text: "Address",
-      image: "/images/noun_Address_1632390@2x.png",
+      iconClass: "icon-address-black",
       url: "/account/address"
     },
     {
       text: "Account Details",
-      image: "/images/noun_profile_854886@2x.png",
+      iconClass: "icon-account-details-black",
       url: "/account/account-details"
     },
     {
       text: "Cashback History",
-      image: "/images/funds@2x.png",
+      iconClass: "icon-cashback-history-white",
       url: "/account/cashback-history"
     },
     {
       text: "Referrals",
-      image: "/images/referral@2x.png",
+      iconClass: "icon-referrals-white",
       url: "/account/referrals"
     },
     {
       text: "Coupons",
-      image: "/images/account_coupon.png",
+      iconClass: "icon-coupons-black",
       url: "/account/coupons"
     },
     {
       text: "Wishlist",
-      image: "/images/like@2x.png",
+      iconClass: "icon-wishlist-black",
       url: "/account/wishlist"
     }
   ];
@@ -121,7 +121,7 @@ class Account extends React.Component {
                 key={index}
                 onClick={() => this.menuClick(item)}
               >
-                <img className="icon" src={item.image} alt={item.text} />
+                <em className={item.iconClass} />
                 <span>{item.text}</span>
               </div>
             ))}
