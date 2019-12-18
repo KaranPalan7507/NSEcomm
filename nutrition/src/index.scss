@@ -118,11 +118,12 @@ button {
       padding: 4px 6.5px;
       color: #000000;
       text-transform: uppercase;
-      &:nth-child(-n + 2) {
-        > a {
-          em {
+       em {
             font-size: 28px;
           }
+      &:nth-child(-n + 2) {
+        > a {
+         
           .badge {
             font-size: 10px;
           }

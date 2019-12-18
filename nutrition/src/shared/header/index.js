@@ -4,17 +4,21 @@ import menuOptions from "./options";
 import messages from "../../utils/messages";
 import { Link } from "react-router-dom";
 import "./style.scss";
+import Cookie from "js-cookie";
+
 class Header extends React.Component {
   constructor(props) {
     super(props);
     this.navMenu = React.createRef();
     this.menuList = React.createRef();
     this.menuItem = [];
+
   }
 
   state = {
     isMenuOpen: true,
-    isSubOpen: false
+    isSubOpen: false,
+    isLogedIn: false
   };
 
   body = "";
@@ -23,6 +27,10 @@ class Header extends React.Component {
     this.body = document.body || document.documentElement;
     this.removeMenuFromDom();
     window.addEventListener("resize", this.removeMenuFromDom);
+        const token = Cookie.get("token") ? Cookie.get("token") : null;
+        if (token) {
+          this.setState({ isLogedIn: true });
+        }
   }
 
   componentWillUnmount() {
@@ -128,10 +136,19 @@ class Header extends React.Component {
                           <sup className="badge badge-danger">2</sup>
                         </a>
                       </li>
-                      <li>
-                        <Link to="/login">Login</Link>/
-                        <Link to="/register">Register</Link>
-                      </li>
+                      {!this.state.isLogedIn && (
+                        <li>
+                          <Link to="/login">Login</Link>/
+                          <Link to="/register">Register</Link>
+                        </li>
+                      )}
+                      {this.state.isLogedIn && (
+                        <li>
+                          <Link to="/account">
+                            <em className="fa fa-user" />
+                          </Link>
+                        </li>
+                      )}
                     </ul>
                   </div>
                 </div>
