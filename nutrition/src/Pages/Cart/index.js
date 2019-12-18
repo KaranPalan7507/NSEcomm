@@ -57,7 +57,7 @@ export default class Cart extends React.Component {
             {this.items.map((item, index) => (
               <React.Fragment key={index}>
                 <div className="item-wrapper">
-                  <img src={item.image} className="product-image" />
+                  <img src={item.image} className="product-image" alt="" />
                   <div>
                     <div className="product-title">{item.title}</div>
                     <div>

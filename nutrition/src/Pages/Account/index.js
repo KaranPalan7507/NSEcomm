@@ -15,7 +15,8 @@ import Cookie from "js-cookie";
 
 class Account extends React.Component {
   state = {
-    activeRoute: {}
+    activeRoute: {},
+    menuopen: false
   };
   menu = [
     {

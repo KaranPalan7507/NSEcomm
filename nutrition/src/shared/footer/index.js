@@ -3,11 +3,11 @@ import React from "react";
 import messages from "./../../utils/messages";
 import "./style.scss";
 import footerBottomImg from "./../../images/footer-bottom.jpg";
-import paymentOpt1 from "./../../images/payment-opt1.jpg";
-import paymentOpt2 from "./../../images/payment-opt2.jpg";
-import paymentOpt3 from "./../../images/payment-opt3.jpg";
-import paymentOpt4 from "./../../images/payment-opt4.jpg";
-import paymentOpt5 from "./../../images/payment-opt5.jpg";
+// import paymentOpt1 from "./../../images/payment-opt1.jpg";
+// import paymentOpt2 from "./../../images/payment-opt2.jpg";
+// import paymentOpt3 from "./../../images/payment-opt3.jpg";
+// import paymentOpt4 from "./../../images/payment-opt4.jpg";
+// import paymentOpt5 from "./../../images/payment-opt5.jpg";
 const quickLinks = [
   {
     title: "Nutrition Systems",

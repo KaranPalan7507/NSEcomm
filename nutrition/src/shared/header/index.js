@@ -127,7 +127,7 @@ class Header extends React.Component {
                     <ul>
                       <li>
                         <a href="/account/wishlist">
-                          <em className="fa fa-heart" />
+                          <em className="icon-wishlist-black" />
                           <sup className="badge badge-danger">2</sup>
                         </a>
                       </li>

@@ -14,7 +14,8 @@ import Button from "@material-ui/core/Button";
 export default class Blog extends React.Component {
   state = {
     view: "grid",
-    data: []
+    data: [],
+    menuopen: false
   };
   componentDidMount() {
     this.getBlogs();
