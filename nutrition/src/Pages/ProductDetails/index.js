@@ -124,6 +124,8 @@ class ProductDetails extends React.Component {
               </Button>
             </div>
             <div className="trending-wrapper">
+              <div className="heading">Trending In Whey Protein</div>
+              <div className="sub-heading">Lorem Ispum text</div>
               <Carousel data={this.state.similar} />
             </div>
           </div>
