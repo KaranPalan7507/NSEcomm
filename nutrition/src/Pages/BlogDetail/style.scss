@@ -240,11 +240,11 @@
 }
 @media screen and (max-width: 768px) {
   .blog-detail {
-    .left-side{
-      .comment{
-        .comment-field{
-          .login-input{
-            width:100%;
+    .left-side {
+      .comment {
+        .comment-field {
+          .login-input {
+            width: 100%;
             min-width: 0;
           }
         }
@@ -255,7 +255,8 @@
       .items {
         width: 100%;
         .blog-grid-item {
-          margin: 20px;
+          margin: 20px 0;
+          width: 100%;
         }
       }
     }
