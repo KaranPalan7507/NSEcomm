@@ -12,7 +12,24 @@ import { GridIcon, ListIcon } from "../../Common/Icons";
 import Loader from "./../../Common/Loader";
 import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
 import Button from "@material-ui/core/Button";
-
+const customStyles = {
+  option: (provided, state) => ({
+    ...provided,
+    color: state.isSelected ? "white" : "rgb(51, 51, 51)",
+    backgroundColor: state.isSelected ? "red" : "",
+    ":active": {
+      backgroundColor: ""
+    }
+  }),
+  control: base => ({
+    ...base,
+    border: "1px solid rgb(204, 204, 204)",
+    boxShadow: "none",
+    "&:hover": {
+      border: "1px solid rgb(204, 204, 204)"
+    }
+  })
+};
 export default class Product extends React.Component {
   state = {
     view: "grid",
@@ -57,6 +74,7 @@ export default class Product extends React.Component {
                   <div className="sort-by-wrapper">
                     {messages.common.sort_by}:
                     <Select
+                      styles={customStyles}
                       className="sort-dd"
                       options={this.sortOptions}
                       defaultValue={this.sortOptions[0]}

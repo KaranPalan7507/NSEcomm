@@ -32,7 +32,7 @@ export default class Filter extends React.Component {
           root: "filter-checkbox-wrapper",
           label: "filter-checkbox-label"
         }}
-        control={<Checkbox className="filter-checkbox" />}
+        control={<Checkbox className="filter-checkbox checkbox-red" />}
         label={label}
       />
     );

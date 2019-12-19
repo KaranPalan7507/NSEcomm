@@ -18,9 +18,9 @@ class ProductItem extends React.Component {
     this.setState({ data: this.props.data });
   }
 
-  itemHover = () => {
+  itemHover = isHover => {
     this.setState(prevState => ({
-      isHovered: !prevState.isHovered
+      isHovered: isHover
     }));
   };
 
@@ -31,8 +31,8 @@ class ProductItem extends React.Component {
     return (
       <div
         className={`product-item ${isHovered ? "active" : ""}`}
-        onMouseEnter={this.itemHover}
-        onMouseLeave={this.itemHover}
+        onMouseEnter={() => this.itemHover(true)}
+        onMouseLeave={() => this.itemHover(false)}
         onClick={() => this.props.history.push(link)}
       >
         <div className="product-media">

@@ -10,13 +10,15 @@
 }
 
 .product-item {
-  @include box-shadow(0px, 3px, 8px, 3px, rgba(221, 18, 31, 0.18));
   padding: 20px 12px;
   position: relative;
   margin-bottom: 35px;
   margin: 20px;
   flex: 0 0 250px;
-  cursor:pointer;
+  cursor: pointer;
+  background: #fff;
+  box-shadow: 0px 3px 8px rgba(221, 18, 31, 0.05);
+
   @include transition(padding-bottom 300ms ease-in-out);
   &:hover {
     .product-overlay {
@@ -24,6 +26,9 @@
     }
   }
   &.active {
+    box-shadow: 0px 3px 17px rgba(221, 18, 31, 0.3);
+    transform: scale(1.05);
+    z-index: 1;
     &:hover {
       .product-action {
         opacity: 1;

@@ -9,6 +9,7 @@ export default class StartRating extends React.Component {
         size={24}
         color1={"#d4d4d4"}
         color2={"#ffd700"}
+        half={false}
       />
     );
   }
