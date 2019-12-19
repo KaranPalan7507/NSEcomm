@@ -62,6 +62,20 @@ button {
     color: $red;
   }
 }
+.login-input {
+  // label {
+  //   font-family: Poppins;
+  // }
+  .Mui-focused {
+    color: $red!important;
+  }
+  .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+    border-color: $red;
+  }
+  .MuiInput-underline:after {
+    border-bottom-color: $red;
+  }
+}
 .checkbox-red.MuiCheckbox-colorSecondary.Mui-checked {
   &:hover {
     background-color: rgba(255, 9, 25, 0.08);

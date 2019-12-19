@@ -87,18 +87,7 @@
     font-weight: bold;
     font-size: 17px;
   }
-  .login-input {
-    label {
-      font-family: Poppins;
-    }
-    .Mui-focused {
-      color: $red;
-    }
 
-    .MuiInput-underline:after {
-      border-bottom-color: $red;
-    }
-  }
   .terms-text {
     margin-top: 10px;
     font-size: 14px;

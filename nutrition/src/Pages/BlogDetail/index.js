@@ -7,11 +7,22 @@ import Accordian from "./../../Common/Accordian";
 import Item from "./../Blog/Grid/item";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
-
+import LinkedInIcon from "@material-ui/icons/LinkedIn";
+import moment from "moment";
+import AlternateEmailIcon from "@material-ui/icons/AlternateEmail";
+import {
+  FacebookShareButton,
+  LinkedinShareButton,
+  TwitterShareButton,
+  EmailShareButton
+} from "react-share";
+import FacebookIcon from "@material-ui/icons/Facebook";
+import TwitterIcon from "@material-ui/icons/Twitter";
 export default class BlogDetail extends React.Component {
   state = {
     data: {},
-    isLoaded: false
+    isLoaded: false,
+    comments: []
   };
   mostVisitedOptions = [
     {
@@ -40,7 +51,11 @@ export default class BlogDetail extends React.Component {
     const response = await API.GET(apis.blogDetails + id);
 
     if (response.success) {
-      this.setState({ data: response.data, isLoaded: true });
+      this.setState({
+        data: response.data,
+        isLoaded: true,
+        comments: response.data.comments
+      });
     }
   }
   renderMostOption(option, key) {
@@ -65,7 +80,10 @@ export default class BlogDetail extends React.Component {
       const response = await API.GET(apis.blogDetails + id);
 
       if (response.success) {
-        this.setState({ data: response.data, isLoaded: true });
+        this.setState({
+          data: response.data,
+          isLoaded: true
+        });
       }
     }
   }
@@ -84,17 +102,77 @@ export default class BlogDetail extends React.Component {
               <div className="left-side">
                 <div className="content">{blog.body}</div>
                 <div className="comment">
+                  <div className="date-user">
+                    <span className="date">
+                      {moment(blog.publish_date).format("DD MMMM")}
+                    </span>
+                    <span className="username">
+                      By {blog.username || "username"}
+                    </span>
+                  </div>
+                  <div className="share-section">
+                    <div className="title">Share</div>
+                    <div className="social-btns">
+                      <FacebookShareButton url={window.location.href}>
+                        <button className="share-btn fb">
+                          <FacebookIcon /> Facebook
+                        </button>
+                      </FacebookShareButton>
+                      <LinkedinShareButton url={window.location.href}>
+                        <button className="share-btn linkedin">
+                          <LinkedInIcon />
+                          Linkdin
+                        </button>
+                      </LinkedinShareButton>
+                      <TwitterShareButton url={window.location.href}>
+                        <button className="share-btn twitter">
+                          <TwitterIcon />
+                          Twitter
+                        </button>
+                      </TwitterShareButton>
+                      <EmailShareButton url={window.location.href}>
+                        <button className="share-btn email">
+                          <AlternateEmailIcon />
+                          Email
+                        </button>
+                      </EmailShareButton>
+                    </div>
+                  </div>
+                  <div className="comment-heading">
+                    Comments({this.state.comments.length})
+                  </div>
+                  {this.state.comments.map((comment, index) => (
+                    <div key={index} className="user-comment">
+                      <div className="user-image">
+                        <img src="missing" alt="user" />
+                      </div>
+                      <div className="comment-section">
+                        <div className="name">
+                          {comment.username || "username"}
+                        </div>
+                        <div className="date">{comment.date || "date"}</div>
+                        <div className="comment-text">{comment.text}</div>
+                        <button className="reply-btn"> Reply</button>
+                      </div>
+                    </div>
+                  ))}
                   <div>
-                    <span className="post-comment">Post Comment</span>
+                    <span className="post-comment">Post Comments</span>
                     <form onSubmit={e => this.postComment(e)}>
                       <div className="comment-field">
-                        <TextField id="name" label="Name" variant="outlined" />
+                        <TextField
+                          id="name"
+                          label="Name"
+                          variant="outlined"
+                          classes={{ root: "login-input" }}
+                        />
                       </div>
                       <div className="comment-field">
                         <TextField
                           id="email"
                           label="Email"
                           variant="outlined"
+                          classes={{ root: "login-input" }}
                         />
                       </div>
                       <div className="comment-field">
@@ -105,14 +183,16 @@ export default class BlogDetail extends React.Component {
                           label="Comment"
                           variant="outlined"
                           name="comment"
+                          classes={{ root: "login-input" }}
                           required
+                          rows="3"
                         />
                       </div>
                       <Button
                         variant="contained"
                         color="secondary"
                         type="submit"
-                        className="button-red"
+                        className="button-red post-comment-btn"
                       >
                         Post Comment
                       </Button>
