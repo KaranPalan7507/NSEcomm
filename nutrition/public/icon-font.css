@@ -1,19 +1,19 @@
 @charset "UTF-8";
 
 @font-face {
-  font-family: "untitled-font-1";
-  src:url("fonts/untitled-font-1.eot");
-  src:url("fonts/untitled-font-1.eot?#iefix") format("embedded-opentype"),
-    url("fonts/untitled-font-1.woff") format("woff"),
-    url("fonts/untitled-font-1.ttf") format("truetype"),
-    url("fonts/untitled-font-1.svg#untitled-font-1") format("svg");
+  font-family: "untitled-font-3";
+  src:url("fonts/untitled-font-3.eot");
+  src:url("fonts/untitled-font-3.eot?#iefix") format("embedded-opentype"),
+    url("fonts/untitled-font-3.woff") format("woff"),
+    url("fonts/untitled-font-3.ttf") format("truetype"),
+    url("fonts/untitled-font-3.svg#untitled-font-3") format("svg");
   font-weight: normal;
   font-style: normal;
 
 }
 
 [data-icon]:before {
-  font-family: "untitled-font-1" !important;
+  font-family: "untitled-font-3" !important;
   content: attr(data-icon);
   font-style: normal !important;
   font-weight: normal !important;
@@ -27,7 +27,7 @@
 
 [class^="icon-"]:before,
 [class*=" icon-"]:before {
-  font-family: "untitled-font-1" !important;
+  font-family: "untitled-font-3" !important;
   font-style: normal !important;
   font-weight: normal !important;
   font-variant: normal !important;
@@ -38,48 +38,48 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-account-details-black:before {
+.icon-logout-black:before {
   content: "\61";
 }
-.icon-address-black:before {
-  content: "\63";
-}
-.icon-home-white:before {
+.icon-shopping-cart-black:before {
   content: "\62";
 }
-.icon-orders-black:before {
+.icon-account-details-black:before {
+  content: "\63";
+}
+.icon-address-black:before {
   content: "\64";
 }
-.icon-orders-white:before {
+.icon-cashback-history-black:before {
   content: "\65";
 }
-.icon-address-white:before {
+.icon-coin-stack:before {
   content: "\66";
 }
-.icon-referrals-white:before {
+.icon-coupons-black:before {
   content: "\67";
 }
-.icon-wishlist-white:before {
+.icon-credit-card:before {
   content: "\68";
 }
-.icon-coupons-white:before {
+.icon-delivery-truck:before {
   content: "\69";
 }
-.icon-coupons-black:before {
+.icon-heart-black:before {
   content: "\6a";
 }
-.icon-cashback-history-white:before {
+.icon-heart-white:before {
   content: "\6b";
 }
-.icon-cashback-history-black:before {
+.icon-home-black:before {
   content: "\6c";
 }
-.icon-referrals-black:before {
+.icon-orders-black:before {
   content: "\6d";
 }
-.icon-account-details-white:before {
+.icon-protein-powder:before {
   content: "\6e";
 }
-.icon-wishlist-black:before {
+.icon-referrals-black:before {
   content: "\6f";
 }

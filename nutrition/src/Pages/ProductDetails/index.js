@@ -5,9 +5,9 @@ import "./style.scss";
 import messages from "./../../utils/messages";
 import Select from "react-select";
 import Button from "@material-ui/core/Button";
-
+import Carousel from "./TrendingCarousel";
 class ProductDetails extends React.Component {
-  state = { data: null };
+  state = { data: null, product: null, similar: null };
   componentDidMount() {
     this.getProducts();
   }
@@ -19,7 +19,8 @@ class ProductDetails extends React.Component {
       this.setState({
         data: response.data,
         isLoaded: true,
-        product: response.data.product
+        product: response.data.product,
+        similar: response.data.similar
       });
     }
   };
@@ -41,20 +42,38 @@ class ProductDetails extends React.Component {
                 <div className="seperator"></div>
                 <div className="desc">{product.long_desc}</div>
               </div>
+              <div className="botom-section">
+                <div className="info-point">
+                  <em className="icon icon-coin-stack" />
+                  <span>Earn Points on everthing</span>
+                </div>
+                <div className="info-point order">
+                  <em className="icon icon-protein-powder" />
+                  <span>Order in next 5 mins & get a shaker free</span>
+                </div>
+                <div className="info-point">
+                  <em className="icon icon-delivery-truck" />
+                  <span>Sample Text</span>
+                </div>
+                <div className="info-point last">
+                  <em className="icon icon-credit-card" />
+                  <span>Sample Text</span>
+                </div>
+              </div>
             </div>
             <div className="buying-options-wrapper">
               <div className="heading">Buying Options</div>
               <div className="product-final-offer">
                 <span className="current-price">
                   <span>&#8377;</span>
-                  {product.price}
+                  {product.discount}
                 </span>
                 <strike className="original-price">
                   <span>&#8377;</span>
                   {product.price}
                 </strike>
                 <span className="discount">
-                  {product.discount}
+                  {product.discount_percent}
                   <span>
                     {"%"} {messages.common.off}
                   </span>
@@ -103,6 +122,9 @@ class ProductDetails extends React.Component {
               >
                 Buy Now
               </Button>
+            </div>
+            <div className="trending-wrapper">
+              <Carousel data={this.state.similar} />
             </div>
           </div>
         )}

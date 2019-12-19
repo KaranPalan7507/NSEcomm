@@ -1,0 +1,29 @@
+.trending-carousel {
+  .item {
+    width: 250px !important;
+    padding: 12px;
+    margin: 24px;
+    background: #fff;
+    .title {
+      font-weight: normal;
+      font-size: 13px;
+      text-align: center;
+      color: #000;
+    }
+    .image-wrapper {
+      text-align: center;
+      img {
+        max-height: 185px;
+        max-width: 100%;
+      }
+    }
+  }
+  .slick-prev:before,
+  .slick-next:before {
+    content: "" !important;
+  }
+  .arrows {
+    color: #c9c9c9;
+    font-size: 24px;
+  }
+}

@@ -21,7 +21,7 @@ class Account extends React.Component {
   menu = [
     {
       text: "Dashboard",
-      iconClass: "icon-home-white",
+      iconClass: "icon-home-black",
       url: "/"
     },
     {
@@ -41,12 +41,12 @@ class Account extends React.Component {
     },
     {
       text: "Cashback History",
-      iconClass: "icon-cashback-history-white",
+      iconClass: "icon-cashback-history-black",
       url: "/account/cashback-history"
     },
     {
       text: "Referrals",
-      iconClass: "icon-referrals-white",
+      iconClass: "icon-referrals-black",
       url: "/account/referrals"
     },
     {
@@ -56,7 +56,7 @@ class Account extends React.Component {
     },
     {
       text: "Wishlist",
-      iconClass: "icon-wishlist-black",
+      iconClass: "icon icon-heart-black",
       url: "/account/wishlist"
     }
   ];
@@ -127,11 +127,8 @@ class Account extends React.Component {
               </div>
             ))}
             <div className="menu logout" onClick={() => this.logout()}>
-              <img
-                className="icon"
-                src="/images/account_logout.png"
-                alt="Logout"
-              />
+              <em className="icon icon-logout-black" />
+
               <span>Logout</span>
             </div>
           </div>
