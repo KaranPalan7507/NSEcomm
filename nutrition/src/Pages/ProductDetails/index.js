@@ -24,12 +24,15 @@ class ProductDetails extends React.Component {
 
     const response = await API.GET(apis.productDetails + id);
     if (response.success) {
-      this.setState({
-        data: response.data,
-        isLoaded: true,
-        product: response.data.product,
-        similar: response.data.similar
-      });
+      this.setState(
+        {
+          data: response.data,
+          isLoaded: true,
+          product: response.data.product,
+          similar: response.data.similar
+        },
+        window.scrollTo({ top: 0, behavior: "smooth" })
+      );
     }
   };
   render() {
