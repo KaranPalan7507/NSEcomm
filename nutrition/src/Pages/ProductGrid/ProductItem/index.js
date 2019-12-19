@@ -51,14 +51,14 @@ class ProductItem extends React.Component {
           <div className="product-final-offer">
             <span className="current-price">
               <span>&#8377;</span>
-              {this.state.data.price}
+              {this.state.data.discount}
             </span>
             <strike className="original-price">
               <span>&#8377;</span>
               {this.state.data.price}
             </strike>
             <span className="discount">
-              {this.state.data.discount}
+              {this.state.data.discount_percent}
               <span>
                 {"%"} {messages.common.off}
               </span>
