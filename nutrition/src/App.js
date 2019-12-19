@@ -14,7 +14,7 @@ import Account from "./Pages/Account";
 import Cart from "./Pages/Cart";
 import Tool from "./Pages/Tool";
 import Cookie from "js-cookie";
-
+import Dashboard from "./Pages/Dashboard";
 class App extends Component {
   componentDidMount() {
     this.token = Cookie.get("token") ? Cookie.get("token") : null;
@@ -30,6 +30,7 @@ class App extends Component {
             <div className="breadcrumbs">
               <Link to="/">Home</Link>
             </div>
+            <Route exact path="/" component={Dashboard} />
             <Route exact path="/product_details" component={ProductDetails} />
             <Route exact path="/login" component={LoginSignUp} />
             <Route
