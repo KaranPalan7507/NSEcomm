@@ -67,66 +67,69 @@ class ProductDetails extends React.Component {
               </div>
             </div>
             <div className="buying-options-wrapper">
-              <div className="heading">Buying Options</div>
-              <div className="product-final-offer">
-                <span className="current-price">
-                  <span>&#8377;</span>
-                  {product.discount}
-                </span>
-                <strike className="original-price">
-                  <span>&#8377;</span>
-                  {product.price}
-                </strike>
-                <span className="discount">
-                  {product.discount_percent}
-                  <span>
-                    {"%"} {messages.common.off}
+              <div className="maxwidth">
+                <div className="heading">Buying Options</div>
+                <div className="product-final-offer">
+                  <span className="current-price">
+                    <span>&#8377;</span>
+                    {product.discount}
                   </span>
-                </span>
-              </div>
-              <div>
-                <span className="dd-label">Flavour</span>
-                <Select
-                  options={product.other_flavors}
-                  placeholder="Pick your Flavour"
-                  getOptionLabel={option => option["flavor"]}
-                  getOptionValue={option => option["_id"]}
-                  isSearchable={false}
-                />
-              </div>
-              <div>
-                <span className="dd-label">Weight</span>
-                <Select
-                  options={product.other_weights}
-                  placeholder="Select Weight"
-                  getOptionLabel={option => option["weight"]}
-                  getOptionValue={option => option["_id"]}
-                  isSearchable={false}
-                />
-              </div>
-              <div className="btn-wrapper">
+                  <strike className="original-price">
+                    <span>&#8377;</span>
+                    {product.price}
+                  </strike>
+                  <span className="discount">
+                    {product.discount_percent}
+                    <span>
+                      {"%"} {messages.common.off}
+                    </span>
+                  </span>
+                </div>
+
+                <div>
+                  <span className="dd-label">Flavour</span>
+                  <Select
+                    options={product.other_flavors}
+                    placeholder="Pick your Flavour"
+                    getOptionLabel={option => option["flavor"]}
+                    getOptionValue={option => option["_id"]}
+                    isSearchable={false}
+                  />
+                </div>
+                <div>
+                  <span className="dd-label">Weight</span>
+                  <Select
+                    options={product.other_weights}
+                    placeholder="Select Weight"
+                    getOptionLabel={option => option["weight"]}
+                    getOptionValue={option => option["_id"]}
+                    isSearchable={false}
+                  />
+                </div>
+                <div className="btn-wrapper">
+                  <Button
+                    variant="outlined"
+                    className="red-btn-outline"
+                    color="secondary"
+                  >
+                    Add to Cart
+                  </Button>
+                  <Button
+                    variant="outlined"
+                    className="red-btn-outline"
+                    color="secondary"
+                  >
+                    Wishlist
+                  </Button>
+                </div>
                 <Button
                   variant="outlined"
-                  className="red-btn-outline"
+                  className="red-btn-outline buy-now"
                   color="secondary"
                 >
-                  Add to Cart
-                </Button>
-                <Button
-                  variant="outlined"
-                  className="red-btn-outline"
-                  color="secondary"
-                >
-                  Wishlist
+                  Buy Now
                 </Button>
               </div>
-              <Button
-                variant="outlined"
-                className="red-btn-outline buy-now"
-                color="secondary"
-              >
-                Buy Now
-              </Button>
             </div>
             <div className="trending-wrapper">
               <div className="heading">Trending In Whey Protein</div>

@@ -155,3 +155,51 @@
     }
   }
 }
+@media screen and (max-width: 1024px) {
+  .product-details-wrapper {
+    .product-info {
+      width: 100%;
+      margin-right: 0;
+    }
+    .buying-options-wrapper {
+      width: 100%;
+      margin-top: 40px;
+      .maxwidth {
+        max-width: 360px;
+        margin: auto;
+      }
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  .product-details-wrapper {
+    padding: 24px;
+    .product-info {
+      .right {
+        .title {
+          font-size: 24px;
+        }
+      }
+      .botom-section {
+        height: auto;
+      }
+    }
+  }
+}
+@media screen and (max-width: 568px) {
+  .product-details-wrapper {
+    .product-info {
+      .left,
+      .right {
+        width: 100%;
+      }
+      .left {
+        max-height: 200px;
+        text-align: center;
+        img {
+          max-height: 100%;
+        }
+      }
+    }
+  }
+}
