@@ -11,6 +11,11 @@ class ProductDetails extends React.Component {
   componentDidMount() {
     this.getProducts();
   }
+  componentDidUpdate(prevProps) {
+    if (this.props.match.params.id !== prevProps.match.params.id) {
+      this.getProducts();
+    }
+  }
   getProducts = async () => {
     const id = this.props.match.params.id;
 

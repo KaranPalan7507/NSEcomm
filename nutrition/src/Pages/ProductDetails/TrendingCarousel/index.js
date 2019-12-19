@@ -4,6 +4,7 @@ import AspectRatioBackground from "./../../../Common/Background";
 import "./style.scss";
 import messages from "./../../../utils/messages";
 import StarRating from "./../../../Common/StartRating";
+import { withRouter } from "react-router";
 
 const SamplePrevArrow = props => {
   const { className, onClick } = props;
@@ -22,7 +23,7 @@ const SampleNextArrow = props => {
   );
 };
 
-export default class Carousel extends Component {
+class Carousel extends Component {
   render() {
     var settings = {
       dots: false,
@@ -67,7 +68,13 @@ export default class Carousel extends Component {
         <Slider {...settings}>
           {this.props.data &&
             this.props.data.map((item, index) => (
-              <div className="item" key={index}>
+              <div
+                className="item"
+                key={index}
+                onClick={() =>
+                  this.props.history.push("/productdetails/" + item.product_id)
+                }
+              >
                 <div className="image-wrapper">
                   <img
                     src={item.images[0].image}
@@ -106,3 +113,4 @@ export default class Carousel extends Component {
     );
   }
 }
+export default withRouter(Carousel);
