@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
-import AspectRatioBackground from "./../../../Common/Background";
+import AspectRatioBackground from "./../Background/";
 import "./style.scss";
-import messages from "./../../../utils/messages";
-import StarRating from "./../../../Common/StartRating";
+import messages from "./../../utils/messages";
+import StarRating from "./../StartRating";
 import { withRouter } from "react-router";
 
 const SamplePrevArrow = props => {
@@ -24,48 +24,51 @@ const SampleNextArrow = props => {
 };
 
 class Carousel extends Component {
-  render() {
-    var settings = {
-      dots: false,
-      infinite: false,
-      speed: 500,
-      slidesToShow: 4,
-      slidesToScroll: 1,
-      initialSlide: 0,
-      autoplay: false,
-      arrows: true,
-      nextArrow: <SampleNextArrow />,
-      prevArrow: <SamplePrevArrow />,
-      responsive: [
-        {
-          breakpoint: 1024,
-          settings: {
-            slidesToShow: 3,
-            slidesToScroll: 3,
-            infinite: true,
-            dots: false
-          }
-        },
-        {
-          breakpoint: 600,
-          settings: {
-            slidesToShow: 2,
-            slidesToScroll: 2,
-            initialSlide: 2
-          }
-        },
-        {
-          breakpoint: 480,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1
-          }
+  settings = {
+    dots: false,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    initialSlide: 0,
+    autoplay: false,
+    arrows: true,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: false
         }
-      ]
-    };
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2
+        }
+      },
+      {
+        breakpoint: 568,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
+  };
+  render() {
     return (
       <div className="trending-carousel">
-        <Slider {...settings}>
+        <div className="heading">{this.props.heading}</div>
+        <div className="sub-heading">{this.props.subheading}</div>
+
+        <Slider {...this.settings}>
           {this.props.data &&
             this.props.data.map((item, index) => (
               <div

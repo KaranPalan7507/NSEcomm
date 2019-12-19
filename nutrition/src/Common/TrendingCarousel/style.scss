@@ -1,0 +1,57 @@
+.trending-carousel {
+  margin-top: 60px;
+
+  .heading {
+    font-weight: bold;
+    font-size: 32px;
+    text-align: center;
+    color: #000;
+    text-align: center;
+  }
+  .sub-heading {
+    font-size: 14px;
+    text-align: left;
+    color: #dd121f;
+    text-align: center;
+    border-bottom: 1px solid rgba(112, 112, 112, 0.15);
+    margin-top: 8px;
+    padding-bottom: 8px;
+  }
+  .item {
+    width: 250px !important;
+    padding: 12px;
+    margin: 24px;
+    background: #fff;
+    cursor: pointer;
+    .title {
+      font-weight: normal;
+      font-size: 13px;
+      text-align: center;
+      color: #000;
+    }
+    .image-wrapper {
+      display: flex;
+      justify-content: center;
+      img {
+        max-height: 185px;
+        max-width: 100%;
+      }
+    }
+  }
+  .slick-prev:before,
+  .slick-next:before {
+    content: "" !important;
+  }
+  .arrows {
+    color: #c9c9c9;
+    font-size: 24px;
+  }
+}
+@media screen and (max-width: 568px) {
+  .trending-carousel {
+    .item {
+      width: 100% !important;
+      max-width: 300px;
+    }
+  }
+}

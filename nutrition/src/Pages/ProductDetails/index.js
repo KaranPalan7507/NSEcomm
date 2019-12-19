@@ -5,7 +5,10 @@ import "./style.scss";
 import messages from "./../../utils/messages";
 import Select from "react-select";
 import Button from "@material-ui/core/Button";
-import Carousel from "./TrendingCarousel";
+import Carousel from "./../../Common/TrendingCarousel";
+import StarRating from "./../../Common/StartRating";
+import CountDown from "./../../Common/CountDown";
+
 class ProductDetails extends React.Component {
   state = { data: null, product: null, similar: null };
   componentDidMount() {
@@ -46,6 +49,26 @@ class ProductDetails extends React.Component {
                 <div className="title">{product.name}</div>
                 <div className="seperator"></div>
                 <div className="desc">{product.long_desc}</div>
+                <div className="product-rating">
+                  <div className="rating">
+                    <StarRating />
+                  </div>
+                  <span className="review-count">
+                    {product.reviews} {messages.common.reviews}
+                  </span>
+                  <span>Share</span>
+                </div>
+                <div>
+                  <span>Shipping Area:Noida 201301 </span>
+                  <span>Change</span>
+                </div>
+                <div>
+                  <span>
+                    Order in next 5 mins & get a shaker free
+                    <CountDown secs={300} />
+                  </span>
+                  <span>Change</span>
+                </div>
               </div>
               <div className="botom-section">
                 <div className="info-point">
@@ -69,6 +92,7 @@ class ProductDetails extends React.Component {
             <div className="buying-options-wrapper">
               <div className="maxwidth">
                 <div className="heading">Buying Options</div>
+                <div className="stock-info">In Stock</div>
                 <div className="product-final-offer">
                   <span className="current-price">
                     <span>&#8377;</span>
@@ -131,10 +155,16 @@ class ProductDetails extends React.Component {
                 </Button>
               </div>
             </div>
+            {/* <div className="today-deals-wrapper"> Todays deals</div>
+            <div className="nutrition-info-wrapper">Nutrition info</div>
+            <div className="product-desc-wrapper">Product desc</div>
+            <div className="rating-review-wrapper">Reviews </div> */}
             <div className="trending-wrapper">
-              <div className="heading">Trending In Whey Protein</div>
-              <div className="sub-heading">Lorem Ispum text</div>
-              <Carousel data={this.state.similar} />
+              <Carousel
+                data={this.state.similar}
+                heading="Trending In Whey Protein"
+                subheading="Lorem Ispum text"
+              />
             </div>
           </div>
         )}

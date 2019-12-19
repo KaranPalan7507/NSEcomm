@@ -1,7 +1,13 @@
 import React from "react";
 import "./style.scss";
 import Carousel from "./mainSlider";
+import { API } from "./../../axios";
+import { apis } from "./../../constants";
+import ProductCarousel from "./../../Common/TrendingCarousel";
 class Dashboard extends React.Component {
+  state = {
+    topseller: null
+  };
   mainInfo = [
     {
       text: "NEXT DISPATCH IN 1H 20MIn 09SEC",
@@ -24,6 +30,13 @@ class Dashboard extends React.Component {
       icon: "/images/truck.svg"
     }
   ];
+  async componentDidMount() {
+    const response = await API.POST(apis.topseller);
+    if (response.success) {
+      this.setState({ topseller: response.data });
+    }
+  }
+
   renderMainSlider() {
     return (
       <div className="main-slider">
@@ -50,8 +63,36 @@ class Dashboard extends React.Component {
       </div>
     );
   }
+  renderProductCarousel(heading, subheading) {
+    return (
+      <ProductCarousel
+        heading={heading}
+        subheading={subheading}
+        data={this.state.topseller}
+      />
+    );
+  }
   render() {
-    return <div className="dashboard-wrapper">{this.renderMainSlider()}</div>;
+    return (
+      <div className="dashboard-wrapper">
+        {this.renderMainSlider()}
+        <div className="dashboard-container">
+          {this.renderProductCarousel("Today Deals", "Lorem Ispum text")}
+          {this.renderProductCarousel(
+            "Popular In Weight Loss",
+            "Lorem Ispum text"
+          )}
+          {this.renderProductCarousel(
+            "Trending In Whey Protein",
+            "Lorem Ispum text"
+          )}
+          {this.renderProductCarousel(
+            "Trending In Mass Gainer",
+            "Lorem Ispum text"
+          )}
+        </div>
+      </div>
+    );
   }
 }
 export default Dashboard;
