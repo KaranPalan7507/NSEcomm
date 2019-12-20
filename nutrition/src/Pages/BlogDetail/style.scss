@@ -240,6 +240,13 @@
 }
 @media screen and (max-width: 768px) {
   .blog-detail {
+    .share-btn {
+      width: auto !important;
+      border-radius: 12px !important;
+      .social-text {
+        display: none;
+      }
+    }
     .left-side {
       .comment {
         .comment-field {

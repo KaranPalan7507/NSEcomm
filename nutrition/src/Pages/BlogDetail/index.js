@@ -115,25 +115,26 @@ export default class BlogDetail extends React.Component {
                     <div className="social-btns">
                       <FacebookShareButton url={window.location.href}>
                         <button className="share-btn fb">
-                          <FacebookIcon /> Facebook
+                          <FacebookIcon />{" "}
+                          <span className="social-text">Facebook</span>
                         </button>
                       </FacebookShareButton>
                       <LinkedinShareButton url={window.location.href}>
                         <button className="share-btn linkedin">
                           <LinkedInIcon />
-                          Linkdin
+                          <span className="social-text">Linkdin</span>
                         </button>
                       </LinkedinShareButton>
                       <TwitterShareButton url={window.location.href}>
                         <button className="share-btn twitter">
                           <TwitterIcon />
-                          Twitter
+                          <span className="social-text">Twitter</span>
                         </button>
                       </TwitterShareButton>
                       <EmailShareButton url={window.location.href}>
                         <button className="share-btn email">
                           <AlternateEmailIcon />
-                          Email
+                          <span className="social-text">Email</span>
                         </button>
                       </EmailShareButton>
                     </div>
