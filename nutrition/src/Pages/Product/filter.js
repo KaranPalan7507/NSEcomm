@@ -39,7 +39,7 @@ export default class Filter extends React.Component {
   }
   render() {
     return (
-      <div>
+      <div className="filter-wrapper">
         <Accordian title="Category">
           {this.filterOptions.map((option, index) =>
             this.renderCheckbox(option, index)

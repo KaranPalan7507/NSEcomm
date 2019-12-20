@@ -1,5 +1,5 @@
 .product-list-item {
-  filter: drop-shadow(0px 3px 3.5px rgba(221, 18, 31, 0.16));
+  box-shadow: 0px 3px 8px rgba(221, 18, 31, 0.03);
   background-color: #ffffff;
   margin: 30px;
   height: 165px;
@@ -8,6 +8,8 @@
   justify-content: space-between;
   &:hover {
     transform: scale(1.05);
+    box-shadow: 0px 3px 17px rgba(221, 18, 31, 0.3);
+
     .product-action {
       opacity: 1;
       visibility: visible;
