@@ -1,0 +1,29 @@
+.insta-component {
+  .carousel-wrapper {
+    width: 100%;
+  }
+  .heading {
+    font-weight: bold;
+    font-size: 32px;
+    text-align: center;
+    color: #000;
+    padding-bottom: 8px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.12);
+  }
+  .post {
+    padding: 12px;
+  }
+  .slick-prev:before,
+  .slick-next:before {
+    content: "" !important;
+  }
+  .slick-disabled {
+    .arrows {
+      opacity: 0.25;
+    }
+  }
+  .arrows {
+    color: #c9c9c9;
+    font-size: 24px;
+  }
+}

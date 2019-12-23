@@ -37,15 +37,21 @@ export default class Product extends React.Component {
     isLoaded: false
   };
   sortOptions = [
-    { value: "Best Selling", label: "Best Selling" },
-    { value: "Price", label: "Price" },
-    { value: "Price (Desc)", label: "Price (Desc)" }
+    { value: "rating", label: "Rating" },
+    { value: "popularity", label: "Popularity" },
+    { value: "pricel", label: "Price" },
+    { value: "priceh", label: "Price (Desc)" },
+    { value: "discountl", label: "Discount" },
+    { value: "discounth", label: "Discount (Desc)" }
   ];
+  sortingBy = this.sortOptions[0];
   componentDidMount() {
     this.getProducts();
   }
   getProducts = async () => {
-    const response = await API.GET(apis.allProducts);
+    const sort = this.sortingBy.value;
+    this.setState({ isLoaded: false });
+    const response = await API.GET(apis.allProducts + "?sort=" + sort);
 
     if (response.success) {
       this.setState({ data: response.data, isLoaded: true });
@@ -68,64 +74,64 @@ export default class Product extends React.Component {
             <Filter />
           </div>
           <div className="right-side">
-            {this.state.isLoaded ? (
-              <React.Fragment>
-                <div className="sort-section">
-                  <div className="sort-by-wrapper">
-                    {messages.common.sort_by}:
-                    <Select
-                      styles={customStyles}
-                      className="sort-dd"
-                      options={this.sortOptions}
-                      defaultValue={this.sortOptions[0]}
+            <React.Fragment>
+              <div className="sort-section">
+                <div className="sort-by-wrapper">
+                  {messages.common.sort_by}:
+                  <Select
+                    styles={customStyles}
+                    className="sort-dd"
+                    options={this.sortOptions}
+                    defaultValue={this.sortOptions[0]}
+                    onChange={e => {
+                      this.sortingBy = e;
+                      this.getProducts();
+                    }}
+                  />
+                </div>
+                <div className="switch-view">
+                  {messages.common.views}:
+                  <div className="icons">
+                    <GridIcon
+                      strokeColor={
+                        this.state.view === "grid" ? "#dd121f" : null
+                      }
+                      onClick={() => this.setState({ view: "grid" })}
+                    />
+                    <ListIcon
+                      strokeColor={
+                        this.state.view === "list" ? "#dd121f" : null
+                      }
+                      onClick={() => this.setState({ view: "list" })}
                     />
                   </div>
-                  <div className="switch-view">
-                    {messages.common.views}:
-                    <div className="icons">
-                      <GridIcon
-                        strokeColor={
-                          this.state.view === "grid" ? "#dd121f" : null
-                        }
-                        onClick={() => this.setState({ view: "grid" })}
-                      />
-                      <ListIcon
-                        strokeColor={
-                          this.state.view === "list" ? "#dd121f" : null
-                        }
-                        onClick={() => this.setState({ view: "list" })}
-                      />
-                    </div>
-                  </div>
-                  <div className="mobile-menu">
-                    <SwipeableDrawer
-                      anchor="right"
-                      open={this.state.menuopen}
-                      onClose={() => this.setState({ menuopen: false })}
-                      onOpen={() => this.setState({ menuopen: true })}
-                    >
-                      <Filter />
-                    </SwipeableDrawer>
-                    <Button
-                      className="filter"
-                      onClick={() => {
-                        this.setState({ menuopen: true });
-                      }}
-                    >
-                      Filter
-                    </Button>
-                  </div>
-
-                  <div className="items-count">
-                    {this.state.data.length + " "}
-                    {messages.common.items}
-                  </div>
                 </div>
-                {this.renderView()}
-              </React.Fragment>
-            ) : (
-              <Loader />
-            )}
+                <div className="mobile-menu">
+                  <SwipeableDrawer
+                    anchor="right"
+                    open={this.state.menuopen}
+                    onClose={() => this.setState({ menuopen: false })}
+                    onOpen={() => this.setState({ menuopen: true })}
+                  >
+                    <Filter />
+                  </SwipeableDrawer>
+                  <Button
+                    className="filter"
+                    onClick={() => {
+                      this.setState({ menuopen: true });
+                    }}
+                  >
+                    Filter
+                  </Button>
+                </div>
+
+                <div className="items-count">
+                  {this.state.data.length + " "}
+                  {messages.common.items}
+                </div>
+              </div>
+              {this.state.isLoaded ? this.renderView() : <Loader />}
+            </React.Fragment>
           </div>
         </div>
       </React.Fragment>

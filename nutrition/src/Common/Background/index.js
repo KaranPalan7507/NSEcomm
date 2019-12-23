@@ -13,7 +13,7 @@ function AspectRatioBackground({ url, ratio = "1:1", className, children }) {
 const Background = styled.div`
   position: relative;
   background: url(${props => props.url}) center center no-repeat;
-  background-size: cover;
+  background-size: contain;
   width: 100%;
   padding-bottom: ${props => {
     return (props.h / props.w) * 100;

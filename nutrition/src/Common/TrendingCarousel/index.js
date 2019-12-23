@@ -88,14 +88,14 @@ class Carousel extends Component {
                 <div className="product-final-offer">
                   <span className="current-price">
                     <span>&#8377;</span>
-                    {item.discount}
+                    {item.current_price}
                   </span>
                   <strike className="original-price">
                     <span>&#8377;</span>
                     {item.price}
                   </strike>
                   <span className="discount">
-                    {item.discount_percent}
+                    {item.discount}
                     <span>
                       {"%"} {messages.common.off}
                     </span>

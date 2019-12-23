@@ -12,6 +12,8 @@ export const apis = {
   login: "/login",
   signup: "/signup_comp",
   address_change: "address_change",
-  banner: "/banner",
-  topseller: "/topseller"
+  homebanner: "home/banner",
+  topseller: "/topseller",
+  instaPosts: "/insta_posts",
+  deals: "/deals"
 };

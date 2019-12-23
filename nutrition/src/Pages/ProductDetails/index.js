@@ -8,6 +8,7 @@ import Button from "@material-ui/core/Button";
 import Carousel from "./../../Common/TrendingCarousel";
 import StarRating from "./../../Common/StartRating";
 import CountDown from "./../../Common/CountDown";
+import Stepper from "./Stepper";
 
 class ProductDetails extends React.Component {
   state = { data: null, product: null, similar: null };
@@ -51,7 +52,7 @@ class ProductDetails extends React.Component {
                 </div>
                 <div className="title">{product.name}</div>
                 <div className="seperator"></div>
-                <div className="desc">{product.long_desc}</div>
+                <div className="desc">{product.long_desc[0].content}</div>
                 <div className="product-rating">
                   <div className="rating">
                     <StarRating />
@@ -99,14 +100,14 @@ class ProductDetails extends React.Component {
                 <div className="product-final-offer">
                   <span className="current-price">
                     <span>&#8377;</span>
-                    {product.discount}
+                    {product.current_price}
                   </span>
                   <strike className="original-price">
                     <span>&#8377;</span>
                     {product.price}
                   </strike>
                   <span className="discount">
-                    {product.discount_percent}
+                    {product.discount}
                     <span>
                       {"%"} {messages.common.off}
                     </span>
@@ -133,6 +134,10 @@ class ProductDetails extends React.Component {
                     isSearchable={false}
                   />
                 </div>
+                <div className="stepper">
+                  <div>Quantity</div>
+                  <Stepper />
+                </div>
                 <div className="btn-wrapper">
                   <Button
                     variant="outlined"
@@ -158,10 +163,14 @@ class ProductDetails extends React.Component {
                 </Button>
               </div>
             </div>
-            {/* <div className="today-deals-wrapper"> Todays deals</div>
-            <div className="nutrition-info-wrapper">Nutrition info</div>
+            <div className="today-deals-wrapper"> Todays deals</div>
+            <div className="nutrition-info-wrapper">
+              <div className="maxwidth">
+                <div className="heading">Nutrition info</div>
+              </div>
+            </div>
             <div className="product-desc-wrapper">Product desc</div>
-            <div className="rating-review-wrapper">Reviews </div> */}
+            <div className="rating-review-wrapper">Reviews </div>
             <div className="trending-wrapper">
               <Carousel
                 data={this.state.similar}

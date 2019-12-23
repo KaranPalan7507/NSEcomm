@@ -145,13 +145,13 @@ export default class BlogDetail extends React.Component {
                   {this.state.comments.map((comment, index) => (
                     <div key={index} className="user-comment">
                       <div className="user-image">
-                        <img src="missing" alt="user" />
+                        <img src={comment.user_image} alt="user" />
                       </div>
                       <div className="comment-section">
-                        <div className="name">
-                          {comment.username || "username"}
+                        <div className="name">{comment.username}</div>
+                        <div className="date">
+                          {moment(comment.date).format("DD MMMM")}
                         </div>
-                        <div className="date">{comment.date || "date"}</div>
                         <div className="comment-text">{comment.text}</div>
                         <button className="reply-btn"> Reply</button>
                       </div>
