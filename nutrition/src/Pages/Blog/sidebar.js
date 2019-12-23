@@ -2,16 +2,14 @@ import React from "react";
 import Accordian from "./../../Common/Accordian";
 import { FormControlLabel, Checkbox } from "@material-ui/core";
 import "./style.scss";
+import { API } from "../../axios";
+import { apis } from "../../constants";
 
 export default class Filter extends React.Component {
-  filterOptions = [
-    "Advice",
-    "Food Supplements",
-    "Training",
-    "Lifestyle",
-    "Nutrition",
-    "Health"
-  ];
+  state = {
+    category: []
+  };
+  selectedCategories = [];
   mostVisitedOptions = [
     {
       title: "Looking thinner but at a 7 heavier weight? Is that possible?",
@@ -34,6 +32,26 @@ export default class Filter extends React.Component {
       date: "20/9/2019"
     }
   ];
+  async componentDidMount() {
+    this.getCategories();
+  }
+  async getCategories() {
+    const response = await API.POST(apis.blogCategory, { type: "blog" });
+    if (response.success) {
+      this.setState({ category: response.data.category });
+    }
+  }
+  setSelectedCategory(checked, label) {
+    if (checked) {
+      this.selectedCategories.push(label);
+    } else {
+      var index = this.selectedCategories.indexOf(label);
+      if (index > -1) {
+        this.selectedCategories.splice(index, 1);
+      }
+    }
+    this.props.onChange(this.selectedCategories);
+  }
   renderCheckbox(label, key) {
     return (
       <FormControlLabel
@@ -42,7 +60,12 @@ export default class Filter extends React.Component {
           root: "filter-checkbox-wrapper",
           label: "filter-checkbox-label"
         }}
-        control={<Checkbox className="filter-checkbox checkbox-red" />}
+        control={
+          <Checkbox
+            className="filter-checkbox checkbox-red"
+            onChange={e => this.setSelectedCategory(e.target.checked, label)}
+          />
+        }
         label={label}
       />
     );
@@ -59,7 +82,7 @@ export default class Filter extends React.Component {
     return (
       <div>
         <Accordian title="Category">
-          {this.filterOptions.map((option, index) =>
+          {this.state.category.map((option, index) =>
             this.renderCheckbox(option, index)
           )}
         </Accordian>

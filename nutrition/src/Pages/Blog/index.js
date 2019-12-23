@@ -20,8 +20,8 @@ export default class Blog extends React.Component {
   componentDidMount() {
     this.getBlogs();
   }
-  getBlogs = async () => {
-    const response = await API.GET(apis.blogs);
+  getBlogs = async (categories = "") => {
+    const response = await API.GET(apis.blogs + "?categories=" + categories);
 
     if (response.success) {
       this.setState({ data: response.data });
@@ -34,7 +34,9 @@ export default class Blog extends React.Component {
 
         <div className="blog-wrapper">
           <div className="left-side">
-            <SideBar />
+            <SideBar
+              onChange={categories => this.getBlogs(categories.toString())}
+            />
           </div>
           <div className="right-side">
             <div className="sort-section">

@@ -15,5 +15,6 @@ export const apis = {
   homebanner: "home/banner",
   topseller: "/topseller",
   instaPosts: "/insta_posts",
-  deals: "/deals"
+  deals: "/deals",
+  blogCategory: "/list"
 };
