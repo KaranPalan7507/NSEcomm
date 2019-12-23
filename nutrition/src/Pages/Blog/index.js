@@ -20,8 +20,8 @@ export default class Blog extends React.Component {
   componentDidMount() {
     this.getBlogs();
   }
-  getBlogs = async (categories = "") => {
-    const response = await API.GET(apis.blogs + "?categories=" + categories);
+  getBlogs = async (categories = null) => {
+    const response = await API.POST(apis.blogs, { categories: categories });
 
     if (response.success) {
       this.setState({ data: response.data });

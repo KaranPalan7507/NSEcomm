@@ -48,10 +48,13 @@ export default class Product extends React.Component {
   componentDidMount() {
     this.getProducts();
   }
-  getProducts = async () => {
+  getProducts = async filter => {
     const sort = this.sortingBy.value;
     this.setState({ isLoaded: false });
-    const response = await API.GET(apis.allProducts + "?sort=" + sort);
+    const response = await API.POST(apis.allProducts, {
+      ...filter,
+      sort: sort
+    });
 
     if (response.success) {
       this.setState({ data: response.data, isLoaded: true });
@@ -71,7 +74,7 @@ export default class Product extends React.Component {
 
         <div className="product-wrapper">
           <div className="left-side">
-            <Filter />
+            <Filter onChange={filter => this.getProducts(filter)} />
           </div>
           <div className="right-side">
             <React.Fragment>
