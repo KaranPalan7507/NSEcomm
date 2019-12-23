@@ -11,10 +11,11 @@ export const apis = {
   wishlist: "/wishlist",
   login: "/login",
   signup: "/signup_comp",
-  address_change: "address_change",
-  homebanner: "home/banner",
+  address_change: "/address_change",
+  homebanner: "/home/banner",
   topseller: "/topseller",
   instaPosts: "/insta_posts",
   deals: "/deals",
-  blogCategory: "/list"
+  blogCategory: "/list",
+  productbanner: "/product/banner"
 };

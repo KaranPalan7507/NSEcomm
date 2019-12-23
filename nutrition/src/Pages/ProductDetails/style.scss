@@ -158,20 +158,153 @@
   }
   .today-deals-wrapper {
     width: calc(100% - 364px - 40px);
-    border: 1px solid black;
     min-height: 200px;
     margin-right: 40px;
   }
   .product-desc-wrapper {
     width: calc(100% - 364px - 40px);
-    border: 1px solid black;
+    padding: 12px;
     min-height: 200px;
     margin-right: 40px;
+    background: #fff;
+    box-shadow: 0px 3px 6px rgba(221, 18, 31, 0.16);
+
+    .title {
+      height: 58px;
+      background: #474747;
+      font-weight: 500;
+      font-size: 24px;
+      text-align: left;
+      color: #fff;
+      line-height: 58px;
+      padding-left: 20px;
+    }
   }
   .rating-review-wrapper {
     width: calc(100% - 364px - 40px);
-    border: 1px solid black;
     min-height: 200px;
+    background: #fff;
+    box-shadow: 0px 3px 6px rgba(221, 18, 31, 0.16);
+    margin-top: 20px;
+    padding: 12px;
+    .user-review {
+      padding: 24px;
+      border-bottom: 1px solid rgba(112, 112, 112, 0.15);
+      .review-top {
+        display: flex;
+      }
+      .review-bottom {
+        display: flex;
+      }
+      .user-image {
+        width: 33px;
+        height: 33px;
+        border-radius: 50%;
+        margin-right: 24px;
+      }
+      .review-text {
+        font-size: 14px;
+        text-align: left;
+        color: #8b8b8b;
+        margin-top: 18px;
+        margin-bottom: 24px;
+      }
+      .review-title {
+        font-weight: 500;
+        font-size: 14px;
+        text-align: left;
+        color: #000;
+      }
+      .username {
+        font-weight: bold;
+        font-size: 16px;
+        color: #303030;
+        margin-right: 20px;
+        min-width: 150px;
+      }
+      .date {
+        font-size: 12px;
+        color: #979797;
+      }
+      .stars {
+        margin-right: 70px;
+      }
+    }
+    .title {
+      height: 58px;
+      background: #df222e;
+      color: white;
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 58px;
+      text-align: left;
+      padding-left: 20px;
+    }
+    .top-section {
+      display: flex;
+      border-bottom: 1px solid rgba(112, 112, 112, 0.15);
+    }
+    .rating-section {
+      width: 50%;
+      border-right: 1px solid rgba(112, 112, 112, 0.15);
+      padding: 50px;
+      margin-right: auto;
+
+      .heading {
+        font-weight: 500;
+        font-size: 18px;
+        text-align: left;
+        color: #292929;
+        margin-bottom: 12px;
+      }
+      .review-info {
+        font-size: 14px;
+        color: #000;
+      }
+      .rating-info {
+        font-weight: 500;
+        font-size: 14px;
+        text-align: left;
+        color: #8b8b8b;
+        margin: 14px 0;
+      }
+    }
+    .review-graph {
+      width: 50%;
+      padding: 50px;
+      max-width: 350px;
+      margin-left: auto;
+      .heading {
+        font-weight: 500;
+        font-size: 18px;
+        text-align: left;
+        color: #292929;
+        margin-bottom: 20px;
+      }
+    }
+    .graph-item {
+      display: flex;
+      align-items: center;
+      .MuiLinearProgress-root {
+        background: #f0f0f0;
+        width: 100%;
+        margin: 0 8px;
+      }
+      .MuiLinearProgress-barColorSecondary {
+        background: #dd121f;
+      }
+      .star-name {
+        white-space: nowrap;
+        font-size: 12px;
+        text-align: left;
+        color: #8b8b8b;
+      }
+      .count {
+        font-size: 12px;
+        text-align: right;
+        color: #8b8b8b;
+      }
+    }
   }
   .trending-wrapper {
     width: 100%;
@@ -182,6 +315,12 @@
     .product-info {
       width: 100%;
       margin-right: 0;
+    }
+    .nutrition-info-wrapper {
+      width: 100%;
+    }
+    .today-deals-wrapper {
+      width: 100%;
     }
     .buying-options-wrapper {
       width: 100%;

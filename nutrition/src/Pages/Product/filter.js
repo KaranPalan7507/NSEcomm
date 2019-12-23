@@ -15,136 +15,140 @@ const MySlider = withStyles({
 })(Slider);
 
 export default class Filter extends React.Component {
-                 state = {
-                   category: [],
-                   flavor: [],
-                   weights: [],
-                   goals: [],
-                   brand: [],
-                   price: []
-                 };
-                 filter = {
-                   category: [],
-                   flavor: [],
-                   weights: [],
-                   goals: [],
-                   brand: [],
-                   price: []
-                 };
-                 async getCategories() {
-                   const response = await API.POST(apis.blogCategory, {
-                     type: "products"
-                   });
-                   if (response.success) {
-                     this.setState({
-                       flavor: response.data.flavor,
-                       goals: response.data.goals,
-                       brand: response.data.brand,
-                       category: response.data.cate,
-                       weights: response.data.weights,
-                       price: response.data.price_range
-                     });
-                   }
-                 }
-                 componentDidMount() {
-                   this.getCategories();
-                 }
-                 onFilterChange(checked, label, type) {
-                   if (checked) {
-                     this.filter[type].push(label);
-                   } else {
-                     var index = this.filter[type].indexOf(label);
-                     if (index > -1) {
-                       this.filter[type].splice(index, 1);
-                     }
-                   }
-                   const filterStr = {};
-                   for (var item in this.filter) {
-                     if (this.filter[item].length) {
-                       filterStr[item] = this.filter[item].toString();
-                     }
-                   }
-                   this.props.onChange(filterStr);
-                 }
-                 renderCheckbox(label, key, type) {
-                   return (
-                     <FormControlLabel
-                       key={key}
-                       classes={{
-                         root: "filter-checkbox-wrapper",
-                         label: "filter-checkbox-label"
-                       }}
-                       control={
-                         <Checkbox
-                           className="filter-checkbox checkbox-red"
-                           onChange={e =>
-                             this.onFilterChange(e.target.checked, label, type)
-                           }
-                         />
-                       }
-                       label={label}
-                     />
-                   );
-                 }
-                 renderPriceCheckbox(label, key, type) {
-                   const min=key===0?0:this.state.price[key-1];
-                   return (
-                     <FormControlLabel
-                       key={key}
-                       classes={{
-                         root: "filter-checkbox-wrapper",
-                         label: "filter-checkbox-label"
-                       }}
-                       control={
-                         <Checkbox
-                           className="filter-checkbox checkbox-red"
-                           onChange={e =>
-                             this.onFilterChange(e.target.checked, min+","+label, type)
-                           }
-                         />
-                       }
-                       label={min+" - "+label}
-                     />
-                   );
-                 }
-                 render() {
-                   return (
-                     <div className="filter-wrapper">
-                       <Accordian title="Category">
-                         {this.state.category.map((option, index) =>
-                           this.renderCheckbox(option, index, "category")
-                         )}
-                       </Accordian>
-                       <Accordian title="Flavour">
-                         {this.state.flavor.map((option, index) =>
-                           this.renderCheckbox(option, index, "flavor")
-                         )}
-                       </Accordian>
-                       <Accordian title="Size">
-                         {this.state.weights.map((option, index) =>
-                           this.renderCheckbox(option, index, "weights")
-                         )}
-                       </Accordian>
-                       <Accordian title="Goals">
-                         {this.state.goals.map((option, index) =>
-                           this.renderCheckbox(option, index, "goals")
-                         )}
-                       </Accordian>
-                       <Accordian title="Brands">
-                         {this.state.brand.map((option, index) =>
-                           this.renderCheckbox(option, index, "brand")
-                         )}
-                       </Accordian>
-                       <Accordian title="Price">
-                         <MySlider
-                           valueLabelDisplay="auto"
-                           defaultValue={[0, this.state.price]}
-                         />
-                         {this.state.price.map((option, index) =>
+  state = {
+    category: [],
+    flavor: [],
+    weights: [],
+    goals: [],
+    brand: [],
+    price: []
+  };
+  filter = {
+    category: [],
+    flavor: [],
+    weights: [],
+    goals: [],
+    brand_id: [],
+    price: []
+  };
+  async getCategories() {
+    const response = await API.POST(apis.blogCategory, {
+      type: "products"
+    });
+    if (response.success) {
+      this.setState({
+        flavor: response.data.flavor,
+        goals: response.data.goals,
+        brand: response.data.brand,
+        category: response.data.cate,
+        weights: response.data.weights,
+        price: response.data.price_range
+      });
+    }
+  }
+  componentDidMount() {
+    this.getCategories();
+  }
+  onFilterChange(checked, label, type) {
+    if (checked) {
+      this.filter[type].push(label);
+    } else {
+      var index = this.filter[type].indexOf(label);
+      if (index > -1) {
+        this.filter[type].splice(index, 1);
+      }
+    }
+    const filterStr = {};
+    for (var item in this.filter) {
+      if (this.filter[item].length) {
+        filterStr[item] = this.filter[item].toString();
+      }
+    }
+    this.props.onChange(filterStr);
+  }
+  renderCheckbox(label, key, type) {
+    let value = label;
+    if (type === "brand_id") {
+      value = label[1];
+      label = label[0];
+    }
+
+    return (
+      <FormControlLabel
+        key={key}
+        classes={{
+          root: "filter-checkbox-wrapper",
+          label: "filter-checkbox-label"
+        }}
+        control={
+          <Checkbox
+            className="filter-checkbox checkbox-red"
+            onChange={e => this.onFilterChange(e.target.checked, value, type)}
+          />
+        }
+        label={label}
+      />
+    );
+  }
+  renderPriceCheckbox(label, key, type) {
+    const min = key === 0 ? 0 : this.state.price[key - 1];
+    return (
+      <FormControlLabel
+        key={key}
+        classes={{
+          root: "filter-checkbox-wrapper",
+          label: "filter-checkbox-label"
+        }}
+        control={
+          <Checkbox
+            className="filter-checkbox checkbox-red"
+            onChange={e =>
+              this.onFilterChange(e.target.checked, min + "," + label, type)
+            }
+          />
+        }
+        label={min + " - " + label}
+      />
+    );
+  }
+  render() {
+    return (
+      <div className="filter-wrapper">
+        <Accordian title="Category">
+          {this.state.category.map((option, index) =>
+            this.renderCheckbox(option, index, "category")
+          )}
+        </Accordian>
+        <Accordian title="Flavour">
+          {this.state.flavor.map((option, index) =>
+            this.renderCheckbox(option, index, "flavor")
+          )}
+        </Accordian>
+        <Accordian title="Size">
+          {this.state.weights.map((option, index) =>
+            this.renderCheckbox(option, index, "weights")
+          )}
+        </Accordian>
+        <Accordian title="Goals">
+          {this.state.goals.map((option, index) =>
+            this.renderCheckbox(option, index, "goals")
+          )}
+        </Accordian>
+        <Accordian title="Brands">
+          {this.state.brand.map((option, index) =>
+            this.renderCheckbox(option, index, "brand_id")
+          )}
+        </Accordian>
+        <Accordian title="Price">
+          <MySlider
+            valueLabelDisplay="auto"
+            defaultValue={[0, this.state.price]}
+          />
+          {/* {this.state.price.map((option, index) =>
                            this.renderPriceCheckbox(option, index, "price")
-                         )}
-                       </Accordian>
-                     </div>
-                   );
-                 }
-               }
+                         )} */}
+        </Accordian>
+      </div>
+    );
+  }
+}

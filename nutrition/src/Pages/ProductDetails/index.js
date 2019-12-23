@@ -8,21 +8,51 @@ import Button from "@material-ui/core/Button";
 import Carousel from "./../../Common/TrendingCarousel";
 import StarRating from "./../../Common/StartRating";
 import CountDown from "./../../Common/CountDown";
+import LinearProgress from "@material-ui/core/LinearProgress";
+import moment from "moment";
+
 import Stepper from "./Stepper";
 
 class ProductDetails extends React.Component {
-  state = { data: null, product: null, similar: null };
+  state = {
+    data: null,
+    product: null,
+    similar: null,
+    deals: [],
+    graph: {},
+    reviews: [],
+    overallRating: 0,
+    total: 0
+  };
   componentDidMount() {
     this.getProducts();
+    this.getTodaysDeals();
   }
   componentDidUpdate(prevProps) {
     if (this.props.match.params.id !== prevProps.match.params.id) {
       this.getProducts();
     }
   }
+  async getTodaysDeals() {
+    //const date = "2019-07-18T21:33:46.097+00:00";
+    const date = new Date().toISOString();
+    const response = await API.POST(apis.deals, { date: date });
+    if (response.success) {
+      this.setState({
+        deals: [...response.data.items]
+      });
+    }
+  }
   getProducts = async () => {
     const id = this.props.match.params.id;
 
+    API.POST("/post_review", {
+      type: "new",
+      id: id,
+      rating: 2,
+      text:
+        "adgag adg aga ga g ag ag a ga g ag  gdad g adg adg da gad ga dg adg adg ad g"
+    });
     const response = await API.GET(apis.productDetails + id);
     if (response.success) {
       this.setState(
@@ -30,7 +60,11 @@ class ProductDetails extends React.Component {
           data: response.data,
           isLoaded: true,
           product: response.data.product,
-          similar: response.data.similar
+          similar: response.data.similar,
+          graph: response.data.graph,
+          reviews: response.data.reviews,
+          overallRating: response.data.product.rating,
+          total: response.data.product.total
         },
         window.scrollTo({ top: 0, behavior: "smooth" })
       );
@@ -96,7 +130,7 @@ class ProductDetails extends React.Component {
             <div className="buying-options-wrapper">
               <div className="maxwidth">
                 <div className="heading">Buying Options</div>
-                <div className="stock-info">In Stock</div>
+                <div className="stock-info">{this.state.product.stock}</div>
                 <div className="product-final-offer">
                   <span className="current-price">
                     <span>&#8377;</span>
@@ -163,14 +197,78 @@ class ProductDetails extends React.Component {
                 </Button>
               </div>
             </div>
-            <div className="today-deals-wrapper"> Todays deals</div>
+            <div className="today-deals-wrapper">
+              <Carousel
+                heading="Today Deals"
+                subheading="Lorem Ispum text"
+                data={this.state.deals}
+              />
+            </div>
             <div className="nutrition-info-wrapper">
               <div className="maxwidth">
                 <div className="heading">Nutrition info</div>
               </div>
             </div>
-            <div className="product-desc-wrapper">Product desc</div>
-            <div className="rating-review-wrapper">Reviews </div>
+            <div className="product-desc-wrapper">
+              <div className="title">PRODUCT DECRIPTION</div>
+            </div>
+            <div className="rating-review-wrapper">
+              <div className="title">RATING & REVIEW</div>
+              <div className="top-section">
+                <div className="rating-section">
+                  <div className="heading">Overall Rating</div>
+                  <StarRating
+                    size={36}
+                    value={this.state.overallRating}
+                    edit={false}
+                  />
+                  <div className="rating-info">
+                    {this.state.overallRating} start out of 5
+                  </div>
+                  <div className="review-info">
+                    {this.state.reviews.length} Reviews & {this.state.total}{" "}
+                    Rating
+                  </div>
+                </div>
+                <div className="review-graph">
+                  <div className="heading">Review Graph</div>
+                  {Object.keys(this.state.graph).map(item => (
+                    <div className="graph-item">
+                      <div className="star-name">{item + " Star"}</div>
+                      <LinearProgress
+                        variant="determinate"
+                        value={
+                          (this.state.graph[item] / this.state.reviews.length) *
+                          100
+                        }
+                        color="secondary"
+                      />
+                      <div className="count">{this.state.graph[item]}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div>
+                {this.state.reviews.map(review => (
+                  <div className="user-review">
+                    <div className="review-top">
+                      <div className="stars">
+                        <StarRating value={review.rating} edit={false} />
+                      </div>
+                      <div className="review-title">{review.review_title}</div>
+                    </div>
+                    <div className="review-text">{review.review_text}</div>
+                    <div className="review-bottom">
+                      <img className="user-image" src={review.user_image} />
+                      <div className="username">{review.username}</div>
+                      <div className="date">
+                        {moment(review.date).format("DD MMMM, YYYY")}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
             <div className="trending-wrapper">
               <Carousel
                 data={this.state.similar}

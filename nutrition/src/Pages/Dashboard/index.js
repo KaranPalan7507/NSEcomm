@@ -42,7 +42,8 @@ class Dashboard extends React.Component {
     }
   }
   async getTodaysDeals() {
-    const date = "2019-07-18T21:33:46.097+00:00";
+    //const date = "2019-07-18T21:33:46.097+00:00";
+    const date = new Date().toISOString();
     const response = await API.POST(apis.deals, { date: date });
     if (response.success) {
       this.setState({ deals: response.data.items });

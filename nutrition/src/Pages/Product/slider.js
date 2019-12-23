@@ -1,7 +1,17 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
-
+import { API } from "../../axios";
+import { apis } from "../../constants";
+import "./style.scss";
 export default class Carousel extends Component {
+  state = { data: [] };
+  async componentDidMount() {
+    const response = await API.POST(apis.productbanner);
+
+    if (response.success) {
+      this.setState({ data: response.data });
+    }
+  }
   render() {
     var settings = {
       dots: false,
@@ -13,17 +23,14 @@ export default class Carousel extends Component {
       autoplay: true,
       arrows: false
     };
+
     return (
       <Slider {...settings}>
-        <div className="product-slider">
-          <img src="/images/product_slider.png" alt="" />
-        </div>
-        <div className="product-slider">
-          <img src="/images/product_slider.png" alt="" />
-        </div>
-        <div className="product-slider">
-          <img src="/images/product_slider.png" alt="" />
-        </div>
+        {this.state.data.map(item => (
+          <div className="product-slider">
+            <img src={item.deals[0].image} alt={item.deals[0].text} />
+          </div>
+        ))}
       </Slider>
     );
   }
