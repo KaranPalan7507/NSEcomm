@@ -12,6 +12,8 @@ import { GridIcon, ListIcon } from "../../Common/Icons";
 import Loader from "./../../Common/Loader";
 import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
 import Button from "@material-ui/core/Button";
+import queryString from "query-string";
+
 const customStyles = {
   option: (provided, state) => ({
     ...provided,
@@ -45,15 +47,27 @@ export default class Product extends React.Component {
     { value: "discounth", label: "Discount (Desc)" }
   ];
   sortingBy = this.sortOptions[0];
+  searchText = "";
   componentDidMount() {
+    let params = queryString.parse(this.props.location.search);
+    this.searchText = params.search;
     this.getProducts();
+  }
+  componentDidUpdate(prevProps) {
+    let params = queryString.parse(this.props.location.search);
+    if (this.searchText !== params.search) {
+      this.searchText = params.search;
+      this.getProducts();
+    }
   }
   getProducts = async filter => {
     const sort = this.sortingBy.value;
     this.setState({ isLoaded: false });
+    const search = this.searchText ? this.searchText : undefined;
     const response = await API.POST(apis.allProducts, {
       ...filter,
-      sort: sort
+      sort: sort,
+      search: search
     });
 
     if (response.success) {

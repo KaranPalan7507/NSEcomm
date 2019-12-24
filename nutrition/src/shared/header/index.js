@@ -276,7 +276,7 @@ class Header extends React.Component {
                                     {item.goalOptions.map((item, index) => (
                                       <div className="col-lg-2" key={index}>
                                         <div className="sw-goal-box">
-                                          <a href={item.path}>
+                                          <Link to={item.path}>
                                             <div
                                               className="sw-goal-media"
                                               style={{
@@ -287,7 +287,7 @@ class Header extends React.Component {
                                                 <h5>{item.name}</h5>
                                               </div>
                                             </div>
-                                          </a>
+                                          </Link>
                                         </div>
                                       </div>
                                     ))}
@@ -298,14 +298,14 @@ class Header extends React.Component {
                                     {item.brandOptions.map((item, index) => (
                                       <div className="col-lg-2" key={index}>
                                         <div className="sw-brand-box">
-                                          <a href={item.path}>
+                                          <Link to={item.path}>
                                             <div
                                               className="sw-brand-media"
                                               style={{
                                                 background: `url(${item.imgPath}) no-repeat center center/cover`
                                               }}
                                             />
-                                          </a>
+                                          </Link>
                                         </div>
                                       </div>
                                     ))}

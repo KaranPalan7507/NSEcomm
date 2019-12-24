@@ -111,6 +111,16 @@ export default class Filter extends React.Component {
       />
     );
   }
+  handleSliderChange(e) {
+    this.filter.price = e;
+    const filterStr = {};
+    for (var item in this.filter) {
+      if (this.filter[item].length) {
+        filterStr[item] = this.filter[item].toString();
+      }
+    }
+    this.props.onChange(filterStr);
+  }
   render() {
     return (
       <div className="filter-wrapper">
@@ -143,6 +153,7 @@ export default class Filter extends React.Component {
           <MySlider
             valueLabelDisplay="auto"
             defaultValue={[0, this.state.price]}
+            onChangeCommitted={(e, val) => this.handleSliderChange(val)}
           />
           {/* {this.state.price.map((option, index) =>
                            this.renderPriceCheckbox(option, index, "price")

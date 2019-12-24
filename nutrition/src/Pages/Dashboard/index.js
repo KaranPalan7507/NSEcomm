@@ -92,7 +92,11 @@ class Dashboard extends React.Component {
               "Lorem Ispum text",
               this.state.deals
             )}
-
+          <div className="tools-section">
+            <a href="/tool">
+              <img src="/images/Group_962.png" />
+            </a>
+          </div>
           {this.state.topseller &&
             this.renderProductCarousel(
               "Popular In Weight Loss",

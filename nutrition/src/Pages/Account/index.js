@@ -4,7 +4,7 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import { withRouter } from "react-router";
 import Details from "./Details";
 import Address from "./Address";
-import Orders from "./orders";
+import Orders from "./Orders";
 import CashbackHistory from "./cashbackHistory";
 import Referrals from "./Referrals";
 import Coupons from "./Coupon";

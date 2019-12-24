@@ -14,19 +14,19 @@ const menuOptions = [
     name: "Store",
     mainOptions: [
       {
-        path: "/product",
+        path: "/product?search=best_seller",
         name: "Best Sellers"
       },
       {
-        path: "/product",
+        path: "/product?search=promos",
         name: "Promos"
       },
       {
-        path: "/product",
+        path: "/product?search=new",
         name: "New"
       },
       {
-        path: "/product",
+        path: "/product?search=discovery_boxes",
         name: "Discovery Boxes"
       }
     ],
@@ -36,23 +36,23 @@ const menuOptions = [
         imgPath: proteinImg,
         options: [
           {
-            path: "/product",
+            path: "/product?search=casein",
             name: "Casein"
           },
           {
-            path: "/product",
+            path: "/product?search=gainer",
             name: "Gainer"
           },
           {
-            path: "/product",
+            path: "/product?search=isolate",
             name: "Isolate"
           },
           {
-            path: "/product",
+            path: "/product?search=vegan",
             name: "Vegan"
           },
           {
-            path: "/product",
+            path: "/product?search=whey",
             name: "Whey"
           }
         ]
@@ -62,19 +62,19 @@ const menuOptions = [
         imgPath: drinkImg,
         options: [
           {
-            path: "/product",
+            path: "/product?search=drinks",
             name: "Energy"
           },
           {
-            path: "/product",
+            path: "/product?search=protein",
             name: "Protein"
           },
           {
-            path: "/product",
+            path: "/product?search=amino_acid",
             name: "Amino Acids"
           },
           {
-            path: "/product",
+            path: "/product?search=l_carnitine",
             name: "L-Carnitine"
           }
         ]
@@ -84,11 +84,11 @@ const menuOptions = [
         imgPath: fatBurnerImg,
         options: [
           {
-            path: "/product",
+            path: "/product?search=capsules",
             name: "Capsules"
           },
           {
-            path: "/product",
+            path: "/product?search=liquid",
             name: "Liquid"
           }
         ]
@@ -98,11 +98,11 @@ const menuOptions = [
         imgPath: barsImg,
         options: [
           {
-            path: "/product",
+            path: "/product?search=energy_bar",
             name: "Energy"
           },
           {
-            path: "/product",
+            path: "/product?search=protein_bar",
             name: "Protein"
           }
         ]
@@ -112,15 +112,15 @@ const menuOptions = [
         imgPath: vitaminImg,
         options: [
           {
-            path: "/product",
+            path: "/product?search=capsules",
             name: "Capsules"
           },
           {
-            path: "/product",
+            path: "/product?search=ready_to_drink",
             name: "Ready to drink"
           },
           {
-            path: "/product",
+            path: "/product?search=shots",
             name: "Shots  "
           }
         ]
@@ -130,23 +130,23 @@ const menuOptions = [
         imgPath: accessoriesImg,
         options: [
           {
-            path: "/product",
+            path: "/product?search=belts",
             name: "Belts"
           },
           {
-            path: "/product",
+            path: "/product?search=gloves",
             name: "Gloves"
           },
           {
-            path: "/product",
+            path: "/product?search=others",
             name: "Others"
           },
           {
-            path: "/product",
+            path: "/product?search=shakers",
             name: "Shakers"
           },
           {
-            path: "/product",
+            path: "/product?search=t_shirts",
             name: "T-Shirts"
           }
         ]
@@ -156,15 +156,15 @@ const menuOptions = [
         imgPath: aminoAcidImg,
         options: [
           {
-            path: "/product",
+            path: "/product?search=liquid",
             name: "Liquid"
           },
           {
-            path: "/product",
+            path: "/product?search=capsules",
             name: "Capsules"
           },
           {
-            path: "/product",
+            path: "/product?search=powders",
             name: "Powders"
           }
         ]
@@ -174,15 +174,15 @@ const menuOptions = [
         imgPath: lCarnitineImg,
         options: [
           {
-            path: "/product",
+            path: "/product?search=ready_to_drink",
             name: "Ready to drink"
           },
           {
-            path: "/product",
+            path: "/product?search=capsules",
             name: "Capsules"
           },
           {
-            path: "/product",
+            path: "/product?search=shots",
             name: "Shots"
           }
         ]
@@ -193,32 +193,32 @@ const menuOptions = [
     name: "Shop By Goal",
     goalOptions: [
       {
-        path: "/product",
+        path: "/product?search=endurance",
         imgPath: "/images/goal1.png",
         name: "Endurance"
       },
       {
-        path: "/product",
+        path: "/product?search=energy",
         imgPath: "/images/goal2.png",
         name: "Energy"
       },
       {
-        path: "/product",
+        path: "/product?search=muscle",
         imgPath: "/images/goal3.png",
         name: "Muscle"
       },
       {
-        path: "/product",
+        path: "/product?search=strength",
         imgPath: "/images/goal4.png",
         name: "Strength"
       },
       {
-        path: "/product",
+        path: "/product?search=weight_loss",
         imgPath: "/images/goal6.png",
         name: "Weight Loss"
       },
       {
-        path: "/product",
+        path: "/product?search=wellness",
         imgPath: "/images/goal7.png",
         name: "Wellness"
       }
@@ -228,32 +228,32 @@ const menuOptions = [
     name: "Shop By Brand",
     brandOptions: [
       {
-        path: "/product",
+        path: "/product?search=brand1",
         imgPath: "/images/shop-brand.png",
         name: "Brand 1"
       },
       {
-        path: "/product",
+        path: "/product?search=brand2",
         imgPath: "/images/shop-brand.png",
         name: "Brand 2"
       },
       {
-        path: "/product",
+        path: "/product?search=brand3",
         imgPath: "/images/shop-brand.png",
         name: "Brand 3"
       },
       {
-        path: "/product",
+        path: "/product?search=brand4",
         imgPath: "/images/shop-brand.png",
         name: "Brand 4"
       },
       {
-        path: "/product",
+        path: "/product?search=brand5",
         imgPath: "/images/shop-brand.png",
         name: "Brand 5"
       },
       {
-        path: "/product",
+        path: "/product?search=brand6",
         imgPath: "/images/shop-brand.png",
         name: "Brand 6"
       }
@@ -263,22 +263,22 @@ const menuOptions = [
     name: "Offer",
     offerOptions: [
       {
-        path: "/product?offer=flash-sale",
+        path: "/product?search=flash_sale",
         imgPath: "/images/lightning.svg",
         name: "Flash Sale"
       },
       {
-        path: "/product?offer=crazy-deals",
+        path: "/product?search=crazy_deals",
         imgPath: "/images/banking.svg",
         name: "Crazy Deals"
       },
       {
-        path: "/product?offer=wipe-out-sale",
+        path: "/product?search=wipe_out_sale",
         imgPath: "/images/shopping-bag.svg",
         name: "Wipe Out Sale"
       },
       {
-        path: "/product?half-price-store",
+        path: "/product?search=half_price_store",
         imgPath: "/images/percent.svg",
         name: "Half Price Store"
       }
@@ -286,7 +286,7 @@ const menuOptions = [
   },
   {
     name: "Why Us",
-    path: "/"
+    path: "#"
   },
   {
     name: "Blog",
@@ -295,12 +295,12 @@ const menuOptions = [
   {
     name: "Whatsapp",
     imgPath: socialIcon1,
-    path: "/"
+    path: "#"
   },
   {
     name: "i-Nutrition",
     imgPath: socialIcon2,
-    path: "/"
+    path: "#"
   }
 ];
 
