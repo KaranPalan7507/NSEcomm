@@ -64,7 +64,8 @@ class Account extends React.Component {
     this.props.history.push(item.url);
   }
   logout() {
-    Cookie.set("token", null);
+    Cookie.remove("token");
+
     this.props.history.push("/");
     window.location.reload();
   }

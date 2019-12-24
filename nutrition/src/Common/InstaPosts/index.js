@@ -76,10 +76,11 @@ class InstaPosts extends React.Component {
             <Slider {...settings}>
               {this.state.posts.map(item => (
                 <div className="post" key={item.id}>
-                  <AspectRatioBackground
+                  {/* <AspectRatioBackground
                     url={item.media_url}
                     ratio="366:394"
-                  ></AspectRatioBackground>
+                  ></AspectRatioBackground> */}
+                  <img src={item.media_url} />
                 </div>
               ))}
             </Slider>

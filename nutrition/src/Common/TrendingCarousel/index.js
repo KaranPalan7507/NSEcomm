@@ -80,22 +80,30 @@ class Carousel extends Component {
               >
                 <div className="image-wrapper">
                   <img
-                    src={item.images[0].image}
-                    alt={item.images[0].alt_text}
+                    src={
+                      item && item.images && item.images[0]
+                        ? item.images[0].image
+                        : ""
+                    }
+                    alt={
+                      item && item.images && item.images[0]
+                        ? item.images[0].alt_text
+                        : ""
+                    }
                   />
                 </div>
-                <div className="title">{item.name}</div>
+                <div className="title">{item ? item.name : ""}</div>
                 <div className="product-final-offer">
                   <span className="current-price">
                     <span>&#8377;</span>
-                    {item.current_price}
+                    {item ? item.current_price : ""}
                   </span>
                   <strike className="original-price">
                     <span>&#8377;</span>
-                    {item.price}
+                    {item ? item.price : ""}
                   </strike>
                   <span className="discount">
-                    {item.discount}
+                    {item ? item.discount : ""}
                     <span>
                       {"%"} {messages.common.off}
                     </span>
@@ -106,7 +114,7 @@ class Carousel extends Component {
                     <StarRating />
                   </div>
                   <span className="review-count">
-                    {item.total_reviews} {messages.common.reviews}
+                    {item ? item.total_reviews : ""} {messages.common.reviews}
                   </span>
                 </div>
               </div>

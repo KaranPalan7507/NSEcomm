@@ -132,7 +132,7 @@ class Header extends React.Component {
                         </a>
                       </li>
                       <li>
-                        <a href="/">
+                        <a href="/cart">
                           <em className="icon icon-shopping-cart-black" />
                           <sup className="badge badge-danger">2</sup>
                         </a>

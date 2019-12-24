@@ -13,6 +13,7 @@ import BlogDetail from "./Pages/BlogDetail";
 import Account from "./Pages/Account";
 import Cart from "./Pages/Cart";
 import Tool from "./Pages/Tool";
+import Nutrition from "./Pages/Nutrition";
 import Cookie from "js-cookie";
 import Dashboard from "./Pages/Dashboard";
 class App extends Component {
@@ -51,6 +52,7 @@ class App extends Component {
             <Route path="/account" component={Account} />
             <Route path="/cart" component={Cart} />
             <Route path="/tool" component={Tool} />
+            <Route path="/i-nutrition" component={Nutrition} />
           </Router>
         </section>
         <Footer />

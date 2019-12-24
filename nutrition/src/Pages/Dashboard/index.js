@@ -7,7 +7,8 @@ import ProductCarousel from "./../../Common/TrendingCarousel";
 import InstaPosts from "./../../Common/InstaPosts";
 class Dashboard extends React.Component {
   state = {
-    topseller: []
+    topseller: [],
+    deals: []
   };
   mainInfo = [
     {
@@ -42,7 +43,6 @@ class Dashboard extends React.Component {
     }
   }
   async getTodaysDeals() {
-    //const date = "2019-07-18T21:33:46.097+00:00";
     const date = new Date().toISOString();
     const response = await API.POST(apis.deals, { date: date });
     if (response.success) {
@@ -86,7 +86,7 @@ class Dashboard extends React.Component {
       <div className="dashboard-wrapper">
         {this.renderMainSlider()}
         <div className="dashboard-container">
-          {this.state.deals &&
+          {this.state.deals.length &&
             this.renderProductCarousel(
               "Today Deals",
               "Lorem Ispum text",

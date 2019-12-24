@@ -46,7 +46,10 @@ class Orders extends React.Component {
                   <img src={item.imageSrc} />
                   <div className="title-wrapper">
                     <div className="title">{item.title}</div>
-                    <div className="price">{item.price}</div>
+                    <div className="price">
+                      <span>&#8377;</span>
+                      {item.price}
+                    </div>
                   </div>
                 </div>
               </div>

@@ -300,7 +300,7 @@ const menuOptions = [
   {
     name: "i-Nutrition",
     imgPath: socialIcon2,
-    path: "#"
+    path: "/i-nutrition"
   }
 ];
 

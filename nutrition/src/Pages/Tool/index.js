@@ -3,6 +3,8 @@ import "./style.scss";
 import { Doughnut } from "react-chartjs-2";
 import StarRating from "./../../Common/StartRating";
 import messages from "./../../utils/messages";
+import { API } from "../../axios";
+import { apis } from "../../constants";
 
 const data = {
   labels: ["Fat", "Carbs", "Protein"],
@@ -109,6 +111,28 @@ export default class extends React.Component {
     }
   ];
   dietText = "Lorem ipsum dolor sit amet, consectetuer adipiscing";
+  constructor(props) {
+    super(props);
+    this.getResult();
+  }
+  async getResult() {
+    const params = {
+      goal_weight: 80,
+      age: 24,
+      name: "ABC",
+      weight: "100",
+      height: 166,
+      meals: "Any",
+      losegain: "2",
+      gender: "male",
+      diet: "Veg",
+      goal: "build muscle",
+      bodyfat: "Low",
+      lifestyle: "light active"
+    };
+    const response = await API.POST("/tool", { ...params });
+    console.log(response);
+  }
   render() {
     return (
       <div className="tool-result-wrapper">
