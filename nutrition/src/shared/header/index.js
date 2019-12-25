@@ -104,9 +104,9 @@ class Header extends React.Component {
             <div className="ih-action">
               <div className="header-wrapper">
                 <div className="logo">
-                  <a href="/">
+                  <Link to="/">
                     <img src="/images/logo.png" alt="Nutrition Systems logo" />
-                  </a>
+                  </Link>
                 </div>
                 <div className="navbar-search">
                   <div className="inner-search">
@@ -126,16 +126,16 @@ class Header extends React.Component {
                   <div className="reg-link">
                     <ul>
                       <li>
-                        <a href="/account/wishlist">
+                        <Link to="/account/wishlist">
                           <em className="icon icon-heart" />
                           <sup className="badge badge-danger">2</sup>
-                        </a>
+                        </Link>
                       </li>
                       <li>
-                        <a href="/cart">
+                        <Link to="/cart">
                           <em className="icon icon-shopping-cart-black" />
                           <sup className="badge badge-danger">2</sup>
-                        </a>
+                        </Link>
                       </li>
                       {!this.state.isLogedIn && (
                         <li>
@@ -214,9 +214,9 @@ class Header extends React.Component {
                                         {item.mainOptions.map(
                                           (subitem, index) => (
                                             <li key={index}>
-                                              <a href={subitem.path}>
+                                              <Link to={subitem.path}>
                                                 {subitem.name}
-                                              </a>
+                                              </Link>
                                             </li>
                                           )
                                         )}
@@ -251,11 +251,11 @@ class Header extends React.Component {
                                                         {subitem.options.map(
                                                           (opt, index) => (
                                                             <li key={index}>
-                                                              <a
-                                                                href={opt.path}
+                                                              <Link
+                                                                to={opt.path}
                                                               >
                                                                 {opt.name}
-                                                              </a>
+                                                              </Link>
                                                             </li>
                                                           )
                                                         )}

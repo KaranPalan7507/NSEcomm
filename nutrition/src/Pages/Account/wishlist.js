@@ -46,9 +46,9 @@ class Wishlist extends React.Component {
             </span>
           </div>
           <div className="rating">
-            <StarRating />
+            <StarRating value={item.rating} edit={false} />
             <span className="review-count">
-              ( {item.total_reviews} {messages.common.reviews} )
+              ( {item.total} {messages.common.reviews} )
             </span>
           </div>
         </div>

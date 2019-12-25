@@ -47,9 +47,9 @@ class ProductItem extends React.Component {
             </span>
           </div>
           <div className="rating">
-            <StarRating />
+            <StarRating value={this.state.data.rating} edit={false} />
             <span className="review-count">
-              ( {this.state.data.total_reviews} {messages.common.reviews} )
+              ( {this.state.data.total} {messages.common.reviews} )
             </span>
           </div>
         </div>

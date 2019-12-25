@@ -5,11 +5,96 @@ import { API } from "./../../axios";
 import { apis } from "./../../constants";
 import ProductCarousel from "./../../Common/TrendingCarousel";
 import InstaPosts from "./../../Common/InstaPosts";
+import TextField from "@material-ui/core/TextField";
+import Switch from "@material-ui/core/Switch";
+import Button from "@material-ui/core/Button";
+
 class Dashboard extends React.Component {
   state = {
     topseller: [],
-    deals: []
+    deals: [],
+    isToolDisabled: true
   };
+  toolAnswers = {
+    height: null,
+    weight: null,
+    age: null,
+    goal: null,
+    active: null,
+    workout: null
+  };
+  goalOptions = [
+    {
+      icon: "icon-belly",
+      option: "Weight Loss",
+      subtext: "I want to lose Weight",
+      question: "goal"
+    },
+    {
+      icon: "icon-gym",
+      option: "Body Building",
+      subtext: "I want to build muscle mass",
+      question: "goal"
+    },
+    {
+      icon: "icon-weightlift",
+      option: "General Fitbess",
+      subtext: "I want general fitness",
+      question: "goal"
+    },
+    {
+      icon: "icon-fast",
+      option: "Sports",
+      subtext: "I want to play sports",
+      question: "goal"
+    }
+  ];
+  activeOptions = [
+    {
+      icon: "icon-couch",
+      option: "Sedentary",
+      subtext: "Inactive",
+      question: "active"
+    },
+    {
+      icon: "icon-walk",
+      option: "Lightly Active",
+      subtext: "Minimal",
+      question: "active"
+    },
+    {
+      icon: "icon-workout",
+      option: "Moderately Active",
+      subtext: "15-30 mins workout",
+      question: "active"
+    },
+    {
+      icon: "icon-fast",
+      option: "Very Active",
+      subtext: "Regular Workout",
+      question: "active"
+    }
+  ];
+  workoutoptions = [
+    {
+      icon: "icon-gym-1",
+      option: "Yes",
+      subtext: "",
+      question: "workout"
+    },
+    {
+      icon: "icon-walk",
+      option: "No",
+      subtext: "",
+      question: "workout"
+    },
+    {
+      icon: "icon-gym-2",
+      option: "Sometimes",
+      subtext: "",
+      question: "workout"
+    }
+  ];
   mainInfo = [
     {
       text: "NEXT DISPATCH IN 1H 20MIn 09SEC",
@@ -49,7 +134,16 @@ class Dashboard extends React.Component {
       this.setState({ deals: response.data.items });
     }
   }
-
+  onAnswerChange(answer, question) {
+    this.toolAnswers[question] = answer;
+    for (var key in this.toolAnswers) {
+      if (!this.toolAnswers[key]) {
+        this.setState({ isToolDisabled: true });
+        return false;
+      }
+    }
+    this.setState({ isToolDisabled: false });
+  }
   renderMainSlider() {
     return (
       <div className="main-slider">
@@ -81,6 +175,23 @@ class Dashboard extends React.Component {
       <ProductCarousel heading={heading} subheading={subheading} data={items} />
     );
   }
+  renderOption({ option, subtext, question, icon }) {
+    const active = this.toolAnswers[question] === option;
+    return (
+      <div
+        className={active ? "option active" : "option"}
+        onClick={event => this.onAnswerChange(option, question)}
+      >
+        <div className="icon-wrapper">
+          <em className={`icon ${icon}`} />
+        </div>
+        <div>
+          <div>{option}</div>
+          <div className="sub-info">{subtext}</div>
+        </div>
+      </div>
+    );
+  }
   render() {
     return (
       <div className="dashboard-wrapper">
@@ -93,22 +204,60 @@ class Dashboard extends React.Component {
               this.state.deals
             )}
           <div className="tools-section">
-            <a href="/tool">
-              <img src="/images/Group_962.png" />
-            </a>
             <div className="heading">I-NUTRITION</div>
             <div className="questioniare">
-              <div className="q-section">
+              <div className="q-section first">
                 <div className="title">Title</div>
                 <div className="wrapper">
-                  <div>
-                    <div className="question">What is your height?</div>
+                  <div className="option">
+                    <div className="icon-wrapper">
+                      <em className="icon icon-height" />
+                    </div>
+                    <div>
+                      <div>What is your height?</div>
+                      <div className="input-section">
+                        <TextField
+                          classes={{ root: "login-input" }}
+                          onChange={event =>
+                            this.onAnswerChange(event.target.value, "height")
+                          }
+                        />
+                        cm
+                      </div>
+                    </div>
                   </div>
-                  <div>
-                    <div className="question">What is your weight?</div>
+                  <div className="option">
+                    <div className="icon-wrapper">
+                      <em className="icon icon-weight" />
+                    </div>
+                    <div>
+                      <div>What is your weight?</div>
+                      <div className="input-section">
+                        <TextField
+                          classes={{ root: "login-input" }}
+                          onChange={event =>
+                            this.onAnswerChange(event.target.value, "weight")
+                          }
+                        />
+                        kg
+                      </div>
+                    </div>
                   </div>
-                  <div>
-                    <div className="question">What is your Age?</div>
+                  <div className="option">
+                    <div className="icon-wrapper">
+                      <em className="icon icon-age" />
+                    </div>
+                    <div>
+                      <div>What is your Age?</div>
+                      <div className="input-section">
+                        <TextField
+                          classes={{ root: "login-input" }}
+                          onChange={event =>
+                            this.onAnswerChange(event.target.value, "age")
+                          }
+                        />
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -116,118 +265,35 @@ class Dashboard extends React.Component {
                 <div className="title">Title</div>
                 <div className="wrapper">
                   <div className="question">What is your Goal?</div>
-                  <div className="option">
-                    <div className="icon-wrapper">
-                      <em className="icon icon-belly" />
-                    </div>
-                    <div>
-                      <div>Weight Loss</div>
-                      <div className="sub-info">I want to lose Weight</div>
-                    </div>
-                  </div>
-                  <div className="option">
-                    <div className="icon-wrapper">
-                      <em className="icon icon-gym" />
-                    </div>
-                    <div>
-                      <div>Body Building</div>
-                      <div className="sub-info">
-                        I want to build muscle mass
-                      </div>
-                    </div>
-                  </div>
-                  <div className="option">
-                    <div className="icon-wrapper">
-                      <em className="icon icon-weightlift" />
-                    </div>
-                    <div>
-                      <div>General Fitbess</div>
-                      <div className="sub-info">I want general fitness</div>
-                    </div>
-                  </div>
-                  <div className="option">
-                    <div className="icon-wrapper">
-                      <em className="icon icon-fast" />
-                    </div>
-                    <div>
-                      <div>Sports</div>
-                      <div className="sub-info">I want to play sports</div>
-                    </div>
-                  </div>
+                  {this.goalOptions.map(item => this.renderOption(item))}
                 </div>
               </div>
               <div className="q-section">
                 <div className="title">Title</div>
                 <div className="wrapper">
                   <div className="question">How active are you?</div>
-                  <div className="option">
-                    <div className="icon-wrapper">
-                      <em className="icon icon-couch" />
-                    </div>
-                    <div>
-                      <div>Sedentary</div>
-                      <div className="sub-info">Inactive</div>
-                    </div>
-                  </div>
-                  <div className="option">
-                    <div className="icon-wrapper">
-                      <em className="icon icon-walk" />
-                    </div>
-                    <div>
-                      <div>Lightly Active</div>
-                      <div className="sub-info">Minimal</div>
-                    </div>
-                  </div>
-                  <div className="option">
-                    <div className="icon-wrapper">
-                      <em className="icon icon-workout" />
-                    </div>
-                    <div>
-                      <div>Moderately Active</div>
-                      <div className="sub-info">15-30 mins workout</div>
-                    </div>
-                  </div>
-                  <div className="option">
-                    <div className="icon-wrapper">
-                      <em className="icon icon-fast" />
-                    </div>
-                    <div>
-                      <div>Very Active</div>
-                      <div className="sub-info">Regular Workout</div>
-                    </div>
-                  </div>
+                  {this.activeOptions.map(item => this.renderOption(item))}
                 </div>
               </div>
               <div className="q-section last">
                 <div className="title">Title</div>
                 <div className="wrapper">
                   <div className="question">Do you workout?</div>
-                  <div className="option">
-                    <div className="icon-wrapper">
-                      <em className="icon icon-gym-1" />
-                    </div>
-                    <div>
-                      <div>Yes</div>
-                    </div>
-                  </div>
-                  <div className="option">
-                    <div className="icon-wrapper">
-                      <em className="icon icon-walk" />
-                    </div>
-                    <div>
-                      <div>No</div>
-                    </div>
-                  </div>
-                  <div className="option">
-                    <div className="icon-wrapper">
-                      <em className="icon icon-gym-2" />
-                    </div>
-                    <div>
-                      <div>Sometimes</div>
-                    </div>
-                  </div>
+                  {this.workoutoptions.map(item => this.renderOption(item))}
                 </div>
               </div>
+            </div>
+            <div className="bottom-section">
+              Veg
+              <Switch />
+              Non-Veg
+              <Button
+                variant="contained"
+                className="button-red"
+                disabled={this.state.isToolDisabled}
+              >
+                Next
+              </Button>
             </div>
           </div>
           {this.state.topseller &&

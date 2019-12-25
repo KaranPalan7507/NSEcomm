@@ -119,10 +119,10 @@ export default class extends React.Component {
     const params = {
       goal_weight: 80,
       age: 24,
-      name: "ABC",
+      name: "2",
       weight: "100",
       height: 166,
-      meals: "Any",
+      meals: "3",
       losegain: "2",
       gender: "male",
       diet: "Veg",

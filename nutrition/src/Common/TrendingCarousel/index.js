@@ -111,10 +111,10 @@ class Carousel extends Component {
                 </div>
                 <div className="product-rating">
                   <div className="rating">
-                    <StarRating />
+                    <StarRating value={item.rating} edit={false} />
                   </div>
                   <span className="review-count">
-                    {item ? item.total_reviews : ""} {messages.common.reviews}
+                    {item ? item.total : ""} {messages.common.reviews}
                   </span>
                 </div>
               </div>

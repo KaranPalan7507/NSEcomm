@@ -71,13 +71,54 @@
   }
 }
 .tools-section {
+  border: 1px solid #f00;
+  padding: 60px 0;
+  .bottom-section {
+    text-align: right;
+    padding-right: 60px;
+  }
+  .button-red {
+    margin-left: 20px;
+    font-weight: 600;
+    font-size: 18px;
+    text-align: center;
+    color: #fff;
+    height: 50px;
+    width: 150px;
+  }
+  .MuiSwitch-root {
+    width: 80px;
+    height: 32px;
+    padding: 0;
+    margin: 0 12px;
+  }
+  .MuiSwitch-thumb {
+    width: 26px;
+    height: 26px;
+  }
+  .MuiSwitch-colorSecondary.Mui-checked + .MuiSwitch-track {
+    background-color: $red;
+    opacity: 1;
+  }
+  .MuiSwitch-colorSecondary.Mui-checked {
+    color: white;
+  }
+  .MuiSwitch-switchBase.Mui-checked {
+    transform: translateX(48px);
+  }
+  .MuiSwitch-track {
+    border-radius: 16px;
+  }
+  .MuiSwitch-switchBase {
+    padding: 3px;
+  }
   .heading {
     font-weight: 600;
     font-size: 18px;
     line-height: 25px;
     text-align: center;
     color: #000;
-    margin: 60px 0;
+    margin-bottom: 60px;
   }
   .title {
     font-weight: 600;
@@ -103,6 +144,11 @@
       display: flex;
       padding: 10px 0;
       cursor: pointer;
+      &.active {
+        .icon {
+          color: #ff0000;
+        }
+      }
       &:hover {
         .icon {
           color: #ff0000;
@@ -122,10 +168,25 @@
     }
     .q-section {
       width: 25%;
-      padding: 40px;
+      .login-input {
+        width: 55px;
+      }
       .wrapper {
         border-right: 1px solid #727272;
+        height: 400px;
+        padding-left: 50px;
         padding-top: 50px;
+      }
+      &.first {
+        .wrapper {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+        }
+        .input-section {
+          text-align: center;
+          margin-left: -32px;
+        }
       }
       &.last {
         .wrapper {
