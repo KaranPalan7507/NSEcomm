@@ -110,3 +110,9 @@
 .icon-gym-2:before {
   content: "\79";
 }
+.icon-logout-white:before {
+  content: "\78";
+}
+.icon-shopping-cart-black:before {
+  content: "\7a";
+}

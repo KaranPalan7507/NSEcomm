@@ -56,7 +56,7 @@ class Account extends React.Component {
     },
     {
       text: "Wishlist",
-      iconClass: "icon icon-heart-black",
+      iconClass: "icon icon-heart",
       url: "/account/wishlist"
     }
   ];

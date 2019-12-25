@@ -70,6 +70,71 @@
     padding-top: 1px;
   }
 }
+.tools-section {
+  .heading {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 25px;
+    text-align: center;
+    color: #000;
+    margin: 60px 0;
+  }
+  .title {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 25px;
+    text-align: center;
+    color: #000;
+  }
+  .questioniare {
+    display: flex;
+    .question,
+    .option {
+      font-weight: 600;
+      font-size: 18px;
+      letter-spacing: 0.03em;
+      line-height: 25px;
+      color: #000;
+    }
+    .question {
+      margin-bottom: 50px;
+    }
+    .option {
+      display: flex;
+      padding: 10px 0;
+      cursor: pointer;
+      &:hover {
+        .icon {
+          color: #ff0000;
+        }
+      }
+      .icon-wrapper {
+        margin-right: 14px;
+        font-size: 32px;
+      }
+      .sub-info {
+        font-weight: normal;
+        font-size: 11px;
+        line-height: 24px;
+        text-align: left;
+        color: #000;
+      }
+    }
+    .q-section {
+      width: 25%;
+      padding: 40px;
+      .wrapper {
+        border-right: 1px solid #727272;
+        padding-top: 50px;
+      }
+      &.last {
+        .wrapper {
+          border-right: none;
+        }
+      }
+    }
+  }
+}
 @media screen and (max-width: 768px) {
   .dashboard-wrapper {
     .dashboard-container {

@@ -96,6 +96,139 @@ class Dashboard extends React.Component {
             <a href="/tool">
               <img src="/images/Group_962.png" />
             </a>
+            <div className="heading">I-NUTRITION</div>
+            <div className="questioniare">
+              <div className="q-section">
+                <div className="title">Title</div>
+                <div className="wrapper">
+                  <div>
+                    <div className="question">What is your height?</div>
+                  </div>
+                  <div>
+                    <div className="question">What is your weight?</div>
+                  </div>
+                  <div>
+                    <div className="question">What is your Age?</div>
+                  </div>
+                </div>
+              </div>
+              <div className="q-section">
+                <div className="title">Title</div>
+                <div className="wrapper">
+                  <div className="question">What is your Goal?</div>
+                  <div className="option">
+                    <div className="icon-wrapper">
+                      <em className="icon icon-belly" />
+                    </div>
+                    <div>
+                      <div>Weight Loss</div>
+                      <div className="sub-info">I want to lose Weight</div>
+                    </div>
+                  </div>
+                  <div className="option">
+                    <div className="icon-wrapper">
+                      <em className="icon icon-gym" />
+                    </div>
+                    <div>
+                      <div>Body Building</div>
+                      <div className="sub-info">
+                        I want to build muscle mass
+                      </div>
+                    </div>
+                  </div>
+                  <div className="option">
+                    <div className="icon-wrapper">
+                      <em className="icon icon-weightlift" />
+                    </div>
+                    <div>
+                      <div>General Fitbess</div>
+                      <div className="sub-info">I want general fitness</div>
+                    </div>
+                  </div>
+                  <div className="option">
+                    <div className="icon-wrapper">
+                      <em className="icon icon-fast" />
+                    </div>
+                    <div>
+                      <div>Sports</div>
+                      <div className="sub-info">I want to play sports</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="q-section">
+                <div className="title">Title</div>
+                <div className="wrapper">
+                  <div className="question">How active are you?</div>
+                  <div className="option">
+                    <div className="icon-wrapper">
+                      <em className="icon icon-couch" />
+                    </div>
+                    <div>
+                      <div>Sedentary</div>
+                      <div className="sub-info">Inactive</div>
+                    </div>
+                  </div>
+                  <div className="option">
+                    <div className="icon-wrapper">
+                      <em className="icon icon-walk" />
+                    </div>
+                    <div>
+                      <div>Lightly Active</div>
+                      <div className="sub-info">Minimal</div>
+                    </div>
+                  </div>
+                  <div className="option">
+                    <div className="icon-wrapper">
+                      <em className="icon icon-workout" />
+                    </div>
+                    <div>
+                      <div>Moderately Active</div>
+                      <div className="sub-info">15-30 mins workout</div>
+                    </div>
+                  </div>
+                  <div className="option">
+                    <div className="icon-wrapper">
+                      <em className="icon icon-fast" />
+                    </div>
+                    <div>
+                      <div>Very Active</div>
+                      <div className="sub-info">Regular Workout</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="q-section last">
+                <div className="title">Title</div>
+                <div className="wrapper">
+                  <div className="question">Do you workout?</div>
+                  <div className="option">
+                    <div className="icon-wrapper">
+                      <em className="icon icon-gym-1" />
+                    </div>
+                    <div>
+                      <div>Yes</div>
+                    </div>
+                  </div>
+                  <div className="option">
+                    <div className="icon-wrapper">
+                      <em className="icon icon-walk" />
+                    </div>
+                    <div>
+                      <div>No</div>
+                    </div>
+                  </div>
+                  <div className="option">
+                    <div className="icon-wrapper">
+                      <em className="icon icon-gym-2" />
+                    </div>
+                    <div>
+                      <div>Sometimes</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           {this.state.topseller &&
             this.renderProductCarousel(
