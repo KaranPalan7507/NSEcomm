@@ -60,6 +60,7 @@ class Account extends React.Component {
       url: "/account/wishlist"
     }
   ];
+
   menuClick(item) {
     this.props.history.push(item.url);
   }
@@ -128,7 +129,7 @@ class Account extends React.Component {
               </div>
             ))}
             <div className="menu logout" onClick={() => this.logout()}>
-              <em className="icon icon-logout-black" />
+              <em className="icon icon-logout-white" />
 
               <span>Logout</span>
             </div>

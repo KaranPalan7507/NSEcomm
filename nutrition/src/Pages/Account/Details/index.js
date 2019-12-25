@@ -34,9 +34,7 @@ class Details extends React.Component {
     user.email = formData.get("email");
     user.mobile = this.state.mobile;
     const response = await API.POST(apis.accountDetails, user);
-    if (response.success) {
-      console.log("updated successfully");
-    }
+    
   }
   render() {
     return (

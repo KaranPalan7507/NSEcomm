@@ -8,7 +8,36 @@ import InstaPosts from "./../../Common/InstaPosts";
 import TextField from "@material-ui/core/TextField";
 import Switch from "@material-ui/core/Switch";
 import Button from "@material-ui/core/Button";
+import Slider from "react-slick";
+import { withRouter } from "react-router";
 
+var settings = {
+  dots: false,
+  infinite: false,
+  speed: 500,
+  slidesToShow: 4,
+  slidesToScroll: 1,
+  initialSlide: 0,
+  autoplay: false,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        dots: true
+      }
+    },
+    {
+      breakpoint: 624,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        dots: true
+      }
+    }
+  ]
+};
 class Dashboard extends React.Component {
   state = {
     topseller: [],
@@ -20,8 +49,9 @@ class Dashboard extends React.Component {
     weight: null,
     age: null,
     goal: null,
-    active: null,
-    workout: null
+    lifestyle: null,
+    workout: null,
+    diet: "veg"
   };
   goalOptions = [
     {
@@ -38,7 +68,7 @@ class Dashboard extends React.Component {
     },
     {
       icon: "icon-weightlift",
-      option: "General Fitbess",
+      option: "General Fitness",
       subtext: "I want general fitness",
       question: "goal"
     },
@@ -54,25 +84,25 @@ class Dashboard extends React.Component {
       icon: "icon-couch",
       option: "Sedentary",
       subtext: "Inactive",
-      question: "active"
+      question: "lifestyle"
     },
     {
       icon: "icon-walk",
       option: "Lightly Active",
       subtext: "Minimal",
-      question: "active"
+      question: "lifestyle"
     },
     {
       icon: "icon-workout",
       option: "Moderately Active",
       subtext: "15-30 mins workout",
-      question: "active"
+      question: "lifestyle"
     },
     {
       icon: "icon-fast",
       option: "Very Active",
       subtext: "Regular Workout",
-      question: "active"
+      question: "lifestyle"
     }
   ];
   workoutoptions = [
@@ -206,91 +236,104 @@ class Dashboard extends React.Component {
           <div className="tools-section">
             <div className="heading">I-NUTRITION</div>
             <div className="questioniare">
-              <div className="q-section first">
-                <div className="title">Title</div>
-                <div className="wrapper">
-                  <div className="option">
-                    <div className="icon-wrapper">
-                      <em className="icon icon-height" />
+              <Slider {...settings}>
+                <div className="q-section first">
+                  <div className="title">Title</div>
+                  <div className="wrapper">
+                    <div className="option">
+                      <div className="icon-wrapper">
+                        <em className="icon icon-height" />
+                      </div>
+                      <div>
+                        <div>What is your height?</div>
+                        <div className="input-section">
+                          <TextField
+                            classes={{ root: "login-input" }}
+                            onChange={event =>
+                              this.onAnswerChange(event.target.value, "height")
+                            }
+                          />
+                          cm
+                        </div>
+                      </div>
                     </div>
-                    <div>
-                      <div>What is your height?</div>
-                      <div className="input-section">
-                        <TextField
-                          classes={{ root: "login-input" }}
-                          onChange={event =>
-                            this.onAnswerChange(event.target.value, "height")
-                          }
-                        />
-                        cm
+                    <div className="option">
+                      <div className="icon-wrapper">
+                        <em className="icon icon-weight" />
+                      </div>
+                      <div>
+                        <div>What is your weight?</div>
+                        <div className="input-section">
+                          <TextField
+                            classes={{ root: "login-input" }}
+                            onChange={event =>
+                              this.onAnswerChange(event.target.value, "weight")
+                            }
+                          />
+                          kg
+                        </div>
+                      </div>
+                    </div>
+                    <div className="option">
+                      <div className="icon-wrapper">
+                        <em className="icon icon-age" />
+                      </div>
+                      <div>
+                        <div>What is your Age?</div>
+                        <div className="input-section">
+                          <TextField
+                            classes={{ root: "login-input" }}
+                            onChange={event =>
+                              this.onAnswerChange(event.target.value, "age")
+                            }
+                          />
+                        </div>
                       </div>
                     </div>
                   </div>
-                  <div className="option">
-                    <div className="icon-wrapper">
-                      <em className="icon icon-weight" />
-                    </div>
-                    <div>
-                      <div>What is your weight?</div>
-                      <div className="input-section">
-                        <TextField
-                          classes={{ root: "login-input" }}
-                          onChange={event =>
-                            this.onAnswerChange(event.target.value, "weight")
-                          }
-                        />
-                        kg
-                      </div>
-                    </div>
-                  </div>
-                  <div className="option">
-                    <div className="icon-wrapper">
-                      <em className="icon icon-age" />
-                    </div>
-                    <div>
-                      <div>What is your Age?</div>
-                      <div className="input-section">
-                        <TextField
-                          classes={{ root: "login-input" }}
-                          onChange={event =>
-                            this.onAnswerChange(event.target.value, "age")
-                          }
-                        />
-                      </div>
-                    </div>
+                </div>
+                <div className="q-section">
+                  <div className="title">Title</div>
+                  <div className="wrapper">
+                    <div className="question">What is your Goal?</div>
+                    {this.goalOptions.map(item => this.renderOption(item))}
                   </div>
                 </div>
-              </div>
-              <div className="q-section">
-                <div className="title">Title</div>
-                <div className="wrapper">
-                  <div className="question">What is your Goal?</div>
-                  {this.goalOptions.map(item => this.renderOption(item))}
+                <div className="q-section">
+                  <div className="title">Title</div>
+                  <div className="wrapper">
+                    <div className="question">How active are you?</div>
+                    {this.activeOptions.map(item => this.renderOption(item))}
+                  </div>
                 </div>
-              </div>
-              <div className="q-section">
-                <div className="title">Title</div>
-                <div className="wrapper">
-                  <div className="question">How active are you?</div>
-                  {this.activeOptions.map(item => this.renderOption(item))}
+                <div className="q-section last">
+                  <div className="title">Title</div>
+                  <div className="wrapper">
+                    <div className="question">Do you workout?</div>
+                    {this.workoutoptions.map(item => this.renderOption(item))}
+                  </div>
                 </div>
-              </div>
-              <div className="q-section last">
-                <div className="title">Title</div>
-                <div className="wrapper">
-                  <div className="question">Do you workout?</div>
-                  {this.workoutoptions.map(item => this.renderOption(item))}
-                </div>
-              </div>
+              </Slider>
             </div>
             <div className="bottom-section">
               Veg
-              <Switch />
+              <Switch
+                onChange={e => {
+                  const answer = e.target.checked ? "Non veg" : "veg";
+                  this.onAnswerChange(answer, "diet");
+                }}
+              />
               Non-Veg
               <Button
                 variant="contained"
                 className="button-red"
                 disabled={this.state.isToolDisabled}
+                onClick={() =>
+                  this.props.history.push({
+                    pathname: "/tool",
+                    state: { data: this.toolAnswers }
+                  })
+                }
               >
                 Next
               </Button>
@@ -320,4 +363,4 @@ class Dashboard extends React.Component {
     );
   }
 }
-export default Dashboard;
+export default withRouter(Dashboard);

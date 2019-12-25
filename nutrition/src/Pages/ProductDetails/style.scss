@@ -77,6 +77,9 @@
     background: #fff;
     box-shadow: 0px 3px 6px rgba(221, 18, 31, 0.16);
     padding: 12px;
+    .dropdown {
+      margin-bottom: 30px;
+    }
     .stock-info {
       font-weight: 500;
       font-size: 16px;
@@ -155,6 +158,12 @@
       font-size: 16px;
       font-weight: 500;
     }
+    .content {
+      padding: 12px;
+      font-size: 14px;
+      text-align: left;
+      color: #8b8b8b;
+    }
   }
   .today-deals-wrapper {
     width: calc(100% - 364px - 40px);
@@ -187,6 +196,15 @@
     box-shadow: 0px 3px 6px rgba(221, 18, 31, 0.16);
     margin-top: 20px;
     padding: 12px;
+    .add-review {
+      height: 30px;
+      font-weight: 500;
+      font-size: 12px;
+      color: #fff;
+      border-color: white;
+      text-transform: none;
+      padding: 0 10px;
+    }
     .user-review {
       padding: 24px;
       border-bottom: 1px solid rgba(112, 112, 112, 0.15);
@@ -238,10 +256,14 @@
       font-size: 24px;
       line-height: 58px;
       text-align: left;
-      padding-left: 20px;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
     .top-section {
       display: flex;
+      flex-wrap: wrap;
       border-bottom: 1px solid rgba(112, 112, 112, 0.15);
     }
     .rating-section {
@@ -322,6 +344,16 @@
     .today-deals-wrapper {
       width: 100%;
     }
+    .rating-review-wrapper {
+      width: 100%;
+      margin-right: 0;
+      margin-top: 20px;
+    }
+    .product-desc-wrapper {
+      width: 100%;
+      margin-right: 0;
+      margin-top: 20px;
+    }
     .buying-options-wrapper {
       width: 100%;
       margin-top: 40px;
@@ -343,12 +375,30 @@
       }
       .botom-section {
         height: auto;
+        flex-wrap: wrap;
+        .info-point {
+          width: 50%;
+          min-width: 140px;
+          justify-content: flex-start;
+        }
       }
     }
   }
 }
 @media screen and (max-width: 568px) {
   .product-details-wrapper {
+    .rating-review-wrapper {
+      .rating-section {
+        width: 100%;
+        padding: 20px;
+        border: none;
+      }
+      .review-graph {
+        width: 100%;
+        margin: 0;
+        padding: 20px;
+      }
+    }
     .product-info {
       .left,
       .right {

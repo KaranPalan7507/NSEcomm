@@ -2,6 +2,8 @@ import React from "react";
 import "./style.scss";
 import messages from "./../../utils/messages";
 import StarRating from "./../../Common/StartRating";
+import { API } from "../../axios";
+import { apis } from "../../constants";
 
 export default class Cart extends React.Component {
   coupon = [
@@ -48,6 +50,13 @@ export default class Cart extends React.Component {
       image: "/images/shop-brand.png"
     }
   ];
+  async getCartData(id) {
+    if (!this.isLogin) {
+      window.alert("You need to login");
+    } else {
+      const response = await API.POST("/cart");
+    }
+  }
   render() {
     return (
       <div className="cart-wrapper">

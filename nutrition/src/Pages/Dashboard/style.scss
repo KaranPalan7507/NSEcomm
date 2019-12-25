@@ -76,6 +76,7 @@
   .bottom-section {
     text-align: right;
     padding-right: 60px;
+    margin-top: 30px;
   }
   .button-red {
     margin-left: 20px;
@@ -128,7 +129,6 @@
     color: #000;
   }
   .questioniare {
-    display: flex;
     .question,
     .option {
       font-weight: 600;
@@ -173,7 +173,7 @@
       }
       .wrapper {
         border-right: 1px solid #727272;
-        height: 400px;
+        height: 450px;
         padding-left: 50px;
         padding-top: 50px;
       }
@@ -197,6 +197,35 @@
   }
 }
 @media screen and (max-width: 768px) {
+  .tools-section {
+    padding: 30px 0;
+    .heading {
+      margin-bottom: 30px;
+    }
+
+    .title {
+      text-align: left;
+      padding-left: 20px;
+    }
+    .bottom-section {
+      padding-right: 12px;
+    }
+    .button-red {
+      width: auto;
+      margin-left: 12px;
+      font-size: 14px;
+    }
+    .questioniare {
+      .question {
+        margin-bottom: 20px;
+      }
+      .q-section .wrapper {
+        padding: 20px;
+        height: auto;
+        border-right: none;
+      }
+    }
+  }
   .dashboard-wrapper {
     .dashboard-container {
       padding: 24px;

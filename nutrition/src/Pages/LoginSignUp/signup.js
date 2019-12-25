@@ -16,10 +16,10 @@ class Signup extends React.Component {
     const formData = new FormData(e.target);
     data.mobile = formData.get("mobile");
     // static params
-    data.fname = "abc";
-    data.lname = "abc";
-    data.email = "abc";
-    data.username = "abc";
+    data.fname = "abc12";
+    data.lname = "abc1212";
+    data.email = "abc12" + Math.random(0, 1000);
+    data.username = "abc12";
     const response = await API.POST(apis.signup, data);
     if (response.success) {
       const loginresponse = await API.POST(apis.login, data);

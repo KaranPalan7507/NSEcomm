@@ -1,6 +1,11 @@
 import "./App.scss";
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Redirect
+} from "react-router-dom";
 import ProductDetails from "./Pages/ProductDetails";
 import Product from "./Pages/Product";
 import AfterOrder from "./Pages/AfterOrder";
@@ -49,7 +54,12 @@ class App extends Component {
               component={() => <AfterOrder success={true} />}
             />
             <Route path="/order-failure" component={() => <AfterOrder />} />
-            <Route path="/account" component={Account} />
+            <Route
+              path="/account"
+              component={() =>
+                this.token ? <Account /> : <Redirect to="/login" />
+              }
+            />
             <Route path="/cart" component={Cart} />
             <Route path="/tool" component={Tool} />
             <Route path="/i-nutrition" component={Nutrition} />

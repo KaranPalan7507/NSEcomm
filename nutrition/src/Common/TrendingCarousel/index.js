@@ -71,6 +71,7 @@ class Carousel extends Component {
         <Slider {...this.settings}>
           {this.props.data &&
             this.props.data.map((item, index) => (
+              <div>
               <div
                 className="item"
                 key={index}
@@ -117,6 +118,7 @@ class Carousel extends Component {
                     {item ? item.total : ""} {messages.common.reviews}
                   </span>
                 </div>
+              </div>
               </div>
             ))}
         </Slider>

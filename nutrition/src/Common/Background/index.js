@@ -3,7 +3,6 @@ import styled from "styled-components";
 
 function AspectRatioBackground({ url, ratio = "1:1", className, children }) {
   const [widthRatio, heightRatio] = ratio.split(":");
-  console.log(url);
   return (
     <Background className={className} url={url} w={widthRatio} h={heightRatio}>
       {children}

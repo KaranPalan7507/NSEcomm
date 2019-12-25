@@ -19,7 +19,9 @@ body {
   color: $header-color;
   font-weight: $font-weight-bold;
 }
-
+*:focus {
+  outline: none;
+}
 input[type="text"],
 input[type="email"] {
   &:focus {
@@ -67,7 +69,7 @@ button {
   //   font-family: Poppins;
   // }
   .Mui-focused {
-    color: $red!important;
+    color: $red !important;
   }
   .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
     border-color: $red;

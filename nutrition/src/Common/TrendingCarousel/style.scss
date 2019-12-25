@@ -20,7 +20,7 @@
   .item {
     width: 250px !important;
     padding: 12px;
-    margin: 24px;
+    margin: 24px auto;
     background: #fff;
     cursor: pointer;
     .title {
@@ -65,6 +65,9 @@
     .item {
       width: 100% !important;
       max-width: 300px;
+    }
+    .heading{
+      font-size:26px;
     }
   }
 }

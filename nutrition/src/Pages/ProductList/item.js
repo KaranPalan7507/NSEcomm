@@ -3,11 +3,23 @@ import "./style.scss";
 import messages from "./../../utils/messages";
 import StarRating from "./../../Common/StartRating";
 import { withRouter } from "react-router";
+import { API } from "../../axios";
+import { apis } from "../../constants";
+import Cookie from "js-cookie";
+
 class ProductItem extends React.Component {
   state = { data: { images: [{}] } };
 
   componentDidMount() {
     this.setState({ data: this.props.data });
+    this.isLogin = Cookie.get("token") ? true : false;
+  }
+  async addToCart(id) {
+    if (!this.isLogin) {
+      window.alert("You need to login");
+    } else {
+      const response = await API.POST("/cart", { type: "add", id: id });
+    }
   }
   render() {
     const { data } = this.state;
@@ -54,7 +66,16 @@ class ProductItem extends React.Component {
           </div>
         </div>
         <div className="product-action">
-          <button type="button" className="btn btn-cart">
+          <button
+            type="button"
+            className="btn btn-cart"
+            onClick={e => {
+              e.preventDefault();
+              e.stopPropagation();
+
+              this.addToCart(this.state.data.product_id);
+            }}
+          >
             {messages.common.add_to_cart}
           </button>
           <button type="button" className="btn btn-buy">

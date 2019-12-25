@@ -10,6 +10,7 @@ import StarRating from "./../../Common/StartRating";
 import CountDown from "./../../Common/CountDown";
 import LinearProgress from "@material-ui/core/LinearProgress";
 import moment from "moment";
+import Cookie from "js-cookie";
 
 import Stepper from "./Stepper";
 
@@ -27,6 +28,7 @@ class ProductDetails extends React.Component {
   componentDidMount() {
     this.getProducts();
     this.getTodaysDeals();
+    this.isLogin = Cookie.get("token") ? true : false;
   }
   componentDidUpdate(prevProps) {
     if (this.props.match.params.id !== prevProps.match.params.id) {
@@ -41,6 +43,20 @@ class ProductDetails extends React.Component {
       this.setState({
         deals: [...response.data.items]
       });
+    }
+  }
+  async addToCart(id) {
+    if (!this.isLogin) {
+      window.alert("You need to login");
+    } else {
+      const response = await API.POST("/cart", { type: "add", id: id });
+    }
+  }
+  async addToWishlist(id) {
+    if (!this.isLogin) {
+      window.alert("You need to login");
+    } else {
+      const response = await API.POST("/wishlist", { type: "add", id: id });
     }
   }
   getProducts = async () => {
@@ -89,10 +105,10 @@ class ProductDetails extends React.Component {
                 <div className="desc">{product.long_desc[0].content}</div>
                 <div className="product-rating">
                   <div className="rating">
-                    <StarRating />
+                    <StarRating value={product.rating} />
                   </div>
                   <span className="review-count">
-                    {product.reviews} {messages.common.reviews}
+                    {product.total} {messages.common.reviews}
                   </span>
                   <span>Share</span>
                 </div>
@@ -148,7 +164,7 @@ class ProductDetails extends React.Component {
                   </span>
                 </div>
 
-                <div>
+                <div className="dropdown">
                   <span className="dd-label">Flavour</span>
                   <Select
                     options={product.other_flavors}
@@ -158,7 +174,7 @@ class ProductDetails extends React.Component {
                     isSearchable={false}
                   />
                 </div>
-                <div>
+                <div className="dropdown">
                   <span className="dd-label">Weight</span>
                   <Select
                     options={product.other_weights}
@@ -168,7 +184,7 @@ class ProductDetails extends React.Component {
                     isSearchable={false}
                   />
                 </div>
-                <div className="stepper">
+                <div className="stepper-detail">
                   <div>Quantity</div>
                   <Stepper />
                 </div>
@@ -177,13 +193,15 @@ class ProductDetails extends React.Component {
                     variant="outlined"
                     className="red-btn-outline"
                     color="secondary"
+                    onClick={() => this.addToCart(product.product_id)}
                   >
-                    Add to Cart
+                    {messages.common.add_to_cart}
                   </Button>
                   <Button
                     variant="outlined"
                     className="red-btn-outline"
                     color="secondary"
+                    onClick={() => this.addToWishlist(product.product_id)}
                   >
                     Wishlist
                   </Button>
@@ -207,13 +225,23 @@ class ProductDetails extends React.Component {
             <div className="nutrition-info-wrapper">
               <div className="maxwidth">
                 <div className="heading">Nutrition info</div>
+                <div className="content">{this.state.product.ingredients}</div>
               </div>
             </div>
             <div className="product-desc-wrapper">
               <div className="title">PRODUCT DECRIPTION</div>
+              <div>{this.state.product.long_desc[0].content}</div>
             </div>
             <div className="rating-review-wrapper">
-              <div className="title">RATING & REVIEW</div>
+              <div className="title">
+                RATING & REVIEW{" "}
+                <Button
+                  variant="outlined"
+                  className="red-btn-outline add-review"
+                >
+                  Add Your Review
+                </Button>
+              </div>
               <div className="top-section">
                 <div className="rating-section">
                   <div className="heading">Overall Rating</div>

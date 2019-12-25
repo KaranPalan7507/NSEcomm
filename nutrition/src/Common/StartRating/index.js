@@ -17,7 +17,5 @@ export default class StartRating extends React.Component {
       />
     );
   }
-  ratingChanged = newRating => {
-    console.log(newRating);
-  };
+  ratingChanged = newRating => {};
 }

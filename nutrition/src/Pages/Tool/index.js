@@ -116,21 +116,24 @@ export default class extends React.Component {
     this.getResult();
   }
   async getResult() {
-    const params = {
-      goal_weight: 80,
-      age: 24,
-      name: "2",
-      weight: "100",
-      height: 166,
-      meals: "3",
-      losegain: "2",
-      gender: "male",
-      diet: "Veg",
-      goal: "build muscle",
-      bodyfat: "Low",
-      lifestyle: "light active"
-    };
-    const response = await API.POST("/tool", { ...params });
+    // const params = {
+    //   goal_weight: 80,
+    //   age: 24,
+    //   name: "2",
+    //   weight: "100",
+    //   height: 166,
+    //   meals: "3",
+    //   losegain: "2",
+    //   gender: "male",
+    //   diet: "Veg",
+    //   goal: "build muscle",
+    //   bodyfat: "Low",
+    //   lifestyle: "light active"
+    // };
+    
+    const response = await API.POST("/tool", {
+      ...this.props.location.state.data
+    });
     console.log(response);
   }
   render() {

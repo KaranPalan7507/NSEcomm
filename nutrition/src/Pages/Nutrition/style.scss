@@ -1,6 +1,14 @@
 .tool-q-wrapper {
   width: 60%;
   margin: auto;
+  .custom-slider-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .custom-slider-track {
+    max-width: 500px;
+  }
   .page-title {
     font-weight: bold;
     font-size: 50px;
