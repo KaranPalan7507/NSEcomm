@@ -4,7 +4,8 @@ import {
   BrowserRouter as Router,
   Route,
   Link,
-  Redirect
+  Redirect,
+  Switch
 } from "react-router-dom";
 import ProductDetails from "./Pages/ProductDetails";
 import Product from "./Pages/Product";
@@ -36,33 +37,35 @@ class App extends Component {
             <div className="breadcrumbs">
               <Link to="/">Home</Link>
             </div>
-            <Route exact path="/" component={Dashboard} />
-            <Route exact path="/product_details" component={ProductDetails} />
-            <Route exact path="/login" component={LoginSignUp} />
-            <Route
-              exact
-              path="/register"
-              component={() => <LoginSignUp index={1} />}
-            />
-            <Route path="/product" component={Product} />
-            <Route path="/productdetails/:id" component={ProductDetails} />
+            <Switch>
+              <Route exact path="/" component={Dashboard} />
+              <Route exact path="/product_details" component={ProductDetails} />
+              <Route exact path="/login" component={LoginSignUp} />
+              <Route
+                exact
+                path="/register"
+                component={() => <LoginSignUp index={1} />}
+              />
+              <Route path="/product" component={Product} />
+              <Route path="/productdetails/:id" component={ProductDetails} />
 
-            <Route path="/blog" component={Blog} />
-            <Route path="/blogdetail/:id" component={BlogDetail} />
-            <Route
-              path="/order-success"
-              component={() => <AfterOrder success={true} />}
-            />
-            <Route path="/order-failure" component={() => <AfterOrder />} />
-            <Route
-              path="/account"
-              component={() =>
-                this.token ? <Account /> : <Redirect to="/login" />
-              }
-            />
-            <Route path="/cart" component={Cart} />
-            <Route path="/tool" component={Tool} />
-            <Route path="/i-nutrition" component={Nutrition} />
+              <Route path="/blog" component={Blog} />
+              <Route path="/blogdetail/:id" component={BlogDetail} />
+              <Route
+                path="/order-success"
+                component={() => <AfterOrder success={true} />}
+              />
+              <Route path="/order-failure" component={() => <AfterOrder />} />
+              <Route
+                path="/account"
+                component={() =>
+                  this.token ? <Account /> : <Redirect to="/login" />
+                }
+              />
+              <Route path="/cart" component={Cart} />
+              <Route path="/tool" component={Tool} />
+              <Route path="/i-nutrition" component={Nutrition} />
+            </Switch>
           </Router>
         </section>
         <Footer />

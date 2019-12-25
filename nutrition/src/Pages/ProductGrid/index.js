@@ -7,7 +7,13 @@ export default class ProductGrid extends React.Component {
       <div className="container">
         <div className="product-grid-area">
           {this.props.data.map((item, index) => {
-            return <ProductItem data={item} key={index} />;
+            return (
+              <ProductItem
+                data={item}
+                key={index}
+                history={this.props.history}
+              />
+            );
           })}
         </div>
       </div>

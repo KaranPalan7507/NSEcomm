@@ -1,12 +1,10 @@
 import React from "react";
 import "./style.scss";
-import { API } from "../../../axios";
-import { apis } from "../../../constants";
 
 import StarRating from "./../../../Common/StartRating";
 import messages from "./../../../utils/messages";
-import { withRouter } from "react-router";
-import Cookie from "js-cookie";
+import { addToCart } from "./../../../actions/cartaction";
+import { connect } from "react-redux";
 
 class ProductItem extends React.Component {
   title = "MuscleBlaze Whey Gold Protein ,4 lb Rich Milk Chocolate";
@@ -20,7 +18,6 @@ class ProductItem extends React.Component {
 
   componentDidMount() {
     this.setState({ data: this.props.data });
-    this.isLogin = Cookie.get("token") ? true : false;
   }
 
   itemHover = isHover => {
@@ -28,13 +25,7 @@ class ProductItem extends React.Component {
       isHovered: isHover
     }));
   };
-  async addToCart(id) {
-    if (!this.isLogin) {
-      window.alert("You need to login");
-    } else {
-      const response = await API.POST("/cart", { type: "add", id: id });
-    }
-  }
+
   render() {
     const { isHovered, data } = this.state;
     const link = "/productdetails/" + data.product_id;
@@ -92,7 +83,7 @@ class ProductItem extends React.Component {
                   e.preventDefault();
                   e.stopPropagation();
 
-                  this.addToCart(this.state.data.product_id);
+                  this.props.addToCart(this.state.data.product_id);
                 }}
               >
                 {messages.common.add_to_cart}
@@ -107,4 +98,10 @@ class ProductItem extends React.Component {
     );
   }
 }
-export default withRouter(ProductItem);
+const mapDispatchToProps = dispatch => {
+  return {
+    addToCart: props => dispatch(addToCart(props))
+  };
+};
+
+export default connect(null, mapDispatchToProps)(ProductItem);

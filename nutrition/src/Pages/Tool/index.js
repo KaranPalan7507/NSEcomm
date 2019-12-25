@@ -1,12 +1,11 @@
 import React from "react";
 import "./style.scss";
 import { Doughnut } from "react-chartjs-2";
-import StarRating from "./../../Common/StartRating";
 import messages from "./../../utils/messages";
 import { API } from "../../axios";
 import { apis } from "../../constants";
-
-const data = {
+import Carousel from "./../../Common/TrendingCarousel";
+const chartdata = {
   labels: ["Fat", "Carbs", "Protein"],
   datasets: [
     {
@@ -40,25 +39,6 @@ const data = {
 //   }
 // });
 export default class extends React.Component {
-  name = "User";
-  subHeading = "Lorem Ispum text";
-  summary =
-    "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis";
-  workroutine = [
-    { exercise: "Dead Lift", sets: "3 sets of 15 Reps" },
-    { exercise: "Lat Pull Down", sets: "3 sets of 15 Reps" },
-    { exercise: "Close Grin Chin Up", sets: "3 sets of 8 Reps" },
-    { exercise: "Seated Cable Row", sets: "3 sets of 15 Reps" },
-    { exercise: "Burpees", sets: "3 sets of 20 Reps" },
-    { exercise: "Crunches", sets: "3 sets of 20 Reps" },
-    { exercise: "Sprint", sets: "3 sets of 1 Min" },
-    { exercise: "Cycling", sets: "3 sets of 1 Min" },
-    {
-      exercise:
-        "Moderate intensity and High load Cardio ( Treadmill walk with weights in your hands) ",
-      sets: "30 Mins"
-    }
-  ];
   headings = [
     "6:00 - 6:15",
     "9:00 - 10:00",
@@ -78,75 +58,37 @@ export default class extends React.Component {
     "friday",
     "saturday"
   ];
-  products = [
-    {
-      image:
-        "https://images.unsplash.com/photo-1566408669374-5a6d5dca1ef5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2734&q=80",
-      alt: "product1",
-      title: "Lorem Ipsum",
-      currentPrice: "3999",
-      originalPrice: "5749",
-      discount: "30",
-      reviews: "1182"
-    },
-    {
-      image:
-        "https://images.unsplash.com/photo-1566408669374-5a6d5dca1ef5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2734&q=80",
-      alt: "product1",
-      title: "Lorem Ipsum",
-      currentPrice: "3999",
-      originalPrice: "5749",
-      discount: "30",
-      reviews: "1182"
-    },
-    {
-      image:
-        "https://images.unsplash.com/photo-1566408669374-5a6d5dca1ef5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2734&q=80",
-      alt: "product1",
-      title: "Lorem Ipsum",
-      currentPrice: "3999",
-      originalPrice: "5749",
-      discount: "30",
-      reviews: "1182"
-    }
-  ];
+
   dietText = "Lorem ipsum dolor sit amet, consectetuer adipiscing";
+  state = { data: {}, products: [], exercise: [] };
   constructor(props) {
     super(props);
     this.getResult();
   }
   async getResult() {
-    // const params = {
-    //   goal_weight: 80,
-    //   age: 24,
-    //   name: "2",
-    //   weight: "100",
-    //   height: 166,
-    //   meals: "3",
-    //   losegain: "2",
-    //   gender: "male",
-    //   diet: "Veg",
-    //   goal: "build muscle",
-    //   bodyfat: "Low",
-    //   lifestyle: "light active"
-    // };
-    
-    const response = await API.POST("/tool", {
+    const response = await API.POST("/toolpage ", {
       ...this.props.location.state.data
     });
-    console.log(response);
+    if (response.success) {
+      this.setState({
+        data: response.data,
+        products: response.data.products,
+        exercise: response.data.exercise
+      });
+    }
   }
   render() {
+    const data = this.state.data;
     return (
       <div className="tool-result-wrapper">
-        <div className="title">Hi {this.name}</div>
-        <div className="sub-heading">{this.subHeading}</div>
-        <div className="summary">{this.summary}</div>
+        <div className="title">Hi {data.username}</div>
+        <div className="sub-heading">{data.title}</div>
+        <div className="summary">{data.text}</div>
         <div className="chart-wrapper">
           <div className="left-side">
             <div className="bmr">
               Your BMR is
-              <div>1994</div>
+              <div>{data.bmr}</div>
             </div>
             <div className="category">
               Product | Diet Chart | Workout Routine
@@ -154,14 +96,14 @@ export default class extends React.Component {
           </div>
           <div className="right-side">
             <Doughnut
-              data={data}
+              data={chartdata}
               options={{
                 cutoutPercentage: 80
               }}
             />
           </div>
         </div>
-        <div className="recommended-products">
+        {/* <div className="recommended-products">
           <div className="title">Recommended Products</div>
           <div className="product-wrapper">
             {this.products.map(item => (
@@ -197,7 +139,12 @@ export default class extends React.Component {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
+        <Carousel
+          heading="Recommended Products"
+          subheading=""
+          data={this.state.products}
+        />
         <div className="dietchart">
           <div className="title">Diet Chart</div>
           <div className="table-overflow">
@@ -229,10 +176,10 @@ export default class extends React.Component {
           <div className="table-overflow">
             <table>
               <tbody>
-                {this.workroutine.map((item, index) => (
+                {this.state.exercise.map((item, index) => (
                   <tr className={index % 2 === 0 ? "even" : "odd"} key={index}>
-                    <td>{item.exercise}</td>
-                    <td>{item.sets}</td>
+                    <td>{item.name}</td>
+                    <td>{item.reps}</td>
                   </tr>
                 ))}
               </tbody>

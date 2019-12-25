@@ -4,7 +4,6 @@ import "./style.scss";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import Cookie from "js-cookie";
-import { withRouter } from "react-router";
 
 const settings = {
   dots: false,
@@ -62,20 +61,20 @@ class Nutrition extends React.Component {
     //   .dataset.slide;
 
     if (this.toolAnswer[this.currentSlide]) {
-      if(this.isLast){
+      if (this.isLast) {
         this.props.history.push({
           pathname: "/tool",
           state: { data: this.toolAnswers }
         });
-      }else{
-      this.slider.slickNext();
+      } else {
+        this.slider.slickNext();
       }
     }
   }
   afterChangeHandler(e) {
     const slides = document.querySelectorAll(".tool-slide");
     const slide = slides[e].dataset.slide;
-    this.isLast=slides.length-1===e;
+    this.isLast = slides.length - 1 === e;
     this.currentSlide = slide;
   }
   render() {

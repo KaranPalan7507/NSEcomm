@@ -76,8 +76,12 @@ export default class Blog extends React.Component {
                 {messages.common.items}
               </div>
             </div>
-            {this.state.view === "grid" && <Grid data={this.state.data} />}
-            {this.state.view === "list" && <List data={this.state.data} />}
+            {this.state.view === "grid" && (
+              <Grid data={this.state.data} history={this.props.history} />
+            )}
+            {this.state.view === "list" && (
+              <List data={this.state.data} history={this.props.history} />
+            )}
           </div>
         </div>
       </div>

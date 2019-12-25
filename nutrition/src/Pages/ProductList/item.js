@@ -2,25 +2,16 @@ import React from "react";
 import "./style.scss";
 import messages from "./../../utils/messages";
 import StarRating from "./../../Common/StartRating";
-import { withRouter } from "react-router";
-import { API } from "../../axios";
-import { apis } from "../../constants";
-import Cookie from "js-cookie";
+import { addToCart } from "./../../actions/cartaction";
+import { connect } from "react-redux";
 
 class ProductItem extends React.Component {
   state = { data: { images: [{}] } };
 
   componentDidMount() {
     this.setState({ data: this.props.data });
-    this.isLogin = Cookie.get("token") ? true : false;
   }
-  async addToCart(id) {
-    if (!this.isLogin) {
-      window.alert("You need to login");
-    } else {
-      const response = await API.POST("/cart", { type: "add", id: id });
-    }
-  }
+
   render() {
     const { data } = this.state;
 
@@ -72,8 +63,7 @@ class ProductItem extends React.Component {
             onClick={e => {
               e.preventDefault();
               e.stopPropagation();
-
-              this.addToCart(this.state.data.product_id);
+              this.props.addToCart(this.state.data.product_id);
             }}
           >
             {messages.common.add_to_cart}
@@ -86,4 +76,10 @@ class ProductItem extends React.Component {
     );
   }
 }
-export default withRouter(ProductItem);
+const mapDispatchToProps = dispatch => {
+  return {
+    addToCart: props => dispatch(addToCart(props))
+  };
+};
+
+export default connect(null, mapDispatchToProps)(ProductItem);

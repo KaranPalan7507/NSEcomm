@@ -1,6 +1,5 @@
 import React from "react";
 import "./style.scss";
-import { withRouter } from "react-router";
 import AspectRatioBackground from "./../../../Common/Background";
 class Item extends React.Component {
   render() {
@@ -30,4 +29,4 @@ class Item extends React.Component {
     );
   }
 }
-export default withRouter(Item);
+export default Item;

@@ -76,9 +76,11 @@ export default class Product extends React.Component {
   };
   renderView() {
     if (this.state.view === "grid") {
-      return <ProductGrid data={this.state.data} />;
+      return <ProductGrid data={this.state.data} history={this.props.history}/>;
     } else {
-      return <ProductList data={this.state.data} />;
+      return (
+        <ProductList data={this.state.data} history={this.props.history} />
+      );
     }
   }
   render() {

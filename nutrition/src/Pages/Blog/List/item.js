@@ -1,6 +1,5 @@
 import React from "react";
 import "./style.scss";
-import { withRouter } from "react-router";
 
 class Item extends React.Component {
   state = { data: {} };
@@ -38,4 +37,4 @@ class Item extends React.Component {
     );
   }
 }
-export default withRouter(Item);
+export default Item;

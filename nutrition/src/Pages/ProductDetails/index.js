@@ -13,6 +13,8 @@ import moment from "moment";
 import Cookie from "js-cookie";
 
 import Stepper from "./Stepper";
+import { addToCart } from "./../../actions/cartaction";
+import { connect } from "react-redux";
 
 class ProductDetails extends React.Component {
   state = {
@@ -45,13 +47,7 @@ class ProductDetails extends React.Component {
       });
     }
   }
-  async addToCart(id) {
-    if (!this.isLogin) {
-      window.alert("You need to login");
-    } else {
-      const response = await API.POST("/cart", { type: "add", id: id });
-    }
-  }
+
   async addToWishlist(id) {
     if (!this.isLogin) {
       window.alert("You need to login");
@@ -193,7 +189,7 @@ class ProductDetails extends React.Component {
                     variant="outlined"
                     className="red-btn-outline"
                     color="secondary"
-                    onClick={() => this.addToCart(product.product_id)}
+                    onClick={() => this.props.addToCart(product.product_id)}
                   >
                     {messages.common.add_to_cart}
                   </Button>
@@ -311,4 +307,10 @@ class ProductDetails extends React.Component {
   }
 }
 
-export default ProductDetails;
+const mapDispatchToProps = dispatch => {
+  return {
+    addToCart: props => dispatch(addToCart(props))
+  };
+};
+
+export default connect(null, mapDispatchToProps)(ProductDetails);

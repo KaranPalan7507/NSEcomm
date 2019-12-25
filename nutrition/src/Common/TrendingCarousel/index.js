@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
-import AspectRatioBackground from "./../Background/";
 import "./style.scss";
 import messages from "./../../utils/messages";
 import StarRating from "./../StartRating";
@@ -72,53 +71,55 @@ class Carousel extends Component {
           {this.props.data &&
             this.props.data.map((item, index) => (
               <div>
-              <div
-                className="item"
-                key={index}
-                onClick={() =>
-                  this.props.history.push("/productdetails/" + item.product_id)
-                }
-              >
-                <div className="image-wrapper">
-                  <img
-                    src={
-                      item && item.images && item.images[0]
-                        ? item.images[0].image
-                        : ""
-                    }
-                    alt={
-                      item && item.images && item.images[0]
-                        ? item.images[0].alt_text
-                        : ""
-                    }
-                  />
-                </div>
-                <div className="title">{item ? item.name : ""}</div>
-                <div className="product-final-offer">
-                  <span className="current-price">
-                    <span>&#8377;</span>
-                    {item ? item.current_price : ""}
-                  </span>
-                  <strike className="original-price">
-                    <span>&#8377;</span>
-                    {item ? item.price : ""}
-                  </strike>
-                  <span className="discount">
-                    {item ? item.discount : ""}
-                    <span>
-                      {"%"} {messages.common.off}
-                    </span>
-                  </span>
-                </div>
-                <div className="product-rating">
-                  <div className="rating">
-                    <StarRating value={item.rating} edit={false} />
+                <div
+                  className="item"
+                  key={index}
+                  onClick={() =>
+                    this.props.history.push(
+                      "/productdetails/" + item.product_id
+                    )
+                  }
+                >
+                  <div className="image-wrapper">
+                    <img
+                      src={
+                        item && item.images && item.images[0]
+                          ? item.images[0].image
+                          : ""
+                      }
+                      alt={
+                        item && item.images && item.images[0]
+                          ? item.images[0].alt_text
+                          : ""
+                      }
+                    />
                   </div>
-                  <span className="review-count">
-                    {item ? item.total : ""} {messages.common.reviews}
-                  </span>
+                  <div className="title">{item ? item.name : ""}</div>
+                  <div className="product-final-offer">
+                    <span className="current-price">
+                      <span>&#8377;</span>
+                      {item ? item.current_price : ""}
+                    </span>
+                    <strike className="original-price">
+                      <span>&#8377;</span>
+                      {item ? item.price : ""}
+                    </strike>
+                    <span className="discount">
+                      {item ? item.discount : ""}
+                      <span>
+                        {"%"} {messages.common.off}
+                      </span>
+                    </span>
+                  </div>
+                  <div className="product-rating">
+                    <div className="rating">
+                      <StarRating value={item.rating} edit={false} />
+                    </div>
+                    <span className="review-count">
+                      {item ? item.total : ""} {messages.common.reviews}
+                    </span>
+                  </div>
                 </div>
-              </div>
               </div>
             ))}
         </Slider>

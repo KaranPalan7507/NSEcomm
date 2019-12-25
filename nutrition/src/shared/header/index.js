@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 import "./style.scss";
 import Cookie from "js-cookie";
 import { withRouter } from "react-router";
+import { connect } from "react-redux";
+import { getCounts } from "./../../actions/cartaction";
 
 class Header extends React.Component {
   constructor(props) {
@@ -30,6 +32,7 @@ class Header extends React.Component {
     const token = Cookie.get("token") ? Cookie.get("token") : null;
     if (token) {
       this.setState({ isLogedIn: true });
+      this.props.getCounts();
     }
   }
 
@@ -39,7 +42,7 @@ class Header extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    this.props.history.push("/product");
+    this.props.history.push("/product?search=" + event.target.value);
   };
 
   removeMenuFromDom = () => {
@@ -128,13 +131,17 @@ class Header extends React.Component {
                       <li>
                         <Link to="/account/wishlist">
                           <em className="icon icon-heart" />
-                          <sup className="badge badge-danger">2</sup>
+                          <sup className="badge badge-danger">
+                            {this.state.wishlistCount}
+                          </sup>
                         </Link>
                       </li>
                       <li>
                         <Link to="/cart">
                           <em className="icon icon-shopping-cart-black" />
-                          <sup className="badge badge-danger">2</sup>
+                          <sup className="badge badge-danger">
+                            {this.state.cartCount}
+                          </sup>
                         </Link>
                       </li>
                       {!this.state.isLogedIn && (
@@ -354,5 +361,16 @@ class Header extends React.Component {
     );
   }
 }
+const mapStateToProps = state => {
+  return {
+    wishlistCount: state.wishlistCount,
+    cartCount: state.cartCount
+  };
+};
+const mapDispatchToProps = dispatch => {
+  return {
+    getCounts: props => dispatch(getCounts(props))
+  };
+};
 
-export default withRouter(Header);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Header));

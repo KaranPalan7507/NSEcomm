@@ -3,7 +3,6 @@ import { API } from "./../../axios";
 import { apis } from "./../../constants";
 import Slider from "react-slick";
 import "./style.scss";
-import AspectRatioBackground from "./../Background/";
 const SamplePrevArrow = props => {
   const { className, onClick } = props;
   return (
@@ -76,11 +75,7 @@ class InstaPosts extends React.Component {
             <Slider {...settings}>
               {this.state.posts.map(item => (
                 <div className="post" key={item.id}>
-                  {/* <AspectRatioBackground
-                    url={item.media_url}
-                    ratio="366:394"
-                  ></AspectRatioBackground> */}
-                  <img src={item.media_url} />
+                  <img src={item.media_url} alt="insta post" />
                 </div>
               ))}
             </Slider>

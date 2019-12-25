@@ -9,8 +9,7 @@ import TextField from "@material-ui/core/TextField";
 import Switch from "@material-ui/core/Switch";
 import Button from "@material-ui/core/Button";
 import Slider from "react-slick";
-import { withRouter } from "react-router";
-
+import BlogSlider from "./BlogSlider";
 var settings = {
   dots: false,
   infinite: false,
@@ -358,9 +357,10 @@ class Dashboard extends React.Component {
               this.state.topseller
             )}
           <InstaPosts />
+          <BlogSlider />
         </div>
       </div>
     );
   }
 }
-export default withRouter(Dashboard);
+export default Dashboard;

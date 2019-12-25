@@ -6,7 +6,7 @@ export default class List extends React.Component {
     return (
       <div className="blog-list-area">
         {this.props.data.map((item, index) => {
-          return <Item data={item} key={index} />;
+          return <Item data={item} key={index} history={this.props.history} />;
         })}
       </div>
     );
