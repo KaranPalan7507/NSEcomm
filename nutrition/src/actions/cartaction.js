@@ -10,7 +10,7 @@ export function addToCart(id) {
     } else {
       const response = await API.POST("/cart", { type: "add", id: id });
       if (response.success) {
-        getCounts();
+        dispatch(getCounts());
       }
     }
   };
@@ -19,10 +19,12 @@ export function getCounts() {
   return async dispatch => {
     const response = await API.POST("/header");
     if (response.success) {
-      dispatch({
+      return dispatch({
         type: "GET_COUNTS",
-        wishlistCount: response.data.wishlist_no,
-        cartCount: response.data.cart_no
+        payload: {
+          wishlistCount: response.data.wishlist_no,
+          cartCount: response.data.cart_no
+        }
       });
     }
   };

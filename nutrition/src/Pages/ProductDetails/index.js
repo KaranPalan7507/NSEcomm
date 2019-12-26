@@ -307,10 +307,4 @@ class ProductDetails extends React.Component {
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    addToCart: props => dispatch(addToCart(props))
-  };
-};
-
-export default connect(null, mapDispatchToProps)(ProductDetails);
+export default connect(null, { addToCart })(ProductDetails);

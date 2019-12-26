@@ -10,6 +10,7 @@ import Switch from "@material-ui/core/Switch";
 import Button from "@material-ui/core/Button";
 import Slider from "react-slick";
 import BlogSlider from "./BlogSlider";
+import Testimonial from "./Testimonial";
 var settings = {
   dots: false,
   infinite: false,
@@ -359,6 +360,10 @@ class Dashboard extends React.Component {
           <BlogSlider />
 
           <InstaPosts />
+          {/* <Testimonial /> */}
+          <div className="bottom-icons">
+            <img src="/images/website-icons-last-4.png" />
+          </div>
         </div>
       </div>
     );

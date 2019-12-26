@@ -132,7 +132,7 @@ class Header extends React.Component {
                         <Link to="/account/wishlist">
                           <em className="icon icon-heart" />
                           <sup className="badge badge-danger">
-                            {this.state.wishlistCount}
+                            {this.props.wishlistCount}
                           </sup>
                         </Link>
                       </li>
@@ -140,7 +140,7 @@ class Header extends React.Component {
                         <Link to="/cart">
                           <em className="icon icon-shopping-cart-black" />
                           <sup className="badge badge-danger">
-                            {this.state.cartCount}
+                            {this.props.cartCount}
                           </sup>
                         </Link>
                       </li>
@@ -363,14 +363,9 @@ class Header extends React.Component {
 }
 const mapStateToProps = state => {
   return {
-    wishlistCount: state.wishlistCount,
-    cartCount: state.cartCount
-  };
-};
-const mapDispatchToProps = dispatch => {
-  return {
-    getCounts: props => dispatch(getCounts(props))
+    wishlistCount: state.counts.wishlistCount,
+    cartCount: state.counts.cartCount
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Header));
+export default connect(mapStateToProps, {getCounts})(withRouter(Header));

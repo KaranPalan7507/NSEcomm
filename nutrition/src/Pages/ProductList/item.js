@@ -76,10 +76,5 @@ class ProductItem extends React.Component {
     );
   }
 }
-const mapDispatchToProps = dispatch => {
-  return {
-    addToCart: props => dispatch(addToCart(props))
-  };
-};
 
-export default connect(null, mapDispatchToProps)(ProductItem);
+export default connect(null, { addToCart })(ProductItem);
