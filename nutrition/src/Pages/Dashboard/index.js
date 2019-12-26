@@ -356,8 +356,9 @@ class Dashboard extends React.Component {
               "Lorem Ispum text",
               this.state.topseller
             )}
-          <InstaPosts />
           <BlogSlider />
+
+          <InstaPosts />
         </div>
       </div>
     );

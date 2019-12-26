@@ -4,6 +4,8 @@ import { apis } from "./../../../constants";
 import Slider from "react-slick";
 import "./style.scss";
 import AspectRatioBackground from "./../../../Common/Background";
+import Button from "@material-ui/core/Button";
+import { withRouter } from "react-router";
 
 const settings = {
   dots: true,
@@ -60,16 +62,28 @@ class BlogSlider extends React.Component {
     const link = "/blogdetail/" + data.blog_id;
     return (
       <div className="blog-carousel">
-        <AspectRatioBackground
-          url={imgSrc}
-          ratio="328:243"
-        ></AspectRatioBackground>
-        <div>
-          {date}
-          {category}
+        <div className="max-width">
+          <AspectRatioBackground
+            url={imgSrc}
+            ratio="328:243"
+          ></AspectRatioBackground>
+          <div className="date-category">
+            <span className="date">{date}</span>
+            <span className="category">{category}</span>
+          </div>
+          <div className="title">{title}</div>
+          <div className="blog-summary">{blog}</div>
+          <div className="button-wrapper">
+            <Button
+              variant="outlined"
+              className="red-btn-outline read-more"
+              onClick={() => this.props.history.push(link)}
+              color="secondary"
+            >
+              Read more
+            </Button>
+          </div>
         </div>
-        {title}
-        <div>{blog}</div>
       </div>
     );
   }
@@ -78,16 +92,14 @@ class BlogSlider extends React.Component {
       <div className="blog-slider-component">
         <div className="heading"> Blogs</div>
         <div className="carousel-wrapper">
-          {this.state.posts.length && (
-            <Slider {...settings}>
-              {this.state.posts.map((item, index) =>
-                this.renderBlogItem(item, index)
-              )}
-            </Slider>
-          )}
+          <Slider {...settings}>
+            {this.state.posts.map((item, index) =>
+              this.renderBlogItem(item, index)
+            )}
+          </Slider>
         </div>
       </div>
     );
   }
 }
-export default BlogSlider;
+export default withRouter(BlogSlider);

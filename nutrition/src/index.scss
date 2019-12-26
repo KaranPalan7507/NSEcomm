@@ -64,6 +64,10 @@ button {
     color: $red;
   }
 }
+.red-btn-outline.MuiButton-outlinedSecondary{
+  border:1px solid $red;
+  color:$red;
+}
 .login-input {
   // label {
   //   font-family: Poppins;
