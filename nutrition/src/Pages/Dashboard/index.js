@@ -11,6 +11,7 @@ import Button from "@material-ui/core/Button";
 import Slider from "react-slick";
 import BlogSlider from "./BlogSlider";
 import Testimonial from "./Testimonial";
+import Goal from "./Goal";
 var settings = {
   dots: false,
   infinite: false,
@@ -233,6 +234,7 @@ class Dashboard extends React.Component {
               "Lorem Ispum text",
               this.state.deals
             )}
+          <Goal />
           <div className="tools-section">
             <div className="heading">I-NUTRITION</div>
             <div className="questioniare">
@@ -360,7 +362,7 @@ class Dashboard extends React.Component {
           <BlogSlider />
 
           <InstaPosts />
-          {/* <Testimonial /> */}
+          <Testimonial />
           <div className="bottom-icons">
             <img src="/images/website-icons-last-4.png" />
           </div>

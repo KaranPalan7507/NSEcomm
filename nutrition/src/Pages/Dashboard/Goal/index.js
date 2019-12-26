@@ -3,10 +3,6 @@ import { API } from "./../../../axios";
 import { apis } from "./../../../constants";
 import Slider from "react-slick";
 import "./style.scss";
-import AspectRatioBackground from "./../../../Common/Background";
-import Button from "@material-ui/core/Button";
-import { withRouter } from "react-router";
-import StarRating from "./../../../Common/StartRating";
 const SamplePrevArrow = props => {
   const { className, onClick } = props;
   return (
@@ -24,7 +20,7 @@ const SampleNextArrow = props => {
   );
 };
 const settings = {
-  dots: true,
+  dots: false,
   infinite: false,
   speed: 500,
   slidesToShow: 3,
@@ -58,40 +54,37 @@ const settings = {
     }
   ]
 };
-class Testimonial extends React.Component {
+class Goal extends React.Component {
   state = {
-    posts: []
+    posts: [{}, {}, {}, {}]
   };
   async componentDidMount() {
-    const response = await API.POST("/testimonial");
-
-    if (response.success) {
-      this.setState({ posts: response.data });
-    }
+    // const response = await API.POST("/testimonial");
+    // if (response.success) {
+    //   this.setState({ posts: response.data });
+    // }
   }
   renderItem(item, index) {
     return (
-      <div className="testimonial-carousel">
+      <div className="goal-carousel">
         <div className="main-wrapper">
           <img
-            className="user-image"
-            src={item.image[0].image}
+            className="brand-image"
+            src="/images/shop-brand.png"
             alt="user-image"
           />
-          <div className="username">{item.username}</div>
-          <div className="star">
-            <StarRating edit={false} value={item.rating} />
+          <div className="brand-name">Optimum Nutrition</div>
+          <div className="brand-desc">
+            Improve upon your charisma, These products will help you out.
           </div>
-          <AspectRatioBackground url={item.image[0].image} ratio="241:155" />
-          <div className="text">{item.review_text}</div>
         </div>
       </div>
     );
   }
   render() {
     return (
-      <div className="testimonial-slider-component">
-        <div className="heading"> Testimonial</div>
+      <div className="goal-slider-component">
+        <div className="heading"> Achieve Your Ultimate Goal</div>
         <div className="carousel-wrapper">
           <Slider {...settings}>
             {this.state.posts.map((item, index) =>
@@ -103,4 +96,4 @@ class Testimonial extends React.Component {
     );
   }
 }
-export default withRouter(Testimonial);
+export default Goal;
