@@ -1,10 +1,11 @@
 import React from "react";
-import { API } from "./../../../axios";
 import Slider from "react-slick";
 import "./style.scss";
 import AspectRatioBackground from "./../../../Common/Background";
 import Button from "@material-ui/core/Button";
 import { withRouter } from "react-router";
+import { getPopularBlogs } from "./../../../actions/blogactions";
+import { connect } from "react-redux";
 
 const settings = {
   dots: true,
@@ -44,10 +45,8 @@ class BlogSlider extends React.Component {
     posts: []
   };
   async componentDidMount() {
-    const response = await API.POST("/blog/blog_list");
-
-    if (response.success) {
-      this.setState({ posts: response.data });
+    if (!this.props.bloglist) {
+      this.props.getPopularBlogs();
     }
   }
   renderBlogItem(item, index) {
@@ -89,16 +88,27 @@ class BlogSlider extends React.Component {
   render() {
     return (
       <div className="blog-slider-component">
-        <div className="heading"> Blogs</div>
-        <div className="carousel-wrapper">
-          <Slider {...settings}>
-            {this.state.posts.map((item, index) =>
-              this.renderBlogItem(item, index)
-            )}
-          </Slider>
-        </div>
+        {this.props.bloglist && (
+          <React.Fragment>
+            <div className="heading"> Blogs</div>
+            <div className="carousel-wrapper">
+              <Slider {...settings}>
+                {this.props.bloglist.map((item, index) =>
+                  this.renderBlogItem(item, index)
+                )}
+              </Slider>
+            </div>
+          </React.Fragment>
+        )}
       </div>
     );
   }
 }
-export default withRouter(BlogSlider);
+const mapStateToProps = state => {
+  return {
+    bloglist: state.blogs.popular_blogs
+  };
+};
+export default connect(mapStateToProps, { getPopularBlogs })(
+  withRouter(BlogSlider)
+);

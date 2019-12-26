@@ -1,5 +1,6 @@
 import React from "react";
 import { API } from "../../axios";
+import { Link } from "react-router-dom";
 import { apis } from "../../constants";
 import Loader from "./../../Common/Loader";
 import "./style.scss";
@@ -18,35 +19,20 @@ import {
 } from "react-share";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import TwitterIcon from "@material-ui/icons/Twitter";
-export default class BlogDetail extends React.Component {
+import { getPopularBlogs } from "./../../actions/blogactions";
+import { connect } from "react-redux";
+
+class BlogDetail extends React.Component {
   state = {
     data: {},
     isLoaded: false,
     comments: []
   };
-  mostVisitedOptions = [
-    {
-      title: "Looking thinner but at a 7 heavier weight? Is that possible?",
-      date: "20/9/2019"
-    },
-    {
-      title: "Looking thinner but at a 7 heavier weight? Is that possible?",
-      date: "20/9/2019"
-    },
-    {
-      title: "Looking thinner but at a 7 heavier weight? Is that possible?",
-      date: "20/9/2019"
-    },
-    {
-      title: "Looking thinner but at a 7 heavier weight? Is that possible?",
-      date: "20/9/2019"
-    },
-    {
-      title: "Looking thinner but at a 7 heavier weight? Is that possible?",
-      date: "20/9/2019"
-    }
-  ];
+
   async componentDidMount() {
+    if (!this.props.bloglist) {
+      this.props.getPopularBlogs();
+    }
     const id = this.props.match.params.id;
     const response = await API.GET(apis.blogDetails + id);
 
@@ -60,10 +46,14 @@ export default class BlogDetail extends React.Component {
   }
   renderMostOption(option, key) {
     return (
-      <div key={key} className="most-visited-wrapper">
-        <div className="title">{option.title}</div>
-        <div className="date">{option.date}</div>
-      </div>
+      <Link to={"/blogdetail/" + option.blog_id}>
+        <div key={key} className="most-visited-wrapper">
+          <div className="title">{option.title}</div>
+          <div className="date">
+            {moment(option.publish_date).format("DD/MM/YYY")}
+          </div>
+        </div>
+      </Link>
     );
   }
   async postComment(e) {
@@ -202,11 +192,13 @@ export default class BlogDetail extends React.Component {
                 </div>
               </div>
               <div className="right-side">
-                <Accordian title="Most Visited">
-                  {this.mostVisitedOptions.map((option, index) =>
-                    this.renderMostOption(option, index)
-                  )}
-                </Accordian>
+                {this.props.bloglist && (
+                  <Accordian title="Most Visited">
+                    {this.props.bloglist.map((option, index) =>
+                      this.renderMostOption(option, index)
+                    )}
+                  </Accordian>
+                )}
                 <div className="follow-section">
                   <span>FOLLOW US</span>
                   <div className="social">
@@ -239,3 +231,9 @@ export default class BlogDetail extends React.Component {
     );
   }
 }
+const mapStateToProps = state => {
+  return {
+    bloglist: state.blogs.popular_blogs
+  };
+};
+export default connect(mapStateToProps, { getPopularBlogs })(BlogDetail);

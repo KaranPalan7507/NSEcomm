@@ -1,10 +1,14 @@
 @import "./../../scss/_variables.scss";
 .blog-detail {
   padding: 15px 30px;
+  a {
+    width: 100%;
+  }
   .most-visited-wrapper {
     border-bottom: 1px solid #707070;
     cursor: pointer;
     padding: 4px;
+    width: 100%;
     .title {
       font-size: 12px;
       color: #000000;
@@ -208,6 +212,8 @@
     .items {
       width: calc(100% - 210px);
       max-width: 700px;
+      display: flex;
+      flex-wrap: wrap;
       .blog-grid-item {
         margin: 0px 20px;
         width: calc(50% - 40px);

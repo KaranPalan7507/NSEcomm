@@ -1,39 +1,25 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Accordian from "./../../Common/Accordian";
 import { FormControlLabel, Checkbox } from "@material-ui/core";
 import "./style.scss";
 import { API } from "../../axios";
 import { apis } from "../../constants";
+import { getPopularBlogs } from "./../../actions/blogactions";
+import { connect } from "react-redux";
+import moment from "moment";
 
-export default class Filter extends React.Component {
+class Sidebar extends React.Component {
   state = {
     category: []
   };
   selectedCategories = [];
-  mostVisitedOptions = [
-    {
-      title: "Looking thinner but at a 7 heavier weight? Is that possible?",
-      date: "20/9/2019"
-    },
-    {
-      title: "Looking thinner but at a 7 heavier weight? Is that possible?",
-      date: "20/9/2019"
-    },
-    {
-      title: "Looking thinner but at a 7 heavier weight? Is that possible?",
-      date: "20/9/2019"
-    },
-    {
-      title: "Looking thinner but at a 7 heavier weight? Is that possible?",
-      date: "20/9/2019"
-    },
-    {
-      title: "Looking thinner but at a 7 heavier weight? Is that possible?",
-      date: "20/9/2019"
-    }
-  ];
+
   async componentDidMount() {
     this.getCategories();
+    if (!this.props.bloglist) {
+      this.props.getPopularBlogs();
+    }
   }
   async getCategories() {
     const response = await API.POST(apis.blogCategory, { type: "blog" });
@@ -72,10 +58,14 @@ export default class Filter extends React.Component {
   }
   renderMostOption(option, key) {
     return (
-      <div key={key} className="most-visited-wrapper">
-        <div className="title">{option.title}</div>
-        <div className="date">{option.date}</div>
-      </div>
+      <Link to={"/blogdetail/" + option.blog_id}>
+        <div key={key} className="most-visited-wrapper">
+          <div className="title">{option.title}</div>
+          <div className="date">
+            {moment(option.publish_date).format("DD/MM/YYY")}
+          </div>
+        </div>
+      </Link>
     );
   }
   render() {
@@ -86,12 +76,20 @@ export default class Filter extends React.Component {
             this.renderCheckbox(option, index)
           )}
         </Accordian>
-        <Accordian title="Most Visited">
-          {this.mostVisitedOptions.map((option, index) =>
-            this.renderMostOption(option, index)
-          )}
-        </Accordian>
+        {this.props.bloglist && (
+          <Accordian title="Most Visited">
+            {this.props.bloglist.map((option, index) =>
+              this.renderMostOption(option, index)
+            )}
+          </Accordian>
+        )}
       </div>
     );
   }
 }
+const mapStateToProps = state => {
+  return {
+    bloglist: state.blogs.popular_blogs
+  };
+};
+export default connect(mapStateToProps, { getPopularBlogs })(Sidebar);
