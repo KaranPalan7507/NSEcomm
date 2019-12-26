@@ -90,7 +90,7 @@ class ProductDetails extends React.Component {
           <div className="product-details-wrapper">
             <div className="product-info">
               <div className="left">
-                <img src={product.images[0].image} />
+                <img src={product.images[0].image} alt="" />
               </div>
               <div className="right">
                 <div className="vendor">
@@ -283,7 +283,11 @@ class ProductDetails extends React.Component {
                     </div>
                     <div className="review-text">{review.review_text}</div>
                     <div className="review-bottom">
-                      <img className="user-image" src={review.user_image} />
+                      <img
+                        className="user-image"
+                        src={review.user_image}
+                        alt=""
+                      />
                       <div className="username">{review.username}</div>
                       <div className="date">
                         {moment(review.date).format("DD MMMM, YYYY")}

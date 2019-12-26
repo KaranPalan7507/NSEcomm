@@ -1,6 +1,4 @@
 import React from "react";
-import { API } from "./../../../axios";
-import { apis } from "./../../../constants";
 import Slider from "react-slick";
 import "./style.scss";
 const SamplePrevArrow = props => {
@@ -66,12 +64,12 @@ class Goal extends React.Component {
   }
   renderItem(item, index) {
     return (
-      <div className="goal-carousel">
+      <div className="goal-carousel" key={index}>
         <div className="main-wrapper">
           <img
             className="brand-image"
             src="/images/shop-brand.png"
-            alt="user-image"
+            alt="user"
           />
           <div className="brand-name">Optimum Nutrition</div>
           <div className="brand-desc">

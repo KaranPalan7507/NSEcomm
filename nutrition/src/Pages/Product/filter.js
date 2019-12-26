@@ -1,7 +1,6 @@
 import React from "react";
 import Accordian from "./../../Common/Accordian";
 import { FormControlLabel, Checkbox } from "@material-ui/core";
-import messages from "./../../utils/messages";
 import "./style.scss";
 import Slider from "@material-ui/core/Slider";
 import { withStyles } from "@material-ui/core/styles";
@@ -21,7 +20,7 @@ export default class Filter extends React.Component {
     weights: [],
     goals: [],
     brand: [],
-    price: []
+    price: null
   };
   filter = {
     category: [],
@@ -42,7 +41,7 @@ export default class Filter extends React.Component {
         brand: response.data.brand,
         category: response.data.cate,
         weights: response.data.weights,
-        price: response.data.price_range
+        price: response.data.prices
       });
     }
   }
@@ -150,11 +149,23 @@ export default class Filter extends React.Component {
           )}
         </Accordian>
         <Accordian title="Price">
-          <MySlider
-            valueLabelDisplay="auto"
-            defaultValue={[0, this.state.price]}
-            onChangeCommitted={(e, val) => this.handleSliderChange(val)}
-          />
+          {this.state.price && (
+            <MySlider
+              valueLabelDisplay="auto"
+              defaultValue={this.state.price}
+              onChangeCommitted={(e, val) => this.handleSliderChange(val)}
+              max={
+                this.state.price[0] > this.state.price[1]
+                  ? this.state.price[0]
+                  : this.state.price[1]
+              }
+              min={
+                this.state.price[0] < this.state.price[1]
+                  ? this.state.price[0]
+                  : this.state.price[1]
+              }
+            />
+          )}
           {/* {this.state.price.map((option, index) =>
                            this.renderPriceCheckbox(option, index, "price")
                          )} */}

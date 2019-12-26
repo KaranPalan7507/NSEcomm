@@ -70,7 +70,7 @@ class Carousel extends Component {
         <Slider {...this.settings}>
           {this.props.data &&
             this.props.data.map((item, index) => (
-              <div>
+              <div key={index}>
                 <div
                   className="item"
                   key={index}

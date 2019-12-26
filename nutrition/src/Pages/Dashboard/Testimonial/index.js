@@ -1,10 +1,8 @@
 import React from "react";
 import { API } from "./../../../axios";
-import { apis } from "./../../../constants";
 import Slider from "react-slick";
 import "./style.scss";
 import AspectRatioBackground from "./../../../Common/Background";
-import Button from "@material-ui/core/Button";
 import { withRouter } from "react-router";
 import StarRating from "./../../../Common/StartRating";
 const SamplePrevArrow = props => {
@@ -71,13 +69,9 @@ class Testimonial extends React.Component {
   }
   renderItem(item, index) {
     return (
-      <div className="testimonial-carousel">
+      <div className="testimonial-carousel" key={index}>
         <div className="main-wrapper">
-          <img
-            className="user-image"
-            src={item.image[0].image}
-            alt="user-image"
-          />
+          <img className="user-image" src={item.image[0].image} alt="user" />
           <div className="username">{item.username}</div>
           <div className="star">
             <StarRating edit={false} value={item.rating} />

@@ -40,10 +40,10 @@ class Orders extends React.Component {
           {this.state.orders.map(item => (
             <div className="order-history-item">
               <div>
-                <img src="/images/tick@2x.png" className="tick" />
+                <img src="/images/tick@2x.png" className="tick" alt="" />
                 <span className="date">{item.date}</span>
                 <div className="product-info">
-                  <img src={item.imageSrc} />
+                  <img src={item.imageSrc} alt="" />
                   <div className="title-wrapper">
                     <div className="title">{item.title}</div>
                     <div className="price">

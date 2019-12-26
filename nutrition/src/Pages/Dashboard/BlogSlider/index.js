@@ -1,6 +1,5 @@
 import React from "react";
 import { API } from "./../../../axios";
-import { apis } from "./../../../constants";
 import Slider from "react-slick";
 import "./style.scss";
 import AspectRatioBackground from "./../../../Common/Background";
@@ -61,7 +60,7 @@ class BlogSlider extends React.Component {
     category = category.join(", ");
     const link = "/blogdetail/" + data.blog_id;
     return (
-      <div className="blog-carousel">
+      <div className="blog-carousel" key={index}>
         <div className="max-width">
           <AspectRatioBackground
             url={imgSrc}

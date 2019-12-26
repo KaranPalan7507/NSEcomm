@@ -190,7 +190,7 @@ class Dashboard extends React.Component {
                   key={index}
                 >
                   <div>
-                    <img src={item.icon} />
+                    <img src={item.icon} alt="" />
                   </div>
                   <div className="text">{item.text}</div>
                 </div>
@@ -206,12 +206,13 @@ class Dashboard extends React.Component {
       <ProductCarousel heading={heading} subheading={subheading} data={items} />
     );
   }
-  renderOption({ option, subtext, question, icon }) {
+  renderOption({ option, subtext, question, icon }, index) {
     const active = this.toolAnswers[question] === option;
     return (
       <div
         className={active ? "option active" : "option"}
         onClick={event => this.onAnswerChange(option, question)}
+        key={index}
       >
         <div className="icon-wrapper">
           <em className={`icon ${icon}`} />
@@ -298,21 +299,27 @@ class Dashboard extends React.Component {
                   <div className="title">Title</div>
                   <div className="wrapper">
                     <div className="question">What is your Goal?</div>
-                    {this.goalOptions.map(item => this.renderOption(item))}
+                    {this.goalOptions.map((item, index) =>
+                      this.renderOption(item, index)
+                    )}
                   </div>
                 </div>
                 <div className="q-section">
                   <div className="title">Title</div>
                   <div className="wrapper">
                     <div className="question">How active are you?</div>
-                    {this.activeOptions.map(item => this.renderOption(item))}
+                    {this.activeOptions.map((item, index) =>
+                      this.renderOption(item, index)
+                    )}
                   </div>
                 </div>
                 <div className="q-section last">
                   <div className="title">Title</div>
                   <div className="wrapper">
                     <div className="question">Do you workout?</div>
-                    {this.workoutoptions.map(item => this.renderOption(item))}
+                    {this.workoutoptions.map((item, index) =>
+                      this.renderOption(item, index)
+                    )}
                   </div>
                 </div>
               </Slider>
@@ -364,7 +371,7 @@ class Dashboard extends React.Component {
           <InstaPosts />
           <Testimonial />
           <div className="bottom-icons">
-            <img src="/images/website-icons-last-4.png" />
+            <img src="/images/website-icons-last-4.png" alt="" />
           </div>
         </div>
       </div>
