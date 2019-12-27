@@ -3,6 +3,9 @@
   position: relative;
   margin-bottom: 80px;
   min-height: 200px;
+  .trending-carousel {
+    margin: 0;
+  }
   .slick-next {
     right: 50px;
     z-index: 1;
@@ -19,8 +22,8 @@
   }
   .dashboard-slider {
     img {
-      max-height: 550px;
-      margin: auto;
+      max-height: 300px;
+      margin: 20px auto;
     }
   }
   .main-info-wrapper {

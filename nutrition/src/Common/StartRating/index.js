@@ -9,8 +9,8 @@ export default class StartRating extends React.Component {
         count={5}
         onChange={this.ratingChanged}
         size={size}
-        color1={"#d4d4d4"}
-        color2={"#ffd700"}
+        color1={"#d13239"}
+        color2={"#d13239"}
         half={false}
         value={this.props.value}
         edit={edit}

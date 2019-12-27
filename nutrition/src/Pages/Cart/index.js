@@ -100,7 +100,7 @@ export default class Cart extends React.Component {
                 </div>
               </React.Fragment>
             ))}
-            <div class="apply-coupon">
+            <div className="apply-coupon">
               <input type="text" placeholder="Coupon Code" />
               <button className="apply-btn">Apply Coupon</button>
               <button className="continue-btn">Continue Shopping</button>
@@ -126,9 +126,9 @@ export default class Cart extends React.Component {
         <div className="coupons-wrapper">
           <div className="coupons">
             <div className="title">Apply Coupon</div>
-            {this.coupon.map(coupon => {
+            {this.coupon.map((coupon, index) => {
               return (
-                <div className="offer">
+                <div className="offer" key={index}>
                   <input type="radio" />
                   <div className="coupon-info">
                     <div>{coupon.text}</div>
@@ -142,9 +142,9 @@ export default class Cart extends React.Component {
           </div>
           <div className="offers">
             <div className="title">Apply Offers</div>
-            {this.offer.map(coupon => {
+            {this.offer.map((coupon, index) => {
               return (
-                <div className="offer">
+                <div className="offer" key={index}>
                   <input type="radio" />
                   <div className="coupon-info">
                     <div>{coupon.text}</div>

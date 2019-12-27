@@ -64,9 +64,9 @@ button {
     color: $red;
   }
 }
-.red-btn-outline.MuiButton-outlinedSecondary{
-  border:1px solid $red;
-  color:$red;
+.red-btn-outline.MuiButton-outlinedSecondary {
+  border: 1px solid $red;
+  color: $red;
 }
 .login-input {
   // label {
@@ -110,7 +110,9 @@ button {
 }
 
 .navigation-main {
-  background: #efefef;
+  background: #faf8f9;
+  border-top: 1px solid #efefef;
+  border-bottom: 1px solid #efefef;
 }
 
 .menu-toggle {

@@ -42,10 +42,20 @@ export default class extends React.Component {
     super(props);
     this.getResult();
   }
+
   async getResult() {
-    const response = await API.POST("/toolpage ", {
+    await API.POST("/tooltest ", {
       ...this.props.location.state.data
     });
+    // if (response.success) {
+    //   this.setState({
+    //     data: response.data,
+    //     products: response.data.products,
+    //     exercise: response.data.exercise
+    //   });
+    // }
+
+    const response = await API.POST("/toolpage");
     if (response.success) {
       this.setState({
         data: response.data,
@@ -80,43 +90,6 @@ export default class extends React.Component {
             />
           </div>
         </div>
-        {/* <div className="recommended-products">
-          <div className="title">Recommended Products</div>
-          <div className="product-wrapper">
-            {this.products.map(item => (
-              <div className="product">
-                <div className="image-wrapper">
-                  <img src={item.image} alt={item.alt} />
-                </div>
-                <div className="product-title">{item.title}</div>
-                <div className="product-final-offer">
-                  <span className="current-price">
-                    <span>&#8377;</span>
-                    {item.currentPrice}
-                  </span>
-                  <strike className="original-price">
-                    <span>&#8377;</span>
-                    {item.originalPrice}
-                  </strike>
-                  <span className="discount">
-                    {item.discount}
-                    <span>
-                      {"%"} {messages.common.off}
-                    </span>
-                  </span>
-                </div>
-                <div className="product-rating">
-                  <div className="rating">
-                    <StarRating />
-                  </div>
-                  <span className="review-count">
-                    {item.reviews} {messages.common.reviews}
-                  </span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div> */}
         <Carousel
           heading="Recommended Products"
           subheading=""

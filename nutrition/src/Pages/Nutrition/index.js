@@ -4,6 +4,7 @@ import "./style.scss";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import Cookie from "js-cookie";
+import { withRouter } from "react-router-dom";
 
 const settings = {
   dots: false,
@@ -62,9 +63,10 @@ class Nutrition extends React.Component {
 
     if (this.toolAnswer[this.currentSlide]) {
       if (this.isLast) {
+        console.log(this.toolAnswer);
         this.props.history.push({
           pathname: "/tool",
-          state: { data: this.toolAnswers }
+          state: { data: this.toolAnswer }
         });
       } else {
         this.slider.slickNext();
@@ -408,4 +410,4 @@ class Nutrition extends React.Component {
     );
   }
 }
-export default Nutrition;
+export default withRouter(Nutrition);

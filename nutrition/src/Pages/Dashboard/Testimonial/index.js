@@ -28,7 +28,7 @@ const settings = {
   slidesToShow: 3,
   slidesToScroll: 1,
   initialSlide: 0,
-  autoplay: false,
+  autoplay: true,
   arrows: true,
   nextArrow: <SampleNextArrow />,
   prevArrow: <SamplePrevArrow />,
@@ -71,13 +71,20 @@ class Testimonial extends React.Component {
     return (
       <div className="testimonial-carousel" key={index}>
         <div className="main-wrapper">
-          <img className="user-image" src={item.image[0].image} alt="user" />
-          <div className="username">{item.username}</div>
           <div className="star">
-            <StarRating edit={false} value={item.rating} />
+            <StarRating edit={false} value={item.rating} size={28} />
+            <span className="date">DD/MM/YYYY</span>
           </div>
-          <AspectRatioBackground url={item.image[0].image} ratio="241:155" />
-          <div className="text">{item.review_text}</div>
+          <div className="review-title">title</div>
+          <div className="testimonial-content">
+            <div className="left-side">
+              <img src={item.image[0].image} />
+            </div>
+            <div className="right-side">
+              <div className="text">{item.review_text}</div>
+              <div className="username">{item.username}</div>
+            </div>
+          </div>
         </div>
       </div>
     );

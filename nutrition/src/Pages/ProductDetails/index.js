@@ -273,8 +273,8 @@ class ProductDetails extends React.Component {
                 </div>
               </div>
               <div>
-                {this.state.reviews.map(review => (
-                  <div className="user-review">
+                {this.state.reviews.map((review, index) => (
+                  <div className="user-review" key={index}>
                     <div className="review-top">
                       <div className="stars">
                         <StarRating value={review.rating} edit={false} />

@@ -1,5 +1,11 @@
 .trending-carousel {
   margin-top: 60px;
+  position: relative;
+  .view-more {
+    position: absolute;
+    right: 0;
+    border-radius: 0;
+  }
   .type-image {
     position: absolute;
     width: 16px;

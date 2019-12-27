@@ -13,6 +13,11 @@
   }
   .post {
     padding: 12px;
+    transition: transform 1.525s 0.01s ease-out,
+      background-color 0.725s ease-in-out, opacity 1.525s ease-out;
+    &:hover {
+      transform: scaleX(1.15) scaleY(1.15) translateZ(0);
+    }
   }
   .slick-prev:before,
   .slick-next:before {

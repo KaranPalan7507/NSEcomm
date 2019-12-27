@@ -1,6 +1,12 @@
 .blog-slider-component {
   margin-top: 60px;
   margin-bottom: 60px;
+  position: relative;
+  .view-more {
+    position: absolute;
+    right: 0;
+    border-radius: 0;
+  }
   .heading {
     font-weight: bold;
     font-size: 32px;

@@ -102,78 +102,95 @@ class Header extends React.Component {
     const { isMenuOpen, isSubOpen } = this.state;
     return (
       <header className="header">
-        <div className="container">
-          <div className="inner-header">
-            <div className="ih-action">
-              <div className="header-wrapper">
-                <div className="logo">
-                  <Link to="/">
-                    <img src="/images/logo.png" alt="Nutrition Systems logo" />
-                  </Link>
+        <div className="inner-header">
+          <div className="ih-action">
+            <div className="header-wrapper">
+              <div className="logo">
+                <Link to="/">
+                  <img src="/images/logo.png" alt="Nutrition Systems logo" />
+                </Link>
+              </div>
+              <div className="navbar-search">
+                <div className="inner-search">
+                  <form onSubmit={this.handleSubmit}>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder={messages.common.search_text}
+                    />
+                    <button className="btn btn-search" type="submit">
+                      <em className="fa fa-search" aria-hidden="true" />
+                    </button>
+                  </form>
                 </div>
-                <div className="navbar-search">
-                  <div className="inner-search">
-                    <form onSubmit={this.handleSubmit}>
-                      <input
-                        type="text"
-                        className="form-control"
-                        placeholder={messages.common.search_text}
+              </div>
+              <div className="navbar-register">
+                <div className="reg-link">
+                  <ul>
+                    <li>
+                      <img
+                        className="india-flag"
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRD_yW2Mz5wVuSjE1j4JFJ-6TUc12GkWLLm3_dKoJf6wPbEASq6"
                       />
-                      <button className="btn btn-search" type="submit">
-                        <em className="fa fa-search" aria-hidden="true" />
-                      </button>
-                    </form>
-                  </div>
-                </div>
-                <div className="navbar-register">
-                  <div className="reg-link">
-                    <ul>
-                      <li>
-                        <Link to="/cart">
-                          <em className="icon icon-shopping-cart-black" />
-                          <sup className="badge badge-danger">
-                            {this.props.cartCount}
-                          </sup>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/account/wishlist">
-                          <em className="icon icon-heart" />
-                          <sup className="badge badge-danger">
-                            {this.props.wishlistCount}
-                          </sup>
-                        </Link>
-                      </li>
+                    </li>
+                    <li className="support">
+                      7 Day Customer Support
+                      <div className="call-chat">
+                        <div className="open-chat">
+                          <em className="fa fa-comment-o" />
+                          Live Chat
+                        </div>
+                        <div>
+                          <em className="fa fa-phone" />
+                          1-800-537-9910
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <Link to="/cart">
+                        <em className="icon icon-shopping-cart-black" />
+                        <sup className="badge badge-danger">
+                          {this.props.cartCount}
+                        </sup>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/account/wishlist">
+                        <em className="icon icon-heart" />
+                        <sup className="badge badge-danger">
+                          {this.props.wishlistCount}
+                        </sup>
+                      </Link>
+                    </li>
 
-                      {!this.state.isLogedIn && (
-                        <li>
-                          <Link to="/login">Login</Link>/
-                          <Link to="/register">Sign-up</Link>
-                        </li>
-                      )}
-                      {this.state.isLogedIn && (
-                        <li>
-                          <Link to="/account">
-                            <em className="fa fa-user" />
-                          </Link>
-                        </li>
-                      )}
-                    </ul>
-                  </div>
+                    {!this.state.isLogedIn && (
+                      <li>
+                        <Link to="/login">Login</Link>/
+                        <Link to="/register">Sign-up</Link>
+                      </li>
+                    )}
+                    {this.state.isLogedIn && (
+                      <li>
+                        <Link to="/account">
+                          <em className="fa fa-user" />
+                        </Link>
+                      </li>
+                    )}
+                  </ul>
                 </div>
               </div>
             </div>
-            <div className="nav-toggle">
-              <button
-                className={`btn menu-toggle ${isMenuOpen ? "nav-active" : ""}`}
-                type="button"
-                onClick={e => this.toggleMenu()}
-              >
-                <span className="top-bar icon-bar"></span>
-                <span className="middle-bar icon-bar"></span>
-                <span className="bottom-bar icon-bar"></span>
-              </button>
-            </div>
+          </div>
+          <div className="nav-toggle">
+            <button
+              className={`btn menu-toggle ${isMenuOpen ? "nav-active" : ""}`}
+              type="button"
+              onClick={e => this.toggleMenu()}
+            >
+              <span className="top-bar icon-bar"></span>
+              <span className="middle-bar icon-bar"></span>
+              <span className="bottom-bar icon-bar"></span>
+            </button>
           </div>
         </div>
         <div className="navigation-main">
@@ -369,4 +386,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, {getCounts})(withRouter(Header));
+export default connect(mapStateToProps, { getCounts })(withRouter(Header));

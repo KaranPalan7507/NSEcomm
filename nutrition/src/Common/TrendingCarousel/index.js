@@ -4,6 +4,7 @@ import "./style.scss";
 import messages from "./../../utils/messages";
 import StarRating from "./../StartRating";
 import { withRouter } from "react-router";
+import Button from "@material-ui/core/Button";
 
 const SamplePrevArrow = props => {
   const { className, onClick } = props;
@@ -64,7 +65,17 @@ class Carousel extends Component {
   render() {
     return (
       <div className="trending-carousel">
-        <div className="heading">{this.props.heading}</div>
+        <div className="heading">
+          {this.props.heading}
+          <Button
+            variant="outlined"
+            className="red-btn-outline view-more"
+            color="secondary"
+            onClick={() => this.props.history.push("/product")}
+          >
+            View All
+          </Button>
+        </div>
         <div className="sub-heading">{this.props.subheading}</div>
 
         <Slider {...this.settings}>

@@ -72,8 +72,8 @@ class InstaPosts extends React.Component {
         <div className="heading"> Insta Posts</div>
         <div className="carousel-wrapper">
           <Slider {...settings}>
-            {this.state.posts.map(item => (
-              <div className="post" key={item.id}>
+            {this.state.posts.map((item, index) => (
+              <div className="post" key={item.id} key={index}>
                 <img src={item.media_url} alt="insta post" />
               </div>
             ))}

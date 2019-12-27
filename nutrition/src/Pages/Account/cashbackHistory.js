@@ -35,7 +35,9 @@ class CashbackHistory extends React.Component {
               <td>Amount</td>
             </tr>
           </thead>
-          <tbody>{this.state.data.map(item => this.renderRow(item))}</tbody>
+          <tbody>
+            {this.state.data.map((item, index) => this.renderRow(item))}
+          </tbody>
         </table>
       </div>
     );

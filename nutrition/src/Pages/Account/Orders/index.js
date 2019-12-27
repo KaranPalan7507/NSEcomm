@@ -37,8 +37,8 @@ class Orders extends React.Component {
     return (
       <div className="order-history">
         <div>
-          {this.state.orders.map(item => (
-            <div className="order-history-item">
+          {this.state.orders.map((item, index) => (
+            <div className="order-history-item" key={index}>
               <div>
                 <img src="/images/tick@2x.png" className="tick" alt="" />
                 <span className="date">{item.date}</span>

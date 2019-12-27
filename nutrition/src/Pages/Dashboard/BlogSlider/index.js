@@ -49,7 +49,7 @@ class BlogSlider extends React.Component {
       this.props.getPopularBlogs();
     }
   }
-  renderBlogItem(item, index) {
+  renderBlogItem(item) {
     const data = item;
     const imgSrc = data.images[0].image;
     const title = data.title;
@@ -59,7 +59,7 @@ class BlogSlider extends React.Component {
     category = category.join(", ");
     const link = "/blogdetail/" + data.blog_id;
     return (
-      <div className="blog-carousel" key={index}>
+      <div className="blog-carousel" key={data.blog_id}>
         <div className="max-width">
           <AspectRatioBackground
             url={imgSrc}
@@ -90,12 +90,20 @@ class BlogSlider extends React.Component {
       <div className="blog-slider-component">
         {this.props.bloglist && (
           <React.Fragment>
-            <div className="heading"> Blogs</div>
+            <div className="heading">
+              Blogs
+              <Button
+                variant="outlined"
+                className="red-btn-outline view-more"
+                color="secondary"
+                onClick={() => this.props.history.push("/blog")}
+              >
+                View All
+              </Button>
+            </div>
             <div className="carousel-wrapper">
               <Slider {...settings}>
-                {this.props.bloglist.map((item, index) =>
-                  this.renderBlogItem(item, index)
-                )}
+                {this.props.bloglist.map(item => this.renderBlogItem(item))}
               </Slider>
             </div>
           </React.Fragment>

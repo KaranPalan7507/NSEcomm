@@ -46,8 +46,8 @@ class BlogDetail extends React.Component {
   }
   renderMostOption(option, key) {
     return (
-      <Link to={"/blogdetail/" + option.blog_id}>
-        <div key={key} className="most-visited-wrapper">
+      <Link to={"/blogdetail/" + option.blog_id} key={key}>
+        <div className="most-visited-wrapper">
           <div className="title">{option.title}</div>
           <div className="date">
             {moment(option.publish_date).format("DD/MM/YYY")}
@@ -219,7 +219,7 @@ class BlogDetail extends React.Component {
               </div>
               <div className="items">
                 {this.state.data.similar.map((item, index) => (
-                  <Item data={item} />
+                  <Item data={item} key={index} />
                 ))}
               </div>
             </div>
