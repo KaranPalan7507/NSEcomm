@@ -14,7 +14,15 @@ export function getPopularBlogs() {
 }
 export function getBlogs(categories = null) {
   return async dispatch => {
+    dispatch({
+      type: "BLOG_LOADING",
+      payload: true
+    });
     const response = await API.POST(apis.blogs, { categories: categories });
+    dispatch({
+      type: "BLOG_LOADING",
+      payload: false
+    });
     if (response.success) {
       return dispatch({
         type: "BLOGS",

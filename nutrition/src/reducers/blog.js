@@ -7,6 +7,16 @@ export const BlogsReducer = (state = INITIAL_STATE, action) => {
         ...state,
         popular_blogs: [...action.payload]
       };
+    case "BLOGS":
+      return {
+        ...state,
+        blogs: [...action.payload]
+      };
+    case "BLOG_LOADING":
+      return {
+        ...state,
+        isLoading: action.payload
+      };
     default:
       return state;
   }

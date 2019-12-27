@@ -5,28 +5,25 @@ import List from "./List";
 import SideBar from "./sidebar";
 import Slider from "./slider";
 import messages from "./../../utils/messages";
-import { API } from "../../axios";
-import { apis } from "../../constants";
 import { GridIcon, ListIcon } from "../../Common/Icons";
 import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
 import Button from "@material-ui/core/Button";
+import { connect } from "react-redux";
+import { getPopularBlogs } from "./../../actions/blogactions";
+import Loader from "./../../Common/Loader";
 
-export default class Blog extends React.Component {
+class Blog extends React.Component {
   state = {
     view: "grid",
-    data: [],
     menuopen: false
   };
-  componentDidMount() {
-    this.getBlogs();
-  }
-  getBlogs = async (categories = null) => {
-    const response = await API.POST(apis.blogs, { categories: categories });
-
-    if (response.success) {
-      this.setState({ data: response.data });
+  renderView() {
+    if (this.state.view === "grid") {
+      return <Grid data={this.props.data} history={this.props.history} />;
+    } else {
+      return <List data={this.props.data} history={this.props.history} />;
     }
-  };
+  }
   render() {
     return (
       <div className="blog">
@@ -34,9 +31,7 @@ export default class Blog extends React.Component {
 
         <div className="blog-wrapper">
           <div className="left-side">
-            <SideBar
-              onChange={categories => this.getBlogs(categories.toString())}
-            />
+            <SideBar />
           </div>
           <div className="right-side">
             <div className="sort-section">
@@ -72,19 +67,21 @@ export default class Blog extends React.Component {
                 </Button>
               </div>
               <div className="items-count">
-                {this.state.data.length + " "}
+                {this.props.data.length + " "}
                 {messages.common.items}
               </div>
             </div>
-            {this.state.view === "grid" && (
-              <Grid data={this.state.data} history={this.props.history} />
-            )}
-            {this.state.view === "list" && (
-              <List data={this.state.data} history={this.props.history} />
-            )}
+            {!this.props.isLoading ? this.renderView() : <Loader />}
           </div>
         </div>
       </div>
     );
   }
 }
+const mapStateToProps = state => {
+  return {
+    data: state.blogs.blogs || [],
+    isLoading: state.blogs.isLoading
+  };
+};
+export default connect(mapStateToProps, { getPopularBlogs })(Blog);

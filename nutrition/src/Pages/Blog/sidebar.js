@@ -5,7 +5,7 @@ import { FormControlLabel, Checkbox } from "@material-ui/core";
 import "./style.scss";
 import { API } from "../../axios";
 import { apis } from "../../constants";
-import { getPopularBlogs } from "./../../actions/blogactions";
+import { getPopularBlogs, getBlogs } from "./../../actions/blogactions";
 import { connect } from "react-redux";
 import moment from "moment";
 
@@ -17,6 +17,7 @@ class Sidebar extends React.Component {
 
   async componentDidMount() {
     this.getCategories();
+    this.props.getBlogs(null);
     if (!this.props.bloglist) {
       this.props.getPopularBlogs();
     }
@@ -36,7 +37,7 @@ class Sidebar extends React.Component {
         this.selectedCategories.splice(index, 1);
       }
     }
-    this.props.onChange(this.selectedCategories);
+    this.props.getBlogs(this.selectedCategories.toString());
   }
   renderCheckbox(label, key) {
     return (
@@ -58,7 +59,7 @@ class Sidebar extends React.Component {
   }
   renderMostOption(option, key) {
     return (
-      <Link to={"/blogdetail/" + option.blog_id} key={key}>
+      <Link to={"/blogdetail/" + option.blog_id} key={option.blog_id}>
         <div className="most-visited-wrapper">
           <div className="title">{option.title}</div>
           <div className="date">
@@ -92,4 +93,4 @@ const mapStateToProps = state => {
     bloglist: state.blogs.popular_blogs
   };
 };
-export default connect(mapStateToProps, { getPopularBlogs })(Sidebar);
+export default connect(mapStateToProps, { getPopularBlogs, getBlogs })(Sidebar);
