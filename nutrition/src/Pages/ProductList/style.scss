@@ -15,12 +15,20 @@
       visibility: visible;
     }
   }
+
   .list-media {
     width: 20%;
     text-align: center;
+    position: relative;
   }
   .product-image {
     height: 100%;
+  }
+  .type-image {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    left: 9px;
   }
   .product-title {
     font-size: 24px;

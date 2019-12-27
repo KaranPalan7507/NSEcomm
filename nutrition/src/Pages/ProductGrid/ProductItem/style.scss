@@ -18,7 +18,6 @@
   cursor: pointer;
   background: #fff;
   box-shadow: 0px 3px 8px rgba(221, 18, 31, 0.05);
-  
 
   @include transition(padding-bottom 300ms ease-in-out);
   &:hover {
@@ -36,6 +35,12 @@
         visibility: visible;
       }
     }
+  }
+  .type-image {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    left: 9px;
   }
   .product-action {
     @include box-shadow(0px, 7px, 8px, 3px, rgba(221, 18, 31, 0.18));

@@ -190,7 +190,7 @@ const menuOptions = [
     ]
   },
   {
-    name: "Shop By Goal",
+    name: "Goal",
     goalOptions: [
       {
         path: "/product?search=endurance",
@@ -225,7 +225,7 @@ const menuOptions = [
     ]
   },
   {
-    name: "Shop By Brand",
+    name: "Brand",
     brandOptions: [
       {
         path: "/product?search=brand1",
@@ -285,7 +285,7 @@ const menuOptions = [
     ]
   },
   {
-    name: "Why Us",
+    name: "Why Nutritionsystems",
     path: "#"
   },
   {

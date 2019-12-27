@@ -129,14 +129,6 @@ class Header extends React.Component {
                   <div className="reg-link">
                     <ul>
                       <li>
-                        <Link to="/account/wishlist">
-                          <em className="icon icon-heart" />
-                          <sup className="badge badge-danger">
-                            {this.props.wishlistCount}
-                          </sup>
-                        </Link>
-                      </li>
-                      <li>
                         <Link to="/cart">
                           <em className="icon icon-shopping-cart-black" />
                           <sup className="badge badge-danger">
@@ -144,10 +136,19 @@ class Header extends React.Component {
                           </sup>
                         </Link>
                       </li>
+                      <li>
+                        <Link to="/account/wishlist">
+                          <em className="icon icon-heart" />
+                          <sup className="badge badge-danger">
+                            {this.props.wishlistCount}
+                          </sup>
+                        </Link>
+                      </li>
+
                       {!this.state.isLogedIn && (
                         <li>
                           <Link to="/login">Login</Link>/
-                          <Link to="/register">Register</Link>
+                          <Link to="/register">Sign-up</Link>
                         </li>
                       )}
                       {this.state.isLogedIn && (

@@ -82,6 +82,14 @@ class Carousel extends Component {
                 >
                   <div className="image-wrapper">
                     <img
+                      className="type-image"
+                      src={
+                        item.type_vn === "Veg"
+                          ? "/images/veg.png"
+                          : "/images/non-veg.png"
+                      }
+                    />
+                    <img
                       src={
                         item && item.images && item.images[0]
                           ? item.images[0].image

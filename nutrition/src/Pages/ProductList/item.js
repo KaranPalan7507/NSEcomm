@@ -24,6 +24,14 @@ class ProductItem extends React.Component {
       >
         <div className="list-media">
           <img
+            className="type-image"
+            src={
+              this.state.data.type_vn === "Veg"
+                ? "/images/veg.png"
+                : "/images/non-veg.png"
+            }
+          />
+          <img
             className="product-image"
             src={this.state.data.images[0].image}
             alt={this.state.data.images[0].image_alt_text}
