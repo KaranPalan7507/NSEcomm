@@ -1,8 +1,8 @@
 import React from "react";
 import { API } from "./../../../axios";
+import { apis } from "./../../../constants";
 import Slider from "react-slick";
 import "./style.scss";
-import AspectRatioBackground from "./../../../Common/Background";
 import { withRouter } from "react-router";
 import StarRating from "./../../../Common/StartRating";
 const SamplePrevArrow = props => {
@@ -25,7 +25,7 @@ const settings = {
   dots: true,
   infinite: false,
   speed: 500,
-  slidesToShow: 3,
+  slidesToShow: 4,
   slidesToScroll: 1,
   initialSlide: 0,
   autoplay: true,
@@ -36,7 +36,7 @@ const settings = {
     {
       breakpoint: 1024,
       settings: {
-        slidesToShow: 2,
+        slidesToShow: 3,
         slidesToScroll: 1
       }
     },
@@ -61,7 +61,7 @@ class Testimonial extends React.Component {
     posts: []
   };
   async componentDidMount() {
-    const response = await API.POST("/testimonial");
+    const response = await API.POST(apis.testimonial);
 
     if (response.success) {
       this.setState({ posts: response.data });
@@ -70,7 +70,7 @@ class Testimonial extends React.Component {
   renderItem(item, index) {
     return (
       <div className="testimonial-carousel" key={index}>
-        <div className="main-wrapper">
+        <div className="main-wrapper-carousel">
           <div className="star">
             <StarRating edit={false} value={item.rating} size={28} />
             <span className="date">DD/MM/YYYY</span>
@@ -78,7 +78,7 @@ class Testimonial extends React.Component {
           <div className="review-title">title</div>
           <div className="testimonial-content">
             <div className="left-side">
-              <img src={item.image[0].image} />
+              <img src={item.image[0].image} alt="" />
             </div>
             <div className="right-side">
               <div className="text">{item.review_text}</div>

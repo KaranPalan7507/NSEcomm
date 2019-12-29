@@ -13,7 +13,7 @@ class Address extends React.Component {
     this.getData();
   }
   async getData() {
-    const response = await API.POST(apis.accountDetails, {});
+    const response = await API.POST(apis.accountDetails);
 
     if (response.success) {
       this.setState({

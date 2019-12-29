@@ -21,7 +21,7 @@ const settings = {
   dots: false,
   infinite: false,
   speed: 500,
-  slidesToShow: 3,
+  slidesToShow: 4,
   slidesToScroll: 1,
   initialSlide: 0,
   autoplay: false,
@@ -56,12 +56,7 @@ class Goal extends React.Component {
   state = {
     posts: [{}, {}, {}, {}]
   };
-  async componentDidMount() {
-    // const response = await API.POST("/testimonial");
-    // if (response.success) {
-    //   this.setState({ posts: response.data });
-    // }
-  }
+  async componentDidMount() {}
   renderItem(item, index) {
     return (
       <div className="goal-carousel" key={index}>

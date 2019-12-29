@@ -24,6 +24,7 @@ class ProductItem extends React.Component {
       >
         <div className="list-media">
           <img
+            alt=""
             className="type-image"
             src={
               this.state.data.type_vn === "Veg"

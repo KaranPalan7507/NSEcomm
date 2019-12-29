@@ -231,7 +231,10 @@ export default class Footer extends React.Component {
               <div className="footer-bottom">
                 <div className="footer-logo">
                   <a href="/">
-                    <img src="/images/logo.png" alt="Nutrition Systems logo" />
+                    <img
+                      src="/images/logo-nut.png"
+                      alt="Nutrition Systems logo"
+                    />
                   </a>
                 </div>
                 <div className="cc-payment">

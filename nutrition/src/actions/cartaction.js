@@ -1,4 +1,5 @@
 import { API } from "./../axios";
+import { apis } from "./../constants";
 import Cookie from "js-cookie";
 
 export function addToCart(id) {
@@ -8,7 +9,7 @@ export function addToCart(id) {
     if (!token) {
       window.alert("You need to login");
     } else {
-      const response = await API.POST("/cart", { type: "add", id: id });
+      const response = await API.POST(apis.cart, { type: "add", id: id });
       if (response.success) {
         dispatch(getCounts());
       }
@@ -17,7 +18,7 @@ export function addToCart(id) {
 }
 export function getCounts() {
   return async dispatch => {
-    const response = await API.POST("/header");
+    const response = await API.POST(apis.header);
     if (response.success) {
       return dispatch({
         type: "GET_COUNTS",

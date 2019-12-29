@@ -68,10 +68,14 @@
   }
 }
 .dashboard-wrapper {
+  background: #fcfcfc;
   .dashboard-container {
     padding: 50px;
     padding-top: 1px;
   }
+}
+.mobile-info-wrapper {
+  display: none;
 }
 .tools-section {
   border: 1px solid #f00;
@@ -243,10 +247,34 @@
   .main-slider {
     margin-bottom: 0;
     .main-info-wrapper {
-      position: unset;
+      display: none;
+    }
+    .mobile-info-wrapper {
+      display: block;
+      border-bottom: 1px solid #c4c4c4;
+      border-top: 1px solid #c4c4c4;
+      background-color: #f4f4f4;
+      box-shadow: 0 16px 62px 0 rgba(43, 43, 43, 0.17);
+      z-index: 2;
+      height: 70px;
+      padding: 10px 0;
       .info {
-        width: 33%;
-        padding: 8px;
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+        height: 50px;
+        &.first {
+          .text {
+            width: 140px;
+          }
+        }
+        .text {
+          margin-left: 12px;
+          font-weight: 600;
+          font-size: 14px;
+          text-align: center;
+          color: #000;
+        }
       }
     }
   }

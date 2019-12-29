@@ -5,7 +5,8 @@ import messages from "./../../utils/messages";
 import StarRating from "./../StartRating";
 import { withRouter } from "react-router";
 import Button from "@material-ui/core/Button";
-
+import WatchLaterIcon from "@material-ui/icons/WatchLater";
+import CountDown from "./../CountDown";
 const SamplePrevArrow = props => {
   const { className, onClick } = props;
   return (
@@ -62,9 +63,21 @@ class Carousel extends Component {
       }
     ]
   };
+  renderCount() {
+    return (
+      <div className="time-wrapper">
+        <div className="time">
+          <WatchLaterIcon className="icon" />{" "}
+          <span className="time-text">Ends in</span>
+          <CountDown secs={9000} showHours={true} />
+        </div>
+        <div className="corner"></div>
+      </div>
+    );
+  }
   render() {
     return (
-      <div className="trending-carousel">
+      <div className={`trending-carousel ${this.props.className}`}>
         <div className="heading">
           {this.props.heading}
           <Button
@@ -81,7 +94,7 @@ class Carousel extends Component {
         <Slider {...this.settings}>
           {this.props.data &&
             this.props.data.map((item, index) => (
-              <div key={index}>
+              <div key={index} className="main-item-wrapper">
                 <div
                   className="item"
                   key={index}
@@ -91,8 +104,14 @@ class Carousel extends Component {
                     )
                   }
                 >
+                  {this.props.showRibbon && (
+                    <div class="ribbon ribbon-top-left">
+                      <span>ribbon</span>
+                    </div>
+                  )}
                   <div className="image-wrapper">
                     <img
+                      alt=""
                       className="type-image"
                       src={
                         item.type_vn === "Veg"
@@ -130,12 +149,13 @@ class Carousel extends Component {
                       </span>
                     </span>
                   </div>
+                  {this.props.showtimer && this.renderCount()}
                   <div className="product-rating">
                     <div className="rating">
                       <StarRating value={item.rating} edit={false} />
                     </div>
                     <span className="review-count">
-                      {item ? item.total : ""} {messages.common.reviews}
+                      ({item ? item.total : ""} {messages.common.reviews})
                     </span>
                   </div>
                 </div>

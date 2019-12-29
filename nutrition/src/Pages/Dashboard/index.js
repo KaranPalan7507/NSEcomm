@@ -39,6 +39,17 @@ var settings = {
     }
   ]
 };
+var infosettings = {
+  dots: false,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  initialSlide: 0,
+  autoplay: true,
+  arrows: false,
+  autoplaySpeed: 2000
+};
 class Dashboard extends React.Component {
   state = {
     topseller: [],
@@ -198,12 +209,47 @@ class Dashboard extends React.Component {
             })}
           </div>
         </div>
+        <div className="mobile-info-wrapper">
+          <Slider {...infosettings}>
+            {this.mainInfo.map((item, index) => (
+              <div
+                className={
+                  index === this.mainInfo.length - 1
+                    ? "info last"
+                    : index === 0
+                    ? "first info"
+                    : "info"
+                }
+                key={index}
+              >
+                <div>
+                  <img src={item.icon} alt="" />
+                </div>
+                <div className="text">{item.text}</div>
+              </div>
+            ))}
+          </Slider>
+        </div>
       </div>
     );
   }
-  renderProductCarousel(heading, subheading, items) {
+  renderProductCarousel(
+    heading,
+    subheading,
+    items,
+    className,
+    showRibbon = false,
+    showtimer = false
+  ) {
     return (
-      <ProductCarousel heading={heading} subheading={subheading} data={items} />
+      <ProductCarousel
+        heading={heading}
+        subheading={subheading}
+        data={items}
+        className={className}
+        showRibbon={showRibbon}
+        showtimer={showtimer}
+      />
     );
   }
   renderOption({ option, subtext, question, icon }, index) {
@@ -233,7 +279,10 @@ class Dashboard extends React.Component {
             this.renderProductCarousel(
               "Today Deals",
               "Lorem Ispum text",
-              this.state.deals
+              this.state.deals,
+              "todays-deals",
+              true,
+              true
             )}
           <Goal />
           <div className="tools-section">

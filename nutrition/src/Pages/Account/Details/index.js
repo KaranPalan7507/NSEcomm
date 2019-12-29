@@ -33,8 +33,7 @@ class Details extends React.Component {
     user.name.last_name = formData.get("last-name");
     user.email = formData.get("email");
     user.mobile = this.state.mobile;
-    const response = await API.POST(apis.accountDetails, user);
-    
+    await API.POST(apis.accountDetails, user);
   }
   render() {
     return (
@@ -90,17 +89,6 @@ class Details extends React.Component {
           >
             Save Changes
           </Button>
-          {/* <div className="password-section">
-             <div className="password-title">Password Change</div>
-            <div className="info">
-              <div className="label">Current Pasword</div>
-              <input name="current-password" type="password" />
-            </div>
-            <div className="info">
-              <div className="label">New Password</div>
-              <input name="new-password" type="password" />
-            </div> 
-          </div> */}
         </form>
       </div>
     );

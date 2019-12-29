@@ -52,19 +52,12 @@ class ProductDetails extends React.Component {
     if (!this.isLogin) {
       window.alert("You need to login");
     } else {
-      const response = await API.POST("/wishlist", { type: "add", id: id });
+      await API.POST(apis.wishlist, { type: "add", id: id });
     }
   }
   getProducts = async () => {
     const id = this.props.match.params.id;
 
-    API.POST("/post_review", {
-      type: "new",
-      id: id,
-      rating: 2,
-      text:
-        "adgag adg aga ga g ag ag a ga g ag  gdad g adg adg da gad ga dg adg adg ad g"
-    });
     const response = await API.GET(apis.productDetails + id);
     if (response.success) {
       this.setState(
@@ -114,7 +107,7 @@ class ProductDetails extends React.Component {
                 </div>
                 <div>
                   <span>
-                    Order in next 5 mins & get a shaker free
+                    Order in next 5 mins & get a shaker free Time Left -{" "}
                     <CountDown secs={300} />
                   </span>
                   <span>Change</span>

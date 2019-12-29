@@ -107,7 +107,10 @@ class Header extends React.Component {
             <div className="header-wrapper">
               <div className="logo">
                 <Link to="/">
-                  <img src="/images/logo.png" alt="Nutrition Systems logo" />
+                  <img
+                    src="/images/logo-nut.png"
+                    alt="Nutrition Systems logo"
+                  />
                 </Link>
               </div>
               <div className="navbar-search">
@@ -129,6 +132,7 @@ class Header extends React.Component {
                   <ul>
                     <li>
                       <img
+                        alt=""
                         className="india-flag"
                         src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRD_yW2Mz5wVuSjE1j4JFJ-6TUc12GkWLLm3_dKoJf6wPbEASq6"
                       />
@@ -142,7 +146,7 @@ class Header extends React.Component {
                         </div>
                         <div>
                           <em className="fa fa-phone" />
-                          1-800-537-9910
+                          +91-9671-331-133
                         </div>
                       </div>
                     </li>

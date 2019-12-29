@@ -54,7 +54,7 @@ export default class Cart extends React.Component {
     if (!this.isLogin) {
       window.alert("You need to login");
     } else {
-      const response = await API.POST("/cart");
+      await API.POST(apis.cart); // response was not coming at the time of development static for now
     }
   }
   render() {

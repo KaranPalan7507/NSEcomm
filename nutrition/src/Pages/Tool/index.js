@@ -2,6 +2,7 @@ import React from "react";
 import "./style.scss";
 import { Doughnut } from "react-chartjs-2";
 import { API } from "../../axios";
+import { apis } from "../../constants";
 import Carousel from "./../../Common/TrendingCarousel";
 const chartdata = {
   labels: ["Fat", "Carbs", "Protein"],
@@ -44,18 +45,11 @@ export default class extends React.Component {
   }
 
   async getResult() {
-    await API.POST("/tooltest ", {
+    await API.POST(apis.tooltest, {
       ...this.props.location.state.data
     });
-    // if (response.success) {
-    //   this.setState({
-    //     data: response.data,
-    //     products: response.data.products,
-    //     exercise: response.data.exercise
-    //   });
-    // }
 
-    const response = await API.POST("/toolpage");
+    const response = await API.POST(apis.toolpage);
     if (response.success) {
       this.setState({
         data: response.data,

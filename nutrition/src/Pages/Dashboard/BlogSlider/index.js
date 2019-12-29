@@ -11,7 +11,7 @@ const settings = {
   dots: true,
   infinite: false,
   speed: 500,
-  slidesToShow: 3,
+  slidesToShow: 4,
   slidesToScroll: 1,
   initialSlide: 0,
   autoplay: false,
@@ -20,7 +20,7 @@ const settings = {
     {
       breakpoint: 1024,
       settings: {
-        slidesToShow: 2,
+        slidesToShow: 3,
         slidesToScroll: 1
       }
     },

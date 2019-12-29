@@ -17,5 +17,10 @@ export const apis = {
   instaPosts: "/insta_posts",
   deals: "/deals",
   blogCategory: "/list",
-  productbanner: "/product/banner"
+  productbanner: "/product/banner",
+  cart: "/cart",
+  header: "/header",
+  testimonial: "/testimonial",
+  tooltest: "/tooltest",
+  toolpage: "/toolpage"
 };
